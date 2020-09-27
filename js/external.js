@@ -74,8 +74,8 @@ alert("Great! You made $" + totalP + " for all of your hard work!")
 
 //Part 3
 var full = prompt("Is the class full? Yes or no?")
-
-while(full !== yes || full !== no || full === null) {
+//CONTINUE WORKING HERE: DOES NOT WORK
+if(full !== "yes" || full !== "no" || full === null) {
     var full = prompt("Is the class full? Yes or no?")
 }
 
@@ -89,5 +89,5 @@ if(full === no && schedule === no) {
     alert("Congratulations, you may enroll in the class!")
 }
 else {
-    alert("Due toi eligibility requirements, you may NOT enroll in the class.")
+    alert("Due to eligibility requirements, you may NOT enroll in the class.")
 }
