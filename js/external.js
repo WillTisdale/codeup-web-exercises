@@ -75,8 +75,8 @@ alert("Great! You made $" + totalP + " for all of your hard work!")
 //Part 3
 var full = prompt("Is the class full? Yes or no?")
 //CONTINUE WORKING HERE: DOES NOT WORK
-if(full !== "yes" || full !== "no" || full === null) {
-    var full = prompt("Is the class full? Yes or no?")
+if(full !== (yes) || full !== (no) || full === null) {
+    var full = confirm("Is the class full? Yes or no?")
 }
 
 var schedule = prompt("Does this class schedule conflict with your current schedule? Yes or no?")
