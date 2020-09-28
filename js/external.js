@@ -2,7 +2,7 @@
 
 console.log("Hello from external Javascript");
 
-alert("Welcome to my Website!")
+/*alert("Welcome to my Website!")
 
 var color = prompt("What is your favorite color?")
 
@@ -73,21 +73,50 @@ var totalP = (Number(google) * priceG) + (Number(amazon) * priceA) + (Number(fac
 alert("Great! You made $" + totalP + " for all of your hard work!")
 
 //Part 3
-var full = prompt("Is the class full? Yes or no?")
-//CONTINUE WORKING HERE: DOES NOT WORK
-if(full !== (yes) || full !== (no) || full === null) {
-    var full = confirm("Is the class full? Yes or no?")
-}
+var full = confirm("Is the class full?")
 
-var schedule = prompt("Does this class schedule conflict with your current schedule? Yes or no?")
+var schedule = confirm("Does the class conflict with your current schedule?")
 
-while(schedule !== yes || schedule !== no || schedule === null) {
-    var schedule = prompt("Does this class schedule conflict with your current schedule? Yes or no?")
-}
-
-if(full === no && schedule === no) {
-    alert("Congratulations, you may enroll in the class!")
+if(full == true || schedule == true) {
+    alert("You may not enroll in the class.")
 }
 else {
-    alert("Due to eligibility requirements, you may NOT enroll in the class.")
+    alert("You may enroll in the class.")
+}*/
+
+//Part 4
+var premium = confirm("Are you a premium member?")
+    if(premium === true) {
+        var expired = confirm("Is your offer expired?");
+        if (expired === false) {
+            alert("Congratulations, your product offer can be applied!");
+        }
+        else {
+            alert("Your product offer has expired and may not be used.");
+        }
+    }
+    if (premium === false) {
+        var two = Number(prompt("How many items will you be purchasing?"));
+            while(isNaN(two) || two === null) {
+                alert("You must respond with a numeric value.")
+                var two = Number(prompt("How many items will you be purchasing?"));
+            }
+            if(two >= 2) {
+                var expired = confirm("Is your offer expired?");
+                if(expired === false) {
+                    alert("Congratulations, your product offer can be applied!");
+                }
+                else {
+                    alert("Your product offer has expired and may not be used.");
+            }
+        }
+            else {
+            alert("You do not qualify for using the product offer.")
+            }
+
 }
+
+
+
+
+
