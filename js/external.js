@@ -2,7 +2,7 @@
 
 console.log("Hello from external Javascript");
 
-/*alert("Welcome to my Website!")
+alert("Welcome to my Website!")
 
 var color = prompt("What is your favorite color?")
 
@@ -82,7 +82,7 @@ if(full == true || schedule == true) {
 }
 else {
     alert("You may enroll in the class.")
-}*/
+}
 
 //Part 4
 var premium = confirm("Are you a premium member?")
@@ -111,7 +111,7 @@ var premium = confirm("Are you a premium member?")
             }
         }
             else {
-            alert("You do not qualify for using the product offer.")
+                alert("You do not qualify for the product offer.")
             }
 
 }
