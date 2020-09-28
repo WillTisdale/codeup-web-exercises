@@ -40,7 +40,7 @@ var days = Number(daysLM) + Number(daysBB) + Number(daysH)
 var price = 3
 var total = days * price
 //Response
-alert("Great! Your entire purchase will be for $" + total + ". Thank you for your purchase!")
+alert("Great! Your entire purchase will be for $" + total.toFixed(2) + ". Thank you for your purchase!")
 
 //Part 2
 //Google
@@ -70,7 +70,7 @@ var priceA = 380
 var priceF = 350
 var totalP = (Number(google) * priceG) + (Number(amazon) * priceA) + (Number(facebook) * priceF)
 //Response
-alert("Great! You made $" + totalP + " for all of your hard work!")
+alert("Great! You made $" + totalP.toFixed(2) + " for all of your hard work!")
 
 //Part 3
 var full = confirm("Is the class full?")
@@ -101,7 +101,7 @@ var premium = confirm("Are you a premium member?")
                 alert("You must respond with a numeric value.")
                 var two = Number(prompt("How many items will you be purchasing?"));
             }
-            if(two >= 2) {
+            if(two > 2) {
                 var expired = confirm("Is your offer expired?");
                 if(expired === false) {
                     alert("Congratulations, your product offer can be applied!");
@@ -113,7 +113,6 @@ var premium = confirm("Are you a premium member?")
             else {
                 alert("You do not qualify for the product offer.")
             }
-
 }
 
 
