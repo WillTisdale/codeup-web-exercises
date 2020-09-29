@@ -327,10 +327,10 @@ console.log("hello from conditionals lec.js!");
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
 
-switch(weather) {
-    case "rainy":
-
-}
+// switch(weather) {
+//     case "rainy":
+//
+// }
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
