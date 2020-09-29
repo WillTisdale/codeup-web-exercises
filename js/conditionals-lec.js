@@ -17,17 +17,59 @@ console.log("hello from conditionals lec.js!");
 
 // ================ IF STATEMENT EXAMPLES ================
 //TODO Together: Show a specific navbar if user is admin
+
+//if(isAdmin){
+    //show an admin navbar
+//}
+
 //TODO Together: Send a 20% off coupon if its users birthday
+
+// if(isBirthday)  {
+//     //send coupon
+// }
+
 //TODO Together: Write an if statement that alerts "It's raining" if isRainy is true
+
+// var isRainy = true;
+//
+// if(isRainy){
+//     alert("it's raining!")
+// }
+
 //TODO Together: Write an if statement that alerts the user whether or not they have enough money to buy a new item. Assume there are no hidden fees or taxes.
 
+var itemCost = 25;
+var currentBalance = 50;
+
+function purchase(x, y){
+    if(x > y){
+        alert("Sorry you do not have enough money");
+    }
+    else{
+        alert("Yay, you can buy this item!")
+    }
+}
 
 
 //TODO: Write an if statement that alerts "Sorry, game over" if numberOfLives is 0
+
+var isZero = 0
+if(isZero <= 0){
+    alert("Sorry, game over")
+}
+
 //TODO: Write an if statement that alerts "It's snowing!" if weather is equal to "snowing"
+
+var weather = "snowing"
+if(weather === "snowing"){
+    alert("It's snowing!")
+}
 //TODO: Write an if statement that alerts true if numberInput is greater than but not equal to 10
 
-
+var numberInput = 11
+if(numberInput > 10){
+    alert("true")
+}
 
 
 //TODO: EXTRA BONUS - Refactor each of the previous statements as functions.
