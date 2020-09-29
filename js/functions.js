@@ -10,7 +10,7 @@
      */
 
     function sayHello(name) {
-        return "Hello " + name;
+        return "Hello, " + name;
     }
 
     /**
@@ -32,7 +32,7 @@
      * console.
      */
 
-    var myName = "Will"
+    var myName = "Will";
 
     console.log(sayHello(myName));
 
@@ -58,8 +58,8 @@
      * number)
      */
 
-    function isTwo(random) {
-        return random === 2;
+    function isTwo(x) {
+        return x === 2;
     }
 
     console.log(isTwo(random));
