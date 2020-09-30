@@ -113,17 +113,17 @@ var totalAmount;
 
 function calculateTotal(luckyNumber, totalAmount){
     if(luckyNumber === 0){
-        return "Your dicounted price is $" + totalAmount
+        return "Your dicounted price is $" + totalAmount.toFixed(2);
     } else if(luckyNumber === 1){
-        return "Your dicounted price is $" + (totalAmount - 0.1 * totalAmount);
+        return "Your dicounted price is $" + (totalAmount - 0.1 * totalAmount).toFixed(2);
     } else if(luckyNumber === 2){
-        return "Your dicounted price is $" + (totalAmount - 0.25 * totalAmount);
+        return "Your dicounted price is $" + (totalAmount - 0.25 * totalAmount).toFixed(2);
     } else if(luckyNumber === 3){
-        return "Your dicounted price is $" + (totalAmount - 0.35 * totalAmount);
+        return "Your dicounted price is $" + (totalAmount - 0.35 * totalAmount).toFixed(2);
     } else if(luckyNumber === 4){
-        return "Your dicounted price is $" + (totalAmount - 0.5 * totalAmount);
+        return "Your dicounted price is $" + (totalAmount - 0.5 * totalAmount).toFixed(2);
     } else if(luckyNumber === 5){
-        return "Your dicounted price is $" + (totalAmount - 1 * totalAmount);
+        return "Your dicounted price is $" + (totalAmount - 1 * totalAmount).toFixed(2);
     }
 }
 
@@ -143,7 +143,12 @@ console.log(calculateTotal(5,100))
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var userTotal = Number(prompt("What was your bill total?"));
+alert("Your lucky number is " + luckyNumber + " and your total bill is $" + userTotal.toFixed(2));
+alert(calculateTotal(luckyNumber, userTotal))
+
 
 /**
  * TODO:
@@ -161,3 +166,33 @@ console.log(calculateTotal(5,100))
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+var userConfirm = confirm("Would you like to enter a number?");
+function userFunction(userConfirm, userNumber) {
+    if (userConfirm) {
+        var userNumber = Number(prompt("Enter a number:"));
+        if (isNaN(userNumber) || userNumber === "" || userNumber === null) {
+            alert("You did not enter a number.");
+        } else {
+            if (userNumber % 2 === 0) {
+                alert("You entered an even number");
+                alert("Your number (" + userNumber + ") plus 100 is " + (userNumber + 100));
+                if (userNumber >= 0) {
+                    alert("Your number is positive");
+                } else {
+                    alert("Your number is negative");
+                }
+            } else if (userNumber % 2 > 0) {
+                alert("You entered an odd number");
+                alert("Your number (" + userNumber + ") plus 100 is " + (userNumber + 100));
+                if (userNumber >= 0) {
+                    alert("Your number is positive");
+                } else {
+                    alert("Your number is negative");
+                }
+            }
+        }
+    } else {
+        alert("OK, maybe next time!")
+    }
+}
