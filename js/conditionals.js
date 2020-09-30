@@ -168,7 +168,7 @@ alert(calculateTotal(luckyNumber, userTotal))
  */
 
 var userConfirm = confirm("Would you like to enter a number?");
-function userFunction(userConfirm, userNumber) {
+(function userFunction(userConfirm, userNumber) {
     if (userConfirm) {
         var userNumber = Number(prompt("Enter a number:"));
         if (isNaN(userNumber) || userNumber === "" || userNumber === null) {
@@ -195,4 +195,4 @@ function userFunction(userConfirm, userNumber) {
     } else {
         alert("OK, maybe next time!")
     }
-}
+})();
