@@ -326,7 +326,7 @@ console.log("hello from conditionals lec.js!");
 
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
-
+var weather;
 switch(weather) {
     case "rainy":
         console.log("It's raining today!");
@@ -335,14 +335,36 @@ switch(weather) {
         console.log("It's sunny outside today!");
         break;
     case "snow":
+        console.log("It's snowing today!");
         break;
     default:
+        console.log("Make the best of the weather today.");
         break;
 }
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
+function trafficLight(lightColor){
+    switch(lightColor){
+        case "red":
+            return "STOP!!!";
+            break;
+        case "yellow":
+            return "Clear the INTERSECTION!";
+            break;
+        case "green":
+            return "Safe to continue but still look both ways";
+            break;
+        default:
+            return lightColor.toUpperCase() + " is not on a traffic light! Do you have a license?!";
+            break;
+    }
+}
 
+console.log(trafficLight("red"));
+console.log(trafficLight("yellow"));
+console.log(trafficLight("green"));
+console.log(trafficLight("blue"));
 
 // ================ REVERSE ENGINEERING =================
 // Visit each of these links, outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
