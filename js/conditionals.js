@@ -20,22 +20,22 @@
  * console.logging the function's return value
  */
 
-// function analyzeColor(colorString){
-//     if(colorString === "blue") {
-//         return "blue is the color of the sky";
-//     } else if(colorString === "red") {
-//         return "Strawberries are red";
-//     } else if(colorString === "cyan") {
-//         return "I don't know anything about cyan";
-//     } else {
-//         return "That color does not have a defined message"
-//     }
-// }
-//
-// console.log(analyzeColor('blue'));
-// console.log(analyzeColor('red'));
-// console.log(analyzeColor('cyan'));
-// console.log(analyzeColor('purple'));
+function analyzeColor(colorString){
+    if(colorString === "blue") {
+        return "blue is the color of the sky";
+    } else if(colorString === "red") {
+        return "Strawberries are red";
+    } else if(colorString === "cyan") {
+        return "I don't know anything about cyan";
+    } else {
+        return "That color does not have a defined message"
+    }
+}
+
+console.log(analyzeColor('blue'));
+console.log(analyzeColor('red'));
+console.log(analyzeColor('cyan'));
+console.log(analyzeColor('purple'));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -50,31 +50,31 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
 
-// function analyzeColor(colorString){
-//     switch(colorString) {
-//         case "blue":
-//             return "blue is the color of the sky";
-//             break;
-//         case "red":
-//             return "Strawberries are red";
-//             break;
-//         case "cyan":
-//             return "I don't know anything about cyan";
-//             break;
-//         default:
-//             return "That color does not have a defined message"
-//             break;
-//     }
-// }
-//
-// console.log(analyzeColor(randomColor));
+function analyzeColor(colorString){
+    switch(colorString) {
+        case "blue":
+            return "blue is the color of the sky";
+            break;
+        case "red":
+            return "Strawberries are red";
+            break;
+        case "cyan":
+            return "I don't know anything about cyan";
+            break;
+        default:
+            return "That color does not have a defined message"
+            break;
+    }
+}
+
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -83,8 +83,8 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * function to show it to the user.
  */
 
-// var userColor = prompt("What is your favorite color?")
-// alert(analyzeColor(userColor));
+var userColor = prompt("What is your favorite color?")
+alert(analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -108,32 +108,32 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-// var luckyNumber;
-// var totalAmount;
-//
-// function calculateTotal(luckyNumber, totalAmount){
-//     if(luckyNumber === 0){
-//         return "Your dicounted price is $" + totalAmount.toFixed(2);
-//     } else if(luckyNumber === 1){
-//         return "Your dicounted price is $" + (totalAmount - 0.1 * totalAmount).toFixed(2);
-//     } else if(luckyNumber === 2){
-//         return "Your dicounted price is $" + (totalAmount - 0.25 * totalAmount).toFixed(2);
-//     } else if(luckyNumber === 3){
-//         return "Your dicounted price is $" + (totalAmount - 0.35 * totalAmount).toFixed(2);
-//     } else if(luckyNumber === 4){
-//         return "Your dicounted price is $" + (totalAmount - 0.5 * totalAmount).toFixed(2);
-//     } else if(luckyNumber === 5){
-//         return "Your dicounted price is $" + (totalAmount - 1 * totalAmount).toFixed(2);
-//     }
-// }
-//
-//
-// console.log(calculateTotal(0,100))
-// console.log(calculateTotal(1,100))
-// console.log(calculateTotal(2,100))
-// console.log(calculateTotal(3,100))
-// console.log(calculateTotal(4,100))
-// console.log(calculateTotal(5,100))
+var luckyNumber;
+var totalAmount;
+
+function calculateTotal(luckyNumber, totalAmount){
+    if(luckyNumber === 0){
+        return "Your dicounted price is $" + totalAmount.toFixed(2);
+    } else if(luckyNumber === 1){
+        return "Your dicounted price is $" + (totalAmount - 0.1 * totalAmount).toFixed(2);
+    } else if(luckyNumber === 2){
+        return "Your dicounted price is $" + (totalAmount - 0.25 * totalAmount).toFixed(2);
+    } else if(luckyNumber === 3){
+        return "Your dicounted price is $" + (totalAmount - 0.35 * totalAmount).toFixed(2);
+    } else if(luckyNumber === 4){
+        return "Your dicounted price is $" + (totalAmount - 0.5 * totalAmount).toFixed(2);
+    } else if(luckyNumber === 5){
+        return "Your dicounted price is $" + (totalAmount - 1 * totalAmount).toFixed(2);
+    }
+}
+
+
+console.log(calculateTotal(0,100))
+console.log(calculateTotal(1,100))
+console.log(calculateTotal(2,100))
+console.log(calculateTotal(3,100))
+console.log(calculateTotal(4,100))
+console.log(calculateTotal(5,100))
 
 /**
  * TODO:
@@ -142,12 +142,12 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
-//
-// var userTotal = Number(prompt("What was your bill total?"));
-// alert("Your lucky number is " + luckyNumber + " and your total bill is $" + userTotal.toFixed(2));
-// alert(calculateTotal(luckyNumber, userTotal))
+//Generate a random number between 0 and 6
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var userTotal = Number(prompt("What was your bill total?"));
+alert("Your lucky number is " + luckyNumber + " and your total bill is $" + userTotal.toFixed(2));
+alert(calculateTotal(luckyNumber, userTotal))
 
 
 /**
