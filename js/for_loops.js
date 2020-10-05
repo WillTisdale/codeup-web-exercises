@@ -13,7 +13,7 @@
 //Exercise 3
 
 // for(var i = 1; i <= 10; i++){
-//     var randomNumber = Math.floor(Math.random() * 200) + 20;
+//     var randomNumber = Math.floor(Math.random() * (200 - 20)) + 20;
 //     if(randomNumber % 2 === 0){
 //         console.log(randomNumber + " is even")
 //     } else {
