@@ -59,3 +59,12 @@
 // }
 //
 // stringReversal()
+
+//Sum Up Those Digits
+
+function sumAllDigits(input){
+    var array = ("" + input).split("");
+    return array[0]
+}
+
+console.log(sumAllDigits(12345));

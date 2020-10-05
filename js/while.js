@@ -11,7 +11,7 @@
 //Do_While Exercise 1
 
 // var allCones = Math.floor(Math.random() * 50) + 50;
-// console.log(allCones);
+// console.log("I have " + allCones + " icecream cones to sell.");
 //
 // var randomNumber = Math.floor(Math.random() * 5) + 1;
 //
