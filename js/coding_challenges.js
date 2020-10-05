@@ -1,6 +1,6 @@
 "use strict";
 
-//Narcissistic Numbers
+//Narcissistic Numbers # 1
 
 // for(var i = 0; i < 10e6; i++){
 //     var iString = i.toString()
@@ -41,6 +41,20 @@
 //     }
 // }
 
+//Narcissistic Numbers #2
+
+// for(var i = 0; i < 10e6; i++){
+//     var iString = i.toString();
+//     var narcNum = 0
+//     var iArray = iString.split("");
+//     iArray.forEach(function(number){
+//         narcNum += number**iString.length
+//     })
+//     if(narcNum === i) {
+//         console.log(i);
+//     }
+// }
+
 //Maximum Subsequence Sum
 // const array = ['-2','-3','4','-1','-2','1','5','-3']
 // function maxSubSum(x){
@@ -62,9 +76,9 @@
 
 //Sum Up Those Digits
 
-function sumAllDigits(input){
-    var array = ("" + input).split("");
-    return array[0]
-}
-
-console.log(sumAllDigits(12345));
+// function sumAllDigits(input){
+//     var array = ("" + input).split("");
+//     return array[0]
+// }
+//
+// console.log(sumAllDigits(12345));
