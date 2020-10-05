@@ -53,9 +53,9 @@
 
 //String Reversal
 
-function stringReversal(input){
-    var length = input.length
-    return input[length]
-}
-
-stringReversal()
+// function stringReversal(input){
+//     var length = input.length
+//     return input[length]
+// }
+//
+// stringReversal()
