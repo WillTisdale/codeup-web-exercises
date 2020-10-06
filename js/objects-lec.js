@@ -10,6 +10,13 @@ console.log("Welcome to Intro to Objects!");
  * key:value pairs
  */
 
+// var rubberDuck = {
+//     color: "yellow",
+//     role: "emotional support",
+//     name: "Cody"
+// };
+//
+// console.log(rubberDuck);
 
 /*********************************************
  *              CREATING NEW OBJECTS
@@ -24,9 +31,51 @@ console.log("Welcome to Intro to Objects!");
  * TODO TOGETHER: Create a new variable (of type Object) and call it 'myPhone'. Use either the constructor or Object literal notation.
  */
 
+// var myPhone = {
+//     color: "black",
+//     model: "iPhone 11",
+//     storage: "16GB",
+//     ring: function(){
+//         console.log("Ring Ring Ring!!!")
+//     },
+//     picture: function(){
+//         console.log("Take a picture!");
+//     }
+// };
+//
+// myPhone.ring();
+// myPhone.picture();
+
+var myPhone = new Object();
+myPhone.color = "black";
+myPhone.model = "iPhone 11";
+myPhone.storage = "16GB";
+myPhone.ring = function(){
+    console.log("Ring Ring Ring!!!")
+}
+myPhone.picture = function(){
+    console.log("Take a picture!");
+}
+myPhone.ring();
+myPhone.picture();
 /**
  * TODO: Create a new Object and call it 'myMac'. use either the constructor or Object literal notation.
  */
+
+var myMac = {
+    color: "Space Grey",
+    model: "MacBook Air",
+    storage: "251GB",
+    camera: function(){
+        console.log("Displays my image for Zoom");
+    },
+    microphone: function(){
+        console.log("Records my voice");
+    }
+}
+myMac.camera();
+
+
 
 /*********************************************
  *              PROPERTIES
@@ -43,22 +92,51 @@ console.log("Welcome to Intro to Objects!");
  * Object: 'model', 'size', 'year', Console log the Object to check if the
  * information was stored properly
  */
+myMac.size = "13 inch";
+myMac.year = "2020";
 
+console.log(myMac)
 /**
  * TO DO TOGETHER: Assign a 'name' property to your phone. This should be of
  * type Object and store properties for the user's 'firstName' and
  * 'lastName'. Use console log to access the user's 'lastName'
  */
 
+myPhone.name = {
+    firstName: "Will",
+    lastName: "Tisdale"
+}
+
+console.log(myPhone);
+
+console.log(myPhone.name.firstName);
+
 /**
  * TO DO: Using dot notation, assign a property called 'folders' that stores
  * an Array representing different folders in your system.
  */
 
+myMac.folders = ["Desktop", "Pictures", "Downloads"]
+
+console.log(myMac.folders[0]);
+
+myMac.folders.forEach(function(folder){
+    console.log(folder)
+    })
+
 /**
  * TO DO: Assign a 'login' property. This should be an object that stores
  * 'username','fakePassword' and 'email'
  */
+
+myMac.login = {
+    username: "Will Tisdale",
+    fakepassword: "MyPassword",
+    email: "will.tisdale.31@gmail.com"
+}
+
+console.log(myMac.login);
+
 
 /*********************************************
  *                  METHODS
