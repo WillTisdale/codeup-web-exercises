@@ -25,11 +25,11 @@
      * string, and <li> tags around each planet.
      */
 
-    planetsString = planetsArray.join("<br>")
-    console.log(planetsString);
-
-    planetsArray = planetsString.split("<br>")
-    console.log(planetsArray);
+    // planetsString = planetsArray.join("<br>")
+    // console.log(planetsString);
+    //
+    // planetsArray = planetsString.split("<br>")
+    // console.log(planetsArray);
 
 
     console.log(planetsArray);
