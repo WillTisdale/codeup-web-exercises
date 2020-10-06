@@ -1,6 +1,6 @@
 "use strict";
 
-//Narcissistic Numbers # 1
+//Narcissistic Numbers # 1 COMPLETE
 
 // for(var i = 0; i < 10e6; i++){
 //     var iString = i.toString()
@@ -41,7 +41,7 @@
 //     }
 // }
 
-//Narcissistic Numbers #2
+//Narcissistic Numbers #2 COMPLETE
 
 // for(var i = 0; i < 10e6; i++){
 //     var iString = i.toString();
@@ -56,16 +56,15 @@
 // }
 
 //Maximum Subsequence Sum
-var array = ['-2','-3','4','-1','-2','1','5','-3']
-function maxSubSum(arr){
-    var sum = 0;
-    arr.forEach(function(element){
-        sum += Number(element);
-    })
-    return sum;
-}
-
-console.log(maxSubSum(array));
+// var array = ['-2','-3','4','-1','-2','1','5','-3']
+// function maxSubSum(arr) {
+//     var sumOne = 0;
+//     var sumTwo = 0;
+//     for (var i = 0; i < arr.length; i++) {
+//         sumOne += Number(arr[i])
+//
+// }
+// console.log(maxSubSum(array));
 
 //Password Generator
 
@@ -78,11 +77,17 @@ console.log(maxSubSum(array));
 //
 // stringReversal()
 
-//Sum Up Those Digits
+//Sum Up Those Digits COMPLETE
 
-// function sumAllDigits(input){
-//     var array = ("" + input).split("");
-//     return array[0]
-// }
-//
-// console.log(sumAllDigits(12345));
+function sumAllDigits(input){
+    var number = parseInt(input);
+    var string = number.toString();
+    var array = string.split("");
+    var sum = 0;
+    array.forEach(function(element){
+        sum += Number(element);
+    })
+    return sum;
+}
+
+console.log(sumAllDigits(12345));
