@@ -46,34 +46,34 @@ console.log("Welcome to Intro to Objects!");
 // myPhone.ring();
 // myPhone.picture();
 
-var myPhone = new Object();
-myPhone.color = "black";
-myPhone.model = "iPhone 11";
-myPhone.storage = "16GB";
-myPhone.ring = function(){
-    console.log("Ring Ring Ring!!!")
-}
-myPhone.picture = function(){
-    console.log("Take a picture!");
-}
-myPhone.ring();
-myPhone.picture();
+// var myPhone = new Object();
+// myPhone.color = "black";
+// myPhone.model = "iPhone 11";
+// myPhone.storage = "16GB";
+// myPhone.ring = function(){
+//     console.log("Ring Ring Ring!!!")
+// }
+// myPhone.picture = function(){
+//     console.log("Take a picture!");
+// }
+// myPhone.ring();
+// myPhone.picture();
 /**
  * TODO: Create a new Object and call it 'myMac'. use either the constructor or Object literal notation.
  */
 
-var myMac = {
-    color: "Space Grey",
-    model: "MacBook Air",
-    storage: "251GB",
-    camera: function(){
-        console.log("Displays my image for Zoom");
-    },
-    microphone: function(){
-        console.log("Records my voice");
-    }
-}
-myMac.camera();
+// var myMac = {
+//     color: "Space Grey",
+//     model: "MacBook Air",
+//     storage: "251GB",
+//     camera: function(){
+//         console.log("Displays my image for Zoom");
+//     },
+//     microphone: function(){
+//         console.log("Records my voice");
+//     }
+// }
+// myMac.camera();
 
 
 
@@ -92,50 +92,50 @@ myMac.camera();
  * Object: 'model', 'size', 'year', Console log the Object to check if the
  * information was stored properly
  */
-myMac.size = "13 inch";
-myMac.year = "2020";
-
-console.log(myMac)
+// myMac.size = "13 inch";
+// myMac.year = "2020";
+//
+// console.log(myMac)
 /**
  * TO DO TOGETHER: Assign a 'name' property to your phone. This should be of
  * type Object and store properties for the user's 'firstName' and
  * 'lastName'. Use console log to access the user's 'lastName'
  */
 
-myPhone.name = {
-    firstName: "Will",
-    lastName: "Tisdale"
-}
-
-console.log(myPhone);
-
-console.log(myPhone.name.firstName);
+// myPhone.name = {
+//     firstName: "Will",
+//     lastName: "Tisdale"
+// }
+//
+// console.log(myPhone);
+//
+// console.log(myPhone.name.firstName);
 
 /**
  * TO DO: Using dot notation, assign a property called 'folders' that stores
  * an Array representing different folders in your system.
  */
 
-myMac.folders = ["Desktop", "Pictures", "Downloads"]
-
-console.log(myMac.folders[0]);
-
-myMac.folders.forEach(function(folder){
-    console.log(folder)
-    })
+// myMac.folders = ["Desktop", "Pictures", "Downloads"]
+//
+// console.log(myMac.folders[0]);
+//
+// myMac.folders.forEach(function(folder){
+//     console.log(folder)
+//     })
 
 /**
  * TO DO: Assign a 'login' property. This should be an object that stores
  * 'username','fakePassword' and 'email'
  */
 
-myMac.login = {
-    username: "Will Tisdale",
-    fakepassword: "MyPassword",
-    email: "will.tisdale.31@gmail.com"
-}
-
-console.log(myMac.login);
+// myMac.login = {
+//     username: "MyName",
+//     fakepassword: "MyPassword",
+//     email: "gmail"
+// }
+//
+// console.log(myMac.login);
 
 
 /*********************************************
@@ -147,18 +147,24 @@ console.log(myMac.login);
  * Using the dot notation, add a method named 'call' that console logs the
  * message: "Dialing..."
  */
-
+// myPhone.call = function(){
+//     console.log("Dialing...");
+// }
 /**
  * TO DO: Let's add functionality to our Mac Object. Create a method named
  * 'powerOn'. When called, this should display a console message that says
  * "Powering on..."
  */
 
+// myPhone.powerOn = function(){
+//     console.log("Powering on...");
+// }
 /**
  * TO DO TOGETHER: Let's add one more piece of functionality. Create a
  * method on the phone object that returns a message displaying the user's
  * firstName and lastName. Hint: use the 'this' keyword.
  */
+
 
 /**
  * TO DO: One last thing. Let's add a 'currentUser' method that displays the
@@ -166,7 +172,16 @@ console.log(myMac.login);
  * the properties we created earlier.
  */
 
-
+// myPhone.currentUser = function(){
+//     console.log("Current user: " + this.name.firstName + " " + this.name.lastName)
+// };
+//
+// myPhone.currentUser();
+// myMac.currentUser = function(){
+//     console.log("Current user: " + this.login.username);
+//     console.log("Email: " + this.login.email);
+// };
+// myMac.currentUser();
 /*********************************************
  *                  NESTED VALUES
  ******************************************** */
@@ -189,3 +204,59 @@ console.log(myMac.login);
  * If we have an Array of Objects, we can iterate through it to access each
  * Object element and pull the properties and methods that we need.
  */
+
+var chooseYourFighter = [
+    {
+        name: {
+            firstName: "SpongeBob",
+            lastName: "Squarepants"
+        },
+        catchphrase: function(){
+            return "I'm Ready!"
+        },
+        abilities: ["Karate", "Bubble Blowing", "Jelly Fishing"]
+        },
+    {
+        name: {
+            firstName: "Patrick",
+            lastName: "Star"
+        },
+        catchphrase: function(){
+            return "No, this is Patrick"
+        },
+        abilities: ["Rock Hiding", "Secret Photo", "Wumbo"]
+    },
+    {
+        name: {
+            firstName: "Eugene",
+            lastName: "Krabs"
+        },
+        catchphrase: function() {
+            return "MONEY!!!"
+        },
+        abilities: ["Take Money", "Hide Money", "Tiny Violin"]
+    },
+    {
+        name: {
+            firstName: "Squidward",
+            lastName: "Tentacles"
+        },
+        catchphrase: function() {
+            return "nasal noise"
+        },
+        abilities: ["Bad music", "Nag", "SQUILLIAM"]
+
+    }
+    ];
+console.log("-------------")
+chooseYourFighter.forEach(function(fighter){
+    console.log("-------------")
+    console.log(fighter.name.firstName + ": " + fighter.catchphrase());
+    console.log("Their abilities: ");
+
+    fighter.abilities.forEach(function(ability){
+        console.log(ability);
+    })
+    console.log("-------------")
+})
+console.log("-------------")
