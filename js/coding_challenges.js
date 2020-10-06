@@ -56,12 +56,16 @@
 // }
 
 //Maximum Subsequence Sum
-// const array = ['-2','-3','4','-1','-2','1','5','-3']
-// function maxSubSum(x){
-//     for(var i = 0; i < x.length; i++){
-//
-//     }
-// }
+var array = ['-2','-3','4','-1','-2','1','5','-3']
+function maxSubSum(arr){
+    var sum = 0;
+    arr.forEach(function(element){
+        sum += Number(element);
+    })
+    return sum;
+}
+
+console.log(maxSubSum(array));
 
 //Password Generator
 
