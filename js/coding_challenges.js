@@ -68,26 +68,30 @@
 
 //Password Generator
 
-//String Reversal
-
+//String Reversal COMPLETE
+//
 // function stringReversal(input){
-//     var length = input.length
-//     return input[length]
+//     var array = input.split("");
+//     var newArray = [];
+//     array.forEach(function (element){
+//         newArray.unshift(element);
+//     })
+//     return newArray.join("")
 // }
 //
-// stringReversal()
+// console.log(stringReversal("12345"));
 
 //Sum Up Those Digits COMPLETE
 
-function sumAllDigits(input){
-    var number = parseInt(input);
-    var string = number.toString();
-    var array = string.split("");
-    var sum = 0;
-    array.forEach(function(element){
-        sum += Number(element);
-    })
-    return sum;
-}
-
-console.log(sumAllDigits(12345));
+// function sumAllDigits(input){
+//     var number = parseInt(input);
+//     var string = number.toString();
+//     var array = string.split("");
+//     var sum = 0;
+//     array.forEach(function(element){
+//         sum += Number(element);
+//     })
+//     return sum;
+// }
+//
+// console.log(sumAllDigits(12345));
