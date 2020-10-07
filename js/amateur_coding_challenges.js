@@ -2,8 +2,17 @@
 
 //4
 // function replaceLettersWithNumbers(input, character){
-//     var newArray = input.split("");
-//     newArray.forEach(function(element){
-//         if(element === )
-//     })
+//     var newArray = [];
+//     var count = {};
+//     var ch, index, len, count;
+//     for(var i = 0; i < input.length; i++){
+//         ch = input.charAt(i);
+//         count[ch] = count ? count + 1 : 1;
+//     }
+//     for (ch in count){
+//         newArray.push(count[ch]);
+//     }
+//     return newArray
 // }
+//
+// console.log(replaceLettersWithNumbers('hello world'));
