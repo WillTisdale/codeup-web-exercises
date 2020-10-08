@@ -334,17 +334,17 @@ var aphorisms = [
 
 //TODO: Write a function named 'everyOddQuote', that accepts the aphorisms array and returns an array of objects of every odd indexed quote. Each object should contain the following properties: { id: <INDEX_HERE>, quote: <QUOTE_HERE>, author: <AUTHOR_HERE>, rating: <RANDOM_RATING_HERE>}. The random rating should be a number between 1 and 5.
 
-function everyOddQuote(array){
-	var newArr = [];
-	array.forEach(function(object){
-		var randomNumber = Math.floor(Math.random() * 5) + 1;
-		if(array.indexOf(object) % 2 !== 0){
-			object.id = array.indexOf(object)
-			object.rating = randomNumber
-			newArr.push(object)
-		}
-	})
-	return newArr
-}
-
-console.log(everyOddQuote(aphorisms));
+// function everyOddQuote(array){
+// 	var newArr = [];
+// 	array.forEach(function(object){
+// 		var randomNumber = Math.floor(Math.random() * 5) + 1;
+// 		if(array.indexOf(object) % 2 !== 0){
+// 			object.id = array.indexOf(object)
+// 			object.rating = randomNumber
+// 			newArr.push(object)
+// 		}
+// 	})
+// 	return newArr
+// }
+//
+// console.log(everyOddQuote(aphorisms));
