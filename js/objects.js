@@ -119,8 +119,7 @@
         //         lastName: "Morrison"
         //     },
         //     title: "Beloved"
-        // }
-        // ];
+        // }];
 
     // books.forEach(function(book){
     //     console.log("----------------")
@@ -155,9 +154,9 @@
      *      ...
      */
 
-    // books.forEach(function(book){
+    // books.forEach(function(book, i){
     //     console.log("----------")
-    //     console.log("Book # " + (Number(books.indexOf(book)) + 1));
+    //     console.log("Book # " + (i + 1));
     //     console.log("Title: " + book.title);
     //     console.log("Author: " + book.author.firstName + " " + book.author.lastName);
     // })
