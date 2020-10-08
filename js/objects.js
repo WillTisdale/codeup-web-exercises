@@ -50,26 +50,26 @@
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ];
-
-    function howMuchToSpend(name, amount){
-        var discountPercent = 0.12;
-        var discountAmount = amount * discountPercent;
-        var finalAmount = amount - discountAmount;
-        if(amount < 200){
-            return name + ", you do not get a discount. Your amount is: $" + amount
-        } else {
-            return name + ", before discount price is: $" + amount + ". Your discount is: $" + discountAmount + ". After discount price is: $" + finalAmount
-        }
-    }
-
-    shoppers.forEach(function(shopper){
-        console.log(howMuchToSpend(shopper.name, shopper.amount));
-    })
+    // var shoppers = [
+    //     {name: 'Cameron', amount: 180},
+    //     {name: 'Ryan', amount: 250},
+    //     {name: 'George', amount: 320}
+    // ];
+    //
+    // function howMuchToSpend(name, amount){
+    //     var discountPercent = 0.12;
+    //     var discountAmount = amount * discountPercent;
+    //     var finalAmount = amount - discountAmount;
+    //     if(amount < 200){
+    //         return name + ", you do not get a discount. Your amount is: $" + amount
+    //     } else {
+    //         return name + ", before discount price is: $" + amount + ". Your discount is: $" + discountAmount + ". After discount price is: $" + finalAmount
+    //     }
+    // }
+    //
+    // shoppers.forEach(function(shopper){
+    //     console.log(howMuchToSpend(shopper.name, shopper.amount));
+    // })
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -84,48 +84,50 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-    var books = [
-        {
-           author: {
-               firstName: "John",
-               lastName: "Steinbeck"
-           },
-           title: "The Grapes of Wrath"
-        },
-        {
-            author: {
-                firstName: "George",
-                lastName: "Orwell"
-            },
-            title: "Nineteen Eighty-Four"
-        },
-        {
-            author: {
-                firstName: "James",
-                lastName: "Joyce"
-            },
-            title: "Ulysses"
-        },
-        {
-            author: {
-                firstName: "Joseph",
-                lastName: "Heller"
-            },
-            title: "Catch-22"
-        },
-        {
-            author: {
-                firstName: "Toni",
-                lastName: "Morrison"
-            },
-            title: "Beloved"
-        }
-        ];
+     var books = [];
+        // {
+        //    author: {
+        //        firstName: "John",
+        //        lastName: "Steinbeck"
+        //    },
+        //    title: "The Grapes of Wrath"
+        // },
+        // {
+        //     author: {
+        //         firstName: "George",
+        //         lastName: "Orwell"
+        //     },
+        //     title: "Nineteen Eighty-Four"
+        // },
+        // {
+        //     author: {
+        //         firstName: "James",
+        //         lastName: "Joyce"
+        //     },
+        //     title: "Ulysses"
+        // },
+        // {
+        //     author: {
+        //         firstName: "Joseph",
+        //         lastName: "Heller"
+        //     },
+        //     title: "Catch-22"
+        // },
+        // {
+        //     author: {
+        //         firstName: "Toni",
+        //         lastName: "Morrison"
+        //     },
+        //     title: "Beloved"
+        // }
+        // ];
 
-    books.forEach(function(book){
-        console.log(books.title);
-        console.log(books.firstName + " " + books.lastName);
-    })
+    // books.forEach(function(book){
+    //     console.log("----------------")
+    //     console.log(book.title);
+    //     console.log(book.author.firstName);
+    //     console.log(book.author.lastName);
+    // })
 
 
     /**
@@ -153,6 +155,14 @@
      *      ...
      */
 
+    // books.forEach(function(book){
+    //     console.log("----------")
+    //     console.log("Book # " + (Number(books.indexOf(book)) + 1));
+    //     console.log("Title: " + book.title);
+    //     console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    // })
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -164,4 +174,27 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(objtitle, objauthor){
+        var authorArr = objauthor.split(" ");
+        books.push({author: {firstName: authorArr[0], lastName: authorArr[1]}, title: objtitle})
+        return books
+    }
+
+    function showBookInfo(array){
+        books.forEach(function(book){
+            console.log("----------")
+            console.log("Book # " + (Number(books.indexOf(book)) + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        })
+    }
+
+    createBook("The Sound and the Fury", "William Faulkner");
+    createBook("The Grapes of Wrath", "John Steinbeck");
+    createBook("Nineteen Eighty-Four", "George Orwell");
+    createBook("Ulysses", "James Joyce");
+    createBook("Catch-22", "Joseph Heller");
+    createBook("Beloved", "Toni Morrison");
+
+    showBookInfo(books);
 })();
