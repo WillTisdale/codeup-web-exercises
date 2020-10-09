@@ -55,16 +55,21 @@
 //     }
 // }
 
-//Maximum Subsequence Sum
-// var array = ['-2','-3','4','-1','-2','1','5','-3']
+//Maximum Subsequence Sum COMPLETE
+
 // function maxSubSum(arr) {
-//     var sumOne = 0;
-//     var sumTwo = 0;
-//     for (var i = 0; i < arr.length; i++) {
-//         sumOne += Number(arr[i])
-//
+//     var newArray = [];
+//    for(var i = 0; i < arr.length; i++){
+//        var charAt = Number(arr[i])
+//        for(var j = i + 1; j < arr.length; j++){
+//            charAt += Number(arr[j])
+//            newArray.push(charAt)
+//        }
+//    }
+//    return Math.max(...newArray)
 // }
-// console.log(maxSubSum(array));
+// console.log(maxSubSum(['-2','-3','4','-1','-2','1','5','-3'])); //expects 7
+// console.log(maxSubSum(['-7','1','-3','4','-1','2','1','-5','4'])); //expects 6
 
 //Password Generator
 

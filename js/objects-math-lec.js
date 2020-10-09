@@ -66,3 +66,4 @@ console.log("The square root of " + base + " = " + result);
 
 //Math.PI = pi and can be used for circumference and area of circles
 //Math.E is approximately equal to 2.718
+
