@@ -207,3 +207,35 @@
 // console.log(multiply(5, 6));
 // console.log(multiply(-1, 15));
 // console.log(multiply(-2, -7));
+
+//11 COMPLETE
+
+// function sameCase(input){
+//     if(input.toLowerCase() === input || input.toUpperCase() === input){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+//
+// console.log(sameCase("hello world"));
+// console.log(sameCase("HELLO WORLD"));
+// console.log(sameCase("HeLLo wORld"));
+
+12//
+
+function sumArray(array){
+    var arr = [array[0]];
+    for(var i = 1; i <= array.length; i++){
+        var charAt = Number(array[i]);
+        for(var j = 0; j < array.length; j++){
+            if(typeof array[j])
+            var charOth = charAt + Number(array[j])
+            arr.push(charOth)
+        }
+    }
+    return arr
+}
+
+console.log(sumArray([1, 1, 1]));//[1, 2, 3]
+console.log(sumArray([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
