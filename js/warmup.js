@@ -37,17 +37,17 @@ console.log("Hello, Daniel!");*/
  * Example Input: ['a', 3, '3', 3, null]
  * Example Output: 6
  */
-function sum3s(numbers) {
-    var output = 0;
-    numbers.forEach(function(number) {
-        if (number === 3) {
-            output += 3;
-        }
-    });
-    return output;
-}
-
-console.log(sum3s(['a', 3, '3', 3, null])); // should see 6 in the console when written correctly
+// function sum3s(numbers) {
+//     var output = 0;
+//     numbers.forEach(function(number) {
+//         if (number === 3) {
+//             output += 3;
+//         }
+//     });
+//     return output;
+// }
+//
+// console.log(sum3s(['a', 3, '3', 3, null])); // should see 6 in the console when written correctly
 
 /**
  * OPTIONAL EXTRA CHALLENGE!!
@@ -56,12 +56,18 @@ console.log(sum3s(['a', 3, '3', 3, null])); // should see 6 in the console when 
  * Example Input: ['a', 'cat', 'BOb'];
  * Example Output: ['A', 'CAT', 'BOB'];
  */
-function upCaseArr(arr) {
-    var newArray = [];
-    arr.forEach(function(element) {
-        newArray.push(element.toUpperCase());
-    });
-    return newArray;
+// function upCaseArr(arr) {
+//     var newArray = [];
+//     arr.forEach(function(element) {
+//         newArray.push(element.toUpperCase());
+//     });
+//     return newArray;
+// }
+//
+// console.log(upCaseArr(['a', 'cat', 'BOb'])); // should see ['A', 'CAT', 'BOB'] in the console when written correctly
+
+function stringToArray(string){
+    return string.split(" ")
 }
 
-console.log(upCaseArr(['a', 'cat', 'BOb'])); // should see ['A', 'CAT', 'BOB'] in the console when written correctly
+console.log(stringToArray("Trick or Treat"));

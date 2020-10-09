@@ -69,31 +69,64 @@
 // console.log(replaceLettersWithNumbers("challenge", "/"));//expects "1/1/1/2/2/2/1/1/2"
 
 //5 COMPLETE
-function sortNames(string){
-    var arr = string.split(";")
-    var newArray = [];
-    var finalArray = [];
-    for(var i =0; i < arr.length; i++){
-        var charAt = arr[i].toUpperCase();
-        newArray.push(charAt.split(":"))
+// function sortNames(string){
+//     var arr = string.split(";")
+//     var newArray = [];
+//     var finalArray = [];
+//     for(var i =0; i < arr.length; i++){
+//         var charAt = arr[i].toUpperCase();
+//         newArray.push(charAt.split(":"))
+//     }
+//     var lastArray = []
+//     for(var j = 0; j < newArray.length; j++){
+//         lastArray.push(newArray[j].pop())
+//         lastArray.push(newArray[j].shift())
+//     }
+//     for(var k = 0; k < lastArray.length + 2; k++){
+//         var charAt = lastArray.splice(0,2)
+//         charAt.join(', ')
+//         finalArray.push(charAt)
+//     }
+//     finalArray.sort();
+//     var finalStr = finalArray.join(") (")
+//     var omgArray = finalStr.split(" ")
+//     omgArray.unshift('(')
+//     omgArray.push(")")
+//     var omgStr = omgArray.join("")
+//     return omgStr
+// }
+
+// console.log(sortNames("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
+
+//6
+
+function age(birthdate){
+    let currentDate = ["08","07","2020"];
+    let arr = birthdate.split("/");
+    let numberCurrent = [Number(currentDate[0]), Number(currentDate[1]), Number(currentDate[2]),];
+    let numberArr = [Number(arr[0]), Number(arr[1]), Number(arr[2]),]
+    let monthDifference = numberCurrent[0] - numberArr[0];
+    let dayDifference = numberCurrent[1] - numberArr[1];
+    let yearDifference = numberCurrent[2] - numberArr[2];
+    let ageArr = [];
+    let newYear = 0;
+    if(dayDifference > 0){
+        ageArr.push(" and " + dayDifference + " days old!")
+    } else {
+        monthDifference -= 1;
+        ageArr.push("and " + (30 + Number(dayDifference)) + " days old!")
     }
-    var lastArray = []
-    for(var j = 0; j < newArray.length; j++){
-        lastArray.push(newArray[j].pop())
-        lastArray.push(newArray[j].shift())
+    if(monthDifference >= 0){
+        ageArr.unshift(monthDifference + " month(s),");
+    } else {
+        yearDifference -= 1;
+        ageArr.unshift(12 + monthDifference + " month(s),")
     }
-    for(var k = 0; k < lastArray.length + 2; k++){
-        var charAt = lastArray.splice(0,2)
-        charAt.join(', ')
-        finalArray.push(charAt)
+    if(yearDifference > 0){
+        ageArr.unshift("Anyone born on " + birthdate + " is " + yearDifference + " years,")
     }
-    finalArray.sort();
-    var finalStr = finalArray.join(") (")
-    var omgArray = finalStr.split(" ")
-    omgArray.unshift('(')
-    omgArray.push(")")
-    var omgStr = omgArray.join("")
-    return omgStr
+    var agePhrase = ageArr.join(" ")
+    return agePhrase;
 }
 
-console.log(sortNames("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
+console.log(age("08 / 07 / 1989"));
