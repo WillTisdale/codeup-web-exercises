@@ -167,23 +167,24 @@
 //Input: "The pumpkin rolled down the hill and under someone’s car.", "the"
 //Output: 2
 
-//9
+//9 COMPLETE
 
 // function removeCharacters(string){
-//     var arr = string.split("");
-//     var charArr = ['~','!','$','&','%',' ','#','@','-','_','^','?',"'"];
-//     var newArr = [];
-//     for(var i = 0; i < arr.length; i++){
-//         for(var j = 0; j < charArr.length; j++)
-//        if(!(charArr.includes(arr[i]))){
-//            newArr.push(arr[i])
-//        }
+//     var newArr = string.split("");
+//     var charArr = ['~','!','$','&','%',' ','#','@','-','_','^','?','\''];
+//     for(var i = 0; i < newArr.length; i++){
+//         for(var j = 0; j < charArr.length; j++){
+//             if(newArr.includes(charArr[i])){
+//                 newArr.splice(newArr.indexOf(charArr[i]), 1)
+//             }
+//         }
 //     }
-//     return newArr
+//     var newStr = newArr.join("")
+//     return newStr
 // }
 //
 // console.log(removeCharacters("Happy ~!&$%#@- Halloween"))
-// console.log(removeCharacters("I’ll bet living in a nudist-colony takes all the fun out of Halloween!!"))
+// console.log(removeCharacters("I'll bet living in a nudist-colony takes all the fun out of Halloween!!"))
 
 // Input: "Happy ~!&$%#@- Halloween" | Output: "HappyHalloween"
 // Input: "I’ll bet living in a nudist-colony takes all the fun out of Halloween!!" | Output: "IllbetlivinginanudistcolonytakesallthefunoutofHalloween"
@@ -222,20 +223,119 @@
 // console.log(sameCase("HELLO WORLD"));
 // console.log(sameCase("HeLLo wORld"));
 
-12//
+//12 COMPLETE
 
-function sumArray(array){
-    var arr = [array[0]];
-    for(var i = 1; i <= array.length; i++){
-        var charAt = Number(array[i]);
-        for(var j = 0; j < array.length; j++){
-            if(typeof array[j])
-            var charOth = charAt + Number(array[j])
-            arr.push(charOth)
-        }
-    }
-    return arr
-}
+// function sumArray(array){
+//   var newArr = [array[0]]
+//   for(var i = 1; i < array.length; i++){
+//       var previous =  newArr[i - 1];
+//       newArr.push(array[i] + previous)
+//   }
+//   return newArr
+// }
+//
+// console.log(sumArray([1, 1, 1]));//[1, 2, 3]
+// console.log(sumArray([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
 
-console.log(sumArray([1, 1, 1]));//[1, 2, 3]
-console.log(sumArray([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
+//13 COMPLETE
+
+// function isogram(string){
+//     var newArr = [];
+//     var tOrF = true;
+//     var strArr = string.split("");
+//     for(var i = 0; i < strArr.length; i++){
+//         if(newArr.includes(strArr[i])){
+//             tOrF = false
+//         } else {
+//             newArr.push(strArr[i])
+//         }
+//     }
+//     return tOrF;
+// }
+//
+// console.log(isogram("fish"));//true
+// console.log(isogram("food"));//false
+// console.log(isogram("color"));//false
+
+//14 COMPLETE
+
+// function phoneNumber(string) {
+//     var strArr = (string.toUpperCase()).split("");
+//     var twoArr = ["A", "B", "C"];
+//     for(var j = 0; j < strArr.length; j++) {
+//         for (var i = 0; i < twoArr.length; i++) {
+//             if (strArr.includes(twoArr[i])) {
+//                 strArr.splice(strArr.indexOf(twoArr[i]), 1, "2")
+//             }
+//         }
+//         var threeArr = ["D", "E", "F"];
+//         for (var i = 0; i < threeArr.length; i++) {
+//             if (strArr.includes(threeArr[i])) {
+//                 strArr.splice(strArr.indexOf(threeArr[i]), 1, "3")
+//             }
+//         }
+//         var fourArr = ["G", "H", "I"];
+//         for (var i = 0; i < fourArr.length; i++) {
+//             if (strArr.includes(fourArr[i])) {
+//                 strArr.splice(strArr.indexOf(fourArr[i]), 1, "4")
+//             }
+//         }
+//         var fiveArr = ["J", "K", "L"];
+//         for (var i = 0; i < fiveArr.length; i++) {
+//             if (strArr.includes(fiveArr[i])) {
+//                 strArr.splice(strArr.indexOf(fiveArr[i]), 1, "5")
+//             }
+//         }
+//         var sixArr = ["M", "N", "O"];
+//         for (var i = 0; i < sixArr.length; i++) {
+//             if (strArr.includes(sixArr[i])) {
+//                 strArr.splice(strArr.indexOf(sixArr[i]), 1, "6")
+//             }
+//         }
+//         var sevenArr = ["P", "Q", "R", "S"];
+//         for (var i = 0; i < sevenArr.length; i++) {
+//             if (strArr.includes(sevenArr[i])) {
+//                 strArr.splice(strArr.indexOf(sevenArr[i]), 1, "7")
+//             }
+//         }
+//         var eightArr = ["T", "U", "V"];
+//         for (var i = 0; i < eightArr.length; i++) {
+//             if (strArr.includes(eightArr[i])) {
+//                 strArr.splice(strArr.indexOf(eightArr[i]), 1, "8")
+//             }
+//         }
+//         var nineArr = ["W", "X", "Y", "Z"];
+//         for (var i = 0; i < nineArr.length; i++) {
+//             if (strArr.includes(nineArr[i])) {
+//                 strArr.splice(strArr.indexOf(nineArr[i]), 1, "9")
+//             }
+//         }
+//     }
+//     var newStr = strArr.join("");
+//     return newStr
+// }
+//
+// console.log(phoneNumber("210-367-CODE"));//210-367-2633
+// console.log(phoneNumber("TRY-THE-FOOD"));//879-843-3663
+
+//PRIME NUMBERS TO number(1000)
+
+// function primeNumbers(number){
+//     for(var i = 2; i < number; i++){
+//         var newArr = [];
+//         for(var j = 1; j < i; j++)
+//             if(i % j === 0){
+//                 newArr.push(j)
+//                 if(newArr.lenth > 2) {
+//                     continue
+//                 }
+//             }
+//     }
+//     return newArr
+//
+// }
+//
+// console.log(primeNumbers(100));
+
+//15
+
