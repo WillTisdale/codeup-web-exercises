@@ -320,19 +320,22 @@
 
 //PRIME NUMBERS TO number(1000)
 
-// function primeNumbers(number){
-//     for(var i = 2; i < number; i++){
+// function primeNumbers(number) {
+//     var primeArr = [];
+//     for (var i = 2; i < number; i++) {
 //         var newArr = [];
-//         for(var j = 1; j < i; j++)
-//             if(i % j === 0){
+//         for (var j = 1; j <= i; j++) {
+//             if (i % j === 0) {
 //                 newArr.push(j)
-//                 if(newArr.lenth > 2) {
-//                     continue
-//                 }
 //             }
+//         }
+//         if (newArr.length < 3) {
+//             primeArr.push(i);
+//         }
 //     }
-//     return newArr
-//
+//     console.log("Prime numbers up to " + number + ": " + primeArr.length);
+//     var primeStr = primeArr.join(",")
+//     return primeStr
 // }
 //
 // console.log(primeNumbers(100));
