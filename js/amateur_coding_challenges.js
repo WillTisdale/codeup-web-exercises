@@ -381,36 +381,41 @@
 
 //2
 
-// function sortString(input){
+// function sortString(input) {
 //     var arr = input.split("");
 //     var newArr = [];
 //     var arrTwo = [];
-//             for (var i = 0; i < arr.length; i++) {
-//                 var charAt = 0;
-//                 for (var j = 0; j < arr.length; j++) {
-//                     if(arr[i] === arr[j]) {
-//                         charAt += 1;
-//                     }
-//                 }
-//                 if(newArr.includes(arr[i])){
-//                     newArr.splice(newArr.indexOf(arr[i]), 0, arr[i]);
-//                     arrTwo.splice(arrTwo.indexOf(charAt), 0, charAt);
-//                 } else if(charAt > Math.max(arrTwo)){
-//                     newArr.unshift(arr[i])
-//                     arrTwo.unshift(charAt)
-//                 } else if(!(newArr.includes(arr[i]))){
-//                     newArr.push(arr[i])
-//                     arrTwo.push(charAt)
-//                 } else if(arrTwo.some(element => element > charAt)) {
-//                     newArr.push(arr[i])
-//                     arrTwo.push(charAt)
-//                 }
+//     for (var i = 0; i < arr.length; i++) {
+//         var charAt = 0;
+//         for (var j = 0; j < arr.length; j++) {
+//             if (arr[i] === arr[j]) {
+//                 charAt += 1;
 //             }
-//             console.log(arrTwo)
-//             console.log(newArr)
+//         }
+//         if (newArr.includes(arr[i])) {
+//             newArr.splice(newArr.indexOf(arr[i]), 0, arr[i]);
+//             arrTwo.splice(arrTwo.indexOf(charAt), 0, charAt);
+//         } else {
+//             if (charAt >= Math.max(...arrTwo)) {
+//                 newArr.unshift(arr[i]);
+//                 arrTwo.unshift(charAt);
+//             } else if (charAt === 1) {
+//                 newArr.push(arr[i]);
+//                 arrTwo.push(charAt);
+//             } else if(charAt > Math.min(...arrTwo)) {
+//                 newArr.splice(arrTwo.indexOf(Math.min(...arrTwo) - 2), 0, arr[i]);
+//                 arrTwo.splice(arrTwo.indexOf(Math.min(...arrTwo) - 2), 0, charAt);
+//             } else {
+//                 newArr.push(arr[i])
+//                 arrTwo.push(charAt)
+//             }
+//         }
+//     }
 //     var finalStr = newArr.join("");
 //     return finalStr
 // }
 //
 // console.log(sortString("bee"));//"eeb"
 // console.log(sortString("ldjfhgiiidgshjdllleidksj"));//"aaabbAcd"
+
+//3
