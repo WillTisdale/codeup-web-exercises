@@ -340,5 +340,77 @@
 //
 // console.log(primeNumbers(100));
 
-//15
+//15 All Sub Arrays
 
+// function allSumArrays(array){
+//     var finalArr = [];
+//     for(var i = 1; i < array.length; i++){
+//         var secondArr = [];
+//         var firstArr = [];
+//         firstArr = array.splice(0, i);
+//         secondArr.push(firstArr);
+//         for(var j = 0; j < finalArr.length; j++)
+//             secondArr.push(array)
+//             finalArr.push(secondArr);
+//     }
+//     return finalArr
+// }
+//
+// console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
+
+//INTERMEDIATE
+
+//1 COMPLETE
+
+// function twoEqualTarget(array, number) {
+//     var newArr = [];
+//     for (var i = 0; i < array.length; i++) {
+//         for (var j = 1; j < array.length; j++) {
+//             if (Number(array[i]) + Number(array[j]) === number) {
+//                 var first = array.indexOf(array[i])
+//                 var second = array.indexOf(array[j])
+//                 newArr.push(first);
+//                 newArr.push(second);
+//                 return newArr
+//             }
+//         }
+//     }
+// }
+//
+// console.log(twoEqualTarget([1, 4, 8, 12], 20));//[2, 3]
+
+//2
+
+// function sortString(input){
+//     var arr = input.split("");
+//     var newArr = [];
+//     var arrTwo = [];
+//             for (var i = 0; i < arr.length; i++) {
+//                 var charAt = 0;
+//                 for (var j = 0; j < arr.length; j++) {
+//                     if(arr[i] === arr[j]) {
+//                         charAt += 1;
+//                     }
+//                 }
+//                 if(newArr.includes(arr[i])){
+//                     newArr.splice(newArr.indexOf(arr[i]), 0, arr[i]);
+//                     arrTwo.splice(arrTwo.indexOf(charAt), 0, charAt);
+//                 } else if(charAt > Math.max(arrTwo)){
+//                     newArr.unshift(arr[i])
+//                     arrTwo.unshift(charAt)
+//                 } else if(!(newArr.includes(arr[i]))){
+//                     newArr.push(arr[i])
+//                     arrTwo.push(charAt)
+//                 } else if(arrTwo.some(element => element > charAt)) {
+//                     newArr.push(arr[i])
+//                     arrTwo.push(charAt)
+//                 }
+//             }
+//             console.log(arrTwo)
+//             console.log(newArr)
+//     var finalStr = newArr.join("");
+//     return finalStr
+// }
+//
+// console.log(sortString("bee"));//"eeb"
+// console.log(sortString("ldjfhgiiidgshjdllleidksj"));//"aaabbAcd"
