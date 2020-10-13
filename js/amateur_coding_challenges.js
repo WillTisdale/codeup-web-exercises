@@ -419,3 +419,34 @@
 // console.log(sortString("ldjfhgiiidgshjdllleidksj"));//"aaabbAcd"
 
 //3
+
+//4
+
+// function romanNumerals(numeral){
+//     var letterArray = ['I','V','X','L','C','D','M'];
+//     var numberArray = [1,5,10,50,100,500,1000];
+//     var inputArray = numeral.split("");
+//     var output = 0;
+//     for(var i = 0; i < inputArray.length; i++) {
+//         if(inputArray.indexOf(inputArray[i]) === inputArray.length - 1){
+//             output += numberArray[letterArray.indexOf(inputArray[i])];
+//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 1st if: output +=")
+//         } else if (numberArray[inputArray[i]] >= numberArray[inputArray[i + 1]]) {
+//             output += numberArray[letterArray.indexOf(inputArray[i])];
+//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 2nd if: output +=")
+//         } else if (numberArray[letterArray.indexOf(inputArray[i])] < numberArray[letterArray.indexOf(inputArray[i + 1])]) {
+//             output -= numberArray[letterArray.indexOf(inputArray[i])];
+//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 3rd if: output -=")
+//         } else {
+//             output += numberArray[letterArray.indexOf(inputArray[i])];
+//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 4th if: output +=")
+//         }
+//     }
+//     return output
+// }
+//
+// console.log(romanNumerals('XXIV'));//24
+// console.log(romanNumerals('MCMXII'));//1912
+// console.log(romanNumerals('MMXX'));//2020
+// console.log(romanNumerals('IV'));//4
+// console.log(romanNumerals('MDLLLXVIII'));//1858
