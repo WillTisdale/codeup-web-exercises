@@ -340,23 +340,25 @@
 //
 // console.log(primeNumbers(100));
 
-//15 All Sub Arrays
+//15 INCOMPLETE
 
-// function allSumArrays(array){
-//     var finalArr = [];
-//     for(var i = 1; i < array.length; i++){
-//         var secondArr = [];
-//         var firstArr = [];
-//         firstArr = array.splice(0, i);
-//         secondArr.push(firstArr);
-//         for(var j = 0; j < finalArr.length; j++)
-//             secondArr.push(array)
-//             finalArr.push(secondArr);
-//     }
-//     return finalArr
-// }
-//
-// console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
+function allSumArrays(array){
+    var finalArr = [];
+    var secondArr = [];
+    var firstArr = [];
+    var thirdArr = [];
+    for(var i = 1; i < array.length; i++) {
+        firstArr = array.splice(0, i);
+        secondArr.push(firstArr);
+        secondArr.push(array)
+        thirdArr.push(secondArr)
+        finalArr.push(thirdArr);
+        return finalArr
+    }
+    return finalArr
+}
+
+console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
 
 //INTERMEDIATE
 
@@ -379,7 +381,7 @@
 //
 // console.log(twoEqualTarget([1, 4, 8, 12], 20));//[2, 3]
 
-//2
+//2 COMPLETE
 
 // function sortString(input) {
 //     var arr = input.split("");
@@ -418,9 +420,75 @@
 // console.log(sortString("bee"));//"eeb"
 // console.log(sortString("ldjfhgiiidgshjdllleidksj"));//"aaabbAcd"
 
-//3
+//3 INCOMPLETE
 
-//4
+//4 INCOMPLETE
+
+//5 COMPLETE
+
+// function divide(numberOne, numberTwo){
+//     var output = 0;
+//     var div = 0;
+//     if(numberOne > 0 && numberTwo > 0){
+//         for(var i = 0; i < numberOne; i++){
+//             if(numberTwo === numberOne){
+//                 return 1
+//             } else if(output === numberOne){
+//                 return div
+//             } else if(numberTwo < numberOne){
+//                 output += numberTwo
+//                 div += 1
+//             }
+//         }
+//     }
+//     if(numberOne < 0 && numberTwo < 0){
+//         numberOne = numberOne - numberOne - numberOne
+//         numberTwo = numberTwo - numberTwo - numberTwo
+//         for(var i = 0; i < numberOne; i++){
+//             if(numberTwo === numberOne){
+//                 return 1
+//             } else if(output === numberOne){
+//                 return div
+//             } else if(numberTwo < numberOne){
+//                 output += numberTwo
+//                 div += 1
+//             }
+//         }
+//     }
+//     if(numberTwo < 0){
+//         numberTwo = numberTwo - numberTwo - numberTwo
+//         for(var i = 0; i < numberOne; i++){
+//             if(numberTwo === numberOne){
+//                 return 1
+//             } else if(output === numberOne){
+//                 return div
+//             } else if(numberTwo < numberOne){
+//                 output += numberTwo
+//                 div -= 1
+//             }
+//         }
+//     }
+//     if(numberOne < 0){
+//         numberOne = numberOne - numberOne - numberOne
+//         for(var i = 0; i < numberOne; i++){
+//             if(numberTwo === numberOne){
+//                 return 1
+//             } else if(output === numberOne){
+//                 return div
+//             } else if(numberTwo < numberOne){
+//                 output += numberTwo
+//                 div -= 1
+//             }
+//         }
+//     }
+//     return output
+// }
+//
+// console.log(divide(-12, 2));//-6
+// console.log(divide(-144, -12));//12
+// console.log(divide(-50, 10));//-5
+
+//6 COMPLETE
 
 // function romanNumerals(numeral){
 //     var letterArray = ['I','V','X','L','C','D','M'];
@@ -430,16 +498,16 @@
 //     for(var i = 0; i < inputArray.length; i++) {
 //         if(inputArray.indexOf(inputArray[i]) === inputArray.length - 1){
 //             output += numberArray[letterArray.indexOf(inputArray[i])];
-//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 1st if: output +=")
+//             // console.log(inputArray.indexOf(inputArray[i]) + "made it to 1st if: output +=")
 //         } else if (numberArray[inputArray[i]] >= numberArray[inputArray[i + 1]]) {
 //             output += numberArray[letterArray.indexOf(inputArray[i])];
-//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 2nd if: output +=")
+//             // console.log(inputArray.indexOf(inputArray[i]) + "made it to 2nd if: output +=")
 //         } else if (numberArray[letterArray.indexOf(inputArray[i])] < numberArray[letterArray.indexOf(inputArray[i + 1])]) {
 //             output -= numberArray[letterArray.indexOf(inputArray[i])];
-//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 3rd if: output -=")
+//             // console.log(inputArray.indexOf(inputArray[i]) + "made it to 3rd if: output -=")
 //         } else {
 //             output += numberArray[letterArray.indexOf(inputArray[i])];
-//             console.log(inputArray.indexOf(inputArray[i]) + "made it to 4th if: output +=")
+//             // console.log(inputArray.indexOf(inputArray[i]) + "made it to 4th if: output +=")
 //         }
 //     }
 //     return output
@@ -449,4 +517,7 @@
 // console.log(romanNumerals('MCMXII'));//1912
 // console.log(romanNumerals('MMXX'));//2020
 // console.log(romanNumerals('IV'));//4
-// console.log(romanNumerals('MDLLLXVIII'));//1858
+// console.log(romanNumerals('MDCCCLXVIII'));//1868
+// console.log(romanNumerals('MCMLXXXVIII'));//1988
+
+//7 INCOMPLETE
