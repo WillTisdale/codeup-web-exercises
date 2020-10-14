@@ -625,16 +625,23 @@
 
 //13 INCOMPLETE
 
-//14 INCOMPLETE
+//14 COMPLETE
 
-function coordinates(inputA, inputB){
-    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
-        return false
-    }
-    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
-        return false
-    }
-}
+// function coordinates(latitude, longitude){
+//     if(Math.floor(latitude) < -90 || Math.ceil(latitude) > 90){
+//         return false
+//     }
+//     if(Math.floor(longitude) < -180 || Math.ceil(longitude) > 180){
+//         return false
+//     }
+//     if(isNaN(latitude) || isNaN(longitude)){
+//         return false
+//     }
+//     return true
+// }
+//
+// console.log(coordinates(-90, 180.));//true
+// console.log(coordinates("2,-37J425.87", 874.123));//false
 
-console.log(coordinates(24.78245, 23.64572));//true
-console.log(coordinates());//false
+//15
+
