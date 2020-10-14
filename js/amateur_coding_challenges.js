@@ -95,7 +95,7 @@
 //     var omgStr = omgArray.join("")
 //     return omgStr
 // }
-
+//
 // console.log(sortNames("Travis:Meyer;Gene:Carangal;Tom:Young;Jeff:Meyer"));
 
 //6 COMPLETE
@@ -340,25 +340,25 @@
 //
 // console.log(primeNumbers(100));
 
-//15 INCOMPLETE
+//15 COMPLETE
 
-function allSumArrays(array){
-    var finalArr = [];
-    var secondArr = [];
-    var firstArr = [];
-    var thirdArr = [];
-    for(var i = 1; i < array.length; i++) {
-        firstArr = array.splice(0, i);
-        secondArr.push(firstArr);
-        secondArr.push(array)
-        thirdArr.push(secondArr)
-        finalArr.push(thirdArr);
-        return finalArr
-    }
-    return finalArr
-}
-
-console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
+// function allSumArrays(array){
+//     var finalArr = [];
+//     for(var i = 1; i < array.length; i++) {
+//             var secondArr = [];
+//             var firstArr = [];
+//             var thirdArr = [];
+//             firstArr = array.slice(0, i);
+//             secondArr.push(firstArr);
+//             secondArr.push(array.slice(i, array.length));
+//             thirdArr.push(secondArr);
+//             finalArr.push(thirdArr);
+//     }
+//     return finalArr
+// }
+//
+// console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [[1, 5, 3], [2]]]
+// console.log(allSumArrays(["a", "b", "c"]));//[[[a], [b, c]], [[a, b], [c]]]
 
 //INTERMEDIATE
 
@@ -521,3 +521,120 @@ console.log(allSumArrays([1, 5, 3, 2]));//[[[1], [5, 3, 2]], [[1, 5], [3, 2]], [
 // console.log(romanNumerals('MCMLXXXVIII'));//1988
 
 //7 INCOMPLETE
+
+//8 INCOMPLETE
+
+// function nextNumber(number){
+//     var str = number.toString()
+//     var arr = [];
+//     var finalArr = [];
+//     for(var i = 0; i < str.length; i++){
+//         arr.push(str.slice(str[i], 1))
+//         for(var j = 1; j < str.length; j++){
+//             if(!(arr.includes(str[j]))){
+//                 arr.push(str.slice(str[j], 1))
+//             }
+//         }
+//         for(var k = str.length; k >= 0; k--){
+//             if(!(arr.includes(str[k]))){
+//                 arr.push(str.slice(str[k], 1))
+//             }
+//         }
+//         finalArr.push(Number(arr.join("")))
+//     }
+//     return finalArr
+// }
+//
+// console.log(nextNumber(230));//302
+
+//9 COMPLETE
+
+// function numDivByLet(string){
+//     var charArr = ['~','!','$','&','%',' ','#','@','-','_','^','?','\'']
+//     var arr = string.split("");
+//     var charAt = 0;
+//     var numAt = 0;
+//     for(var i = 0; i < arr.length; i++){
+//         if(isNaN(arr[i]) && !(charArr.includes(arr[i]))){
+//             charAt += 1
+//         } else if(!(isNaN(arr[i]))){
+//             numAt += Number(arr[i])
+//         }
+//     }
+//     return numAt / charAt
+// }
+//
+// console.log(numDivByLet("H3llo fr13nd9"));//2
+// console.log(numDivByLet("Wha7 1n 7h3 w0r1d 4r3 y0u d01ng1?"));//2
+
+//10 COMPLETE
+
+// function password(string){
+//     if((string.toLowerCase()).includes("password")){
+//         return false
+//     } else if(string.length < 7 || string.length > 21){
+//         return false
+//     }
+//     var puncArr = ['~','!','$','&','%',' ','#','@','-','_','^','?','\'','.',',',';',':']
+//     var upper = 0;
+//     var num = 0;
+//     var mark = 0;
+//     for(var i = 0; i < string.length; i++) {
+//         if (!(isNaN(string[i]))) {
+//             num += 1
+//         } else {
+//             if (puncArr.includes(string[i])) {
+//                 mark += 1
+//                 // console.log("mark");
+//             } else if (string[i] === string[i].toUpperCase()) {
+//                 upper += 1
+//             }
+//         }
+//     }
+//     if(upper >= 1 && num >= 1 && mark >= 1){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+//
+// console.log(password("passWord101!"));//false
+// console.log(password("codE35?"));//true
+// console.log(password("2!Shrt"));//false
+// console.log(password("code35?"));//false
+// console.log(password("code350"));//false
+// console.log(password("codytheDuck!"));//false
+// console.log(password("Tmt1av59a1w9!"));//false
+
+//11 COMPLETE
+
+// function pokemonGO(pidgeys, candy){
+//     var XP = 0;
+//     for(pidgeys; pidgeys > 0; pidgeys--){
+//         if(pidgeys > 0 && candy >= 12){
+//             candy -= 11
+//             XP += 500;
+//         }
+//     }
+//     return XP
+// }
+//
+// console.log(pokemonGO(2, 23));//1000
+
+//12 INCOMPLETE
+
+//13 INCOMPLETE
+
+//14 INCOMPLETE
+
+function coordinates(inputA, inputB){
+    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
+        return false
+    }
+    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
+        return false
+    }
+}
+
+console.log(coordinates(24.78245, 23.64572));//true
+console.log(coordinates());//false
