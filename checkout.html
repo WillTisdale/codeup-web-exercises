@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h3>Checkout!</h3>
+    </header>
+    <form method="get" action="https://request-inspector.glitch.me/">
+        <fieldset>
+            <legend>Payment Method</legend>
+            <select id="type" name="type" required>
+                <option selected>VISA</option>
+                <option>Discover</option>
+                <option>Mastercard</option>
+                <option>PayPal</option>
+            </select>
+            <label for="type">Card Type</label><br>
+            <hr>
+            <input id="ccnumber" name="ccnumber" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+            <label for="ccnumber">Card Number</label><br>
+            <input id="expiration" name="expiration" type="expiration" placeholder="MM/YYYY" required>
+            <label for="expiration">Expiration Date</label><br>
+            <input id="seccode" name="seccode" type="seccode" placeholder="CCV" required>
+            <label for="seccode">Security Code</label>
+        </fieldset>
+        <fieldset>
+            <legend>Billing Address</legend>
+            <input id="street" name="street" type="text" required>
+            <label for="street">Street</label><br>
+            <input id="city" name="city" type="text" required>
+            <label for="city">City</label><br>
+            <input id="state" name="state" type="text" required>
+            <label for="state">State</label><br>
+            <input id="zip" name="zip" type="text" required>
+            <label for="zip">Zip Code</label><br>
+        </fieldset>
+        <fieldset>
+            <label for="file">Keep this credit card on file</label>
+            <input id="file" name="file" type="checkbox" checked>
+            <br><br>
+            <button type="submit">Buy Now!</button>
+        </fieldset>
+    </form>
+</body>
+</html>
