@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Proprty Type</legend>
+            <input id="residential" name="property_type" type="radio" value="residential">
+            <label for="residential">Residential</label><br>
+            <input id="commercial" name="property_type" type="radio" value="commercial">
+            <label for="commercial">Commercial</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Square Footage</legend>
+            <input id="small" name="square_footage" type="radio" value="small">
+            <label for="small">Under 1,000 sq. ft.</label><br>
+            <input id="medium" name="square_footage" type="radio" value="medium">
+            <label for="medium">Between 1,000 & 2,000 sq. ft.</label><br>
+            <input id="large" name="square_footage" type="radio" value="large">
+            <label for="large">Above 2,0000 sq. ft.</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Price Range</legend>
+            <input id="minimum" name="price_range" type="text">
+            <label for="minimum">$ Minimum Price</label><br>
+            <input id="maximum" name="price_range" type="text">
+            <label for="maximum">$ Maximum Price</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Zip Code</legend>
+            <select>
+                <option>12345</option>
+                <option>12354</option>
+                <option>12435</option>
+                <option>12453</option>
+                <option>13245</option>
+                <option>13254</option>
+                <option>13425</option>
+                <option>13452</option>
+                <option>14532</option>
+                <option>15432</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Bedrooms</legend>
+            <input id="1" name="bedrooms" type="radio">
+            <label for="1">1</label><br>
+            <input id="2" name="bedrooms" type="radio">
+            <label for="2">2</label><br>
+            <input id="3" name="bedrooms" type="radio">
+            <label for="3">3</label><br>
+            <input id="4+" name="bedrooms" type="radio">
+            <label for="4+">4+</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Bathrooms</legend>
+            <input id="one" name="bathrooms" type="radio">
+            <label for="one">1</label><br>
+            <input id="two" name="bathrooms" type="radio">
+            <label for="two">1.5 to 2</label><br>
+            <input id="three" name="bathrooms" type="radio">
+            <label for="three">2.5 to 3</label><br>
+            <input id="four" name="bathrooms" type="radio">
+            <label for="four">3.5+</label><br>
+        </fieldset>
+        <button type="submit">Search Now</button>
+    </form>
+</body>
+</html>
