@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Warmup.JS</title>
 </head>
-<body>
+<ul>
 
 <h2>HTML Elements Pre Lesson</h2>
     <h3>Overview</h3>
@@ -62,6 +62,80 @@
                 <li>Images</li>
                 <li>Tables</li>
             </ul>
+
+    <hr>
+
+    <h2>HTML Forms Pre Lesson</h2>
+
+    <ol>
+        <li>What HTTP methods can we use in forms?</li>
+        <ul>
+            <li>GET</li>
+            <li>POST</li>
+        </ul>
+        <li>What happens if we do not specify a method?</li>
+        <ul>
+            <li>If no method is specified then GET will be used</li>
+        </ul>
+        <li>What is a GET method?</li>
+        <ul>
+            <li>Requests info without making changes</li>
+        </ul>
+        <li>What is a POST method?</li>
+        <ul>
+            <li>Makes changes to data on the server</li>
+        </ul>
+        <li>What is the action attribute used for?</li>
+        <ul>
+            <li>Refers to the location that the form data should be sent</li>
+        </ul>
+        <li>What is a `query string`?</li>
+        <ul>
+            <li>Key-value pairs that are used for a POST as a way of sending the inputs</li>
+        </ul>
+        <li>How are query strings structured?</li>
+        <ul>
+            <li>?key=value&</li>
+        </ul>
+        <li>How do we submit a form?</li>
+        <ul>
+            <li>In order to submit, the form must gave either a button or input with a type attribute whose value is "submit"</li>
+        </ul>
+        <li>What are some common form input elements?</li>
+        <ul>
+            <li>Text Inputs</li>
+            <li>Text Areas</li>
+            <li>Checkboxes and Radio Buttons</li>
+            <li>Selects</li>
+            <li>Hidden Inputs</li>
+        </ul>
+        <li>How can we use name and value attributes?</li>
+        <li>How do you disable an input?</li>
+        <li>How do you hide an input?</li>
+        <li>What are `labels` used for?</li>
+    </ol>
+    <h3>Describe the following:</h3>
+    <ul>
+        <li>Text Inputs</li>
+        <li>Text Areas</li>
+        <li>Checkbox and Radio Buttons</li>
+        <li>Selects</li>
+    </ul>
+
+    <form method="POST" action="https://request-inspector.glitch.me/">
+
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text">
+        <br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+        <br>
+
+        <input type="submit">
+    </form>
+
+
 
 
 
