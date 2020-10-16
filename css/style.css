@@ -1,6 +1,6 @@
 h1 {
     text-align: center;
-    color: lavenderblush;
+    color: lavender;
     text-decoration: underline;
 }
 
@@ -10,7 +10,6 @@ h2 {
 }
 
 html    {
-    background-color: lavender;
     background: url("../img/sky.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,10 +20,36 @@ ul {
     list-style: square;
 }
 
-table   {
+table {
+    border-collapse: collapse;
+    background-color: lavenderblush;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+li, p {
+    color: lavenderblush;
+}
+
+a:link {
+    size: 20px;
     color: lavender;
 }
 
-tr {
-    border: 10px black;
+a:visited {
+    size: 20px;
+    color: lavender;
+}
+
+a:hover {
+    size: 20px;
+    color: lavender;
+}
+
+a:active{
+    size: 20px;
+    color: lavender;
 }
