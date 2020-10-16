@@ -1,4 +1,8 @@
-h1 {
+header>h1 {
+    text-align: center;
+}
+
+#one {
     text-align: center;
 }
 
@@ -14,7 +18,7 @@ header>img {
 
 @keyframes scarlet {
     from {transform: translateX(0px)}
-    to  {transform: translateX(400px)}
+    to  {transform: translateX(350px)}
 }
 
 table {
@@ -34,4 +38,9 @@ table, th, td {
     color: lawngreen;
     background-color: black;
     animation-name: opacity;
+}
+
+.hero>h1 {
+    text-decoration: underline;
+    padding-left: 150px;
 }
