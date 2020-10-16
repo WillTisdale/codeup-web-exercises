@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+}
+
+header>img {
+    animation-name: scarlet;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    /*visibility: hidden;*/
+    /*display: none;*/
+
+}
+
+@keyframes scarlet {
+    from {transform: translateX(0px)}
+    to  {transform: translateX(400px)}
+}
+
+table {
+    border-collapse: collapse;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.hero {
+    background-image: url("../img/Scarlet_Witch_Portrait_Art.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    opacity: 0.75;
+    color: lawngreen;
+    background-color: black;
+    animation-name: opacity;
+}
+
+
+}

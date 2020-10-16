@@ -1,4 +1,30 @@
-.fancy-header {
-    color: purple;
+h1 {
+    text-align: center;
+    color: lavenderblush;
+    text-decoration: underline;
+}
 
+h2 {
+    color: lavender;
+    text-decoration: underline;
+}
+
+html    {
+    background-color: lavender;
+    background: url("../img/sky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Courier;
+}
+
+ul {
+    list-style: square;
+}
+
+table   {
+    color: lavender;
+}
+
+tr {
+    border: 10px black;
 }
