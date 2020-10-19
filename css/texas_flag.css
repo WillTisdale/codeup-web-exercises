@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: lightgray;
+}
+
+.blue   {
+    margin: 0;
+    background: #0c2868;
+    width: 5em;
+    height: 10em;
+    float: left;
+}
+
+.white  {
+    background: white;
+    width: 10em;
+    height: 5em;
+    float: left;
+}
+
+.red    {
+    background: #bf0a30;
+    width: 10em;
+    height: 5em;
+    float: left
+}
+
+.container {
+    width: 15em;
+    height: 10em;
+    margin: 10px auto;
+}
+
+img {
+    margin-top: calc(100% - 2.25em);
+    height: 4em;
+}
+
+header {
+    margin: 10px auto;
+    text-align: center;
+}
+
