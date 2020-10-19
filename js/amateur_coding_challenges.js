@@ -625,16 +625,22 @@
 
 //13 INCOMPLETE
 
-//14 INCOMPLETE
+//14 COMPLETE
 
 function coordinates(inputA, inputB){
-    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
+    if(Math.floor(inputA) < -90 || Math.ceil(inputA) >= 90){
         return false
     }
-    if(parseInt(inputA) < 0 || parseInt(inputA) >= 90){
+    if(Math.floor(inputB) < -180 || Math.ceil(inputB) >= 180){
         return false
+    }
+    if(isNaN(inputB) || isNaN(inputA)){
+        return false
+    }
+    else {
+        return true
     }
 }
 
 console.log(coordinates(24.78245, 23.64572));//true
-console.log(coordinates());//false
+console.log(coordinates("2,-37J425.87", 874.123));//false
