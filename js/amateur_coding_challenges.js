@@ -654,3 +654,31 @@
 //         if(number % 2 === 0)
 //     }
 // }
+
+//anagram COMPLETE
+
+// function anagram(ana, gram){
+//     if(ana.length !== gram.length){
+//         return false
+//     } else {
+//         var anaArr = ana.split("");
+//         var gramArr = gram.split("");
+//         for (var i = 0; i < anaArr.length; i++) {
+//             for (var j = 0; j < gramArr.length; j++) {
+//                 if (anaArr[i] === gramArr[j]) {
+//                     gramArr.splice(gramArr.indexOf(gramArr[j]), 1)
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+//     if(gramArr.length === 0){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+//
+// console.log(anagram("godod", "doggo"));
+// console.log(anagram("yellow", "wolley"));
+// console.log(anagram("hello", "holel"));
