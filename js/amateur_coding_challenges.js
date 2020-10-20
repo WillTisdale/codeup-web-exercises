@@ -682,3 +682,10 @@
 // console.log(anagram("godod", "doggo"));
 // console.log(anagram("yellow", "wolley"));
 // console.log(anagram("hello", "holel"));
+
+
+//Fibonacci Number
+
+// function nthFibonacci(number){
+//
+// }

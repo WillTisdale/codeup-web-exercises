@@ -1,0 +1,96 @@
+:root {
+    --red: #cf4646;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background: white;
+}
+main    {
+    background: white;
+    color: #222a2f
+}
+header {
+    width: 100%;
+    height: 20em;
+    background: var(--red);
+}
+div.login {
+    text-align: right;
+}
+button.login {
+    background: var(--red);
+    border-radius: 2.5px;
+    border: 1px solid white;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    color: white;
+    font-family: "Arial";
+    font-size: x-small;
+    padding: 5px 10px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 5em;
+    font-family: cursive;
+}
+.title>p {
+    margin: 0;
+}
+.title-phrase{
+    font-family: Arial;
+    text-align: center;
+    color: white;
+}
+#special  {
+    font-family: Courier;
+}
+a:link {
+    color: lightgray;
+}
+.buy_now {
+    font-size: x-small;
+    font-family: Arial;
+    text-align: center;
+}
+.four_ps {
+    font-family: Arial;
+    font-size: small;
+    margin: 2em 8em;
+    line-height: 1.5;
+}
+.ed {
+    text-decoration: underline;
+}
+#colored {
+    font-family: Courier;
+    background: #f9f2f4;
+    color: #d25a77;
+}
+.message {
+    margin: 20px 0em;
+}
+h1.video {
+    margin-top: 2em;
+    font-family: Arial;
+    text-align: center;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+h1.after {
+    margin-top: 2em;
+    font-family: Arial;
+    text-align: center;
+}
+p.after {
+    font-family: Arial;
+    font-size: small;
+    margin: 2em 8em;
+    line-height: 1.5;
+}
