@@ -647,10 +647,10 @@
 
 //15
 
-function binary(number){
-    var output = [];
-    var quotient = 0;
-    for(var i = 0; i < number; i++){
-        if(number % 2 === 0)
-    }
-}
+// function binary(number){
+//     var output = [];
+//     var quotient = 0;
+//     for(var i = 0; i < number; i++){
+//         if(number % 2 === 0)
+//     }
+// }
