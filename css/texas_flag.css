@@ -7,28 +7,28 @@ html, body {
 .blue   {
     margin: 0;
     background: #0c2868;
-    width: 5em;
-    height: 10em;
+    width: 80px;
+    height: 160px;
     float: left;
 }
 
 .white  {
     background: white;
-    width: 10em;
-    height: 5em;
+    width: 160px;
+    height: 80px;
     float: left;
 }
 
 .red    {
     background: #bf0a30;
-    width: 10em;
-    height: 5em;
+    width: 160px;
+    height: 80px;
     float: left
 }
 
 .container {
-    width: 15em;
-    height: 10em;
+    width: 240px;
+    height: 160px;
     margin: 10px auto;
 }
 
