@@ -687,5 +687,16 @@
 //Fibonacci Number
 
 // function nthFibonacci(number){
-//
+//     var output = 0;
+//     var fibArr = [0, 1, 1]
+//     if(number < 4){
+//         return fibArr[number - 1]
+//     }
+//     var last = fibArr[fibArr.length -1]
+//     for(var i = 3; i < number; i++){
+//         output +=fibArr[last]
+//     }
+//     return output
 // }
+//
+// console.log(nthFibonacci(4));
