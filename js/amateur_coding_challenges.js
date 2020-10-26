@@ -225,17 +225,17 @@
 
 //12 COMPLETE
 
-// function sumArray(array){
-//   var newArr = [array[0]]
-//   for(var i = 1; i < array.length; i++){
-//       var previous =  newArr[i - 1];
-//       newArr.push(array[i] + previous)
-//   }
-//   return newArr
-// }
-//
-// console.log(sumArray([1, 1, 1]));//[1, 2, 3]
-// console.log(sumArray([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
+function sumArray(array){
+  var newArr = [array[0]]
+  for(var i = 1; i < array.length; i++){
+      var previous =  newArr[i - 1];
+      newArr.push(array[i] + previous)
+  }
+  return newArr
+}
+
+console.log(sumArray([1, 1, 1]));//[1, 2, 3]
+console.log(sumArray([4, 2, 1, 3, 5]));//[4, 6, 7, 10, 15]
 
 //13 COMPLETE
 
