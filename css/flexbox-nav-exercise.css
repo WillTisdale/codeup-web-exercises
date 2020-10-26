@@ -1,0 +1,21 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background: #c1c1c1;
+}
+.first {
+    display: flex;
+    list-style: none;
+}
+.last   {
+    display: flex;
+    list-style: none;
+}
+.logo {
+    margin: 0 auto;
+}
