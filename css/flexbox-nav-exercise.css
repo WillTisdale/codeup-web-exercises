@@ -4,18 +4,31 @@ html, body {
     box-sizing: border-box;
 }
 .nav {
-    display: flex;
-    justify-content: space-between;
     background: #c1c1c1;
-}
-.first {
-    display: flex;
+    height: 4.25em;
     list-style: none;
-}
-.last   {
-    display: flex;
-    list-style: none;
-}
-.logo {
     margin: 0 auto;
+    padding: 0;
+}
+ul {
+    display: flex;
+    align-items: flex-start;
+}
+li  {
+    height: 100%;
+}
+a:hover {
+    color: blue;
+}
+.link {
+    margin: 1em;
+}
+.logo   {
+    font-size: 3em;
+    font-family: Montsserrat;
+    margin: 0 auto;
+}
+a:link {
+    text-decoration: none;
+    color: black;
 }
