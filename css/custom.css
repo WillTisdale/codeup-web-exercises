@@ -18,3 +18,9 @@ div.jumbotron>h1 {
         display: none;
     }
 }
+@media screen and (max-width: 525px){
+    .nav-tabs {
+        display: flex;
+        flex-direction: column;
+    }
+}
