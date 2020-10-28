@@ -12,7 +12,9 @@ div.jumbotron>h1 {
     width: 100%;
     text-align: center;
 }
-
+html {
+    min-width: 320px;
+}
 @media screen and (max-width: 768px) {
     .jumbotron {
         display: none;
@@ -24,3 +26,4 @@ div.jumbotron>h1 {
         flex-direction: column;
     }
 }
+
