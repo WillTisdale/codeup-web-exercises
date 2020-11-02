@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Defuse the BOM</title>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Ubuntu, sans-serif;
+            box-sizing: content-box;
+            font-size: 12px;
+            background: grey;
+        }
+        h2 {
+            text-align: center;
+        }
+        :root   {
+            --bg-info: #cddeff;
+            --text-info: #281b87;
+            --bg-success: #cff3da;
+            --text-success: #1c6b35;
+            --bg-warning: #fcfbc9;
+            --text-warning: #826d00;
+            --bg-error: #fad3d7;
+            --text-error: #8d2841;
+            --border-color: #d2d2d2;
+        }
+        .cord {
+            padding: 4px;
+            margin: 5px auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            width: 80%;
+        }
+        #blueCord   {
+            color:var(--text-info);
+            background-color: var(--bg-info);
+        }
+        #greenCord    {
+            color: var(--text-success);
+            background-color: var(--bg-success);
+        }
+        #yellowCord   {
+            color: var(--text-warning);
+            background-color: var(--bg-warning);
+        }
+        #redCord  {
+            color: var(--text-error);
+            background-color: var(--bg-error);
+        }
+        .cords {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+        .bomb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2em;
+        }
+        .aftermath {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="message">This BOM will self destruct in <span id="timer">60</span> seconds...</h2>
+<!--<button id="defuser">Defuse the BOM</button>-->
+<div class="bomb">
+    <img src="img/bomb.png" alt="bomb">
+</div>
+<div class="cords">
+<button id="blueCord" class="cord">Cut the BLUE cord?!?!</button>
+<button id="greenCord" class="cord">Cut the GREEN cord?!?!</button>
+<button id="yellowCord" class="cord">Cut the YELLOW cord?!?!</button>
+<button id="redCord" class="cord">Cut the RED cord?!?!</button>
+</div>
+
+<script>
+    (function() {
+        "use strict";
+
+        var detonationTimer = 60;
+
+        // TODO: This function needs to be called once every second
+        var intervalID = setInterval(function updateTimer() {
+            if (detonationTimer == 0) {
+                alert('EXTERMINATE!');
+                document.body.innerHTML = '<img class="aftermath" src="img/boom.jpeg">';
+            } else if (detonationTimer > 0) {
+                document.getElementById('timer').innerHTML = detonationTimer;
+            }
+            detonationTimer--;
+        }, 1000)
+
+        var blueCord = document.getElementById('blueCord')
+        blueCord.addEventListener('click', cutBlue)
+        function cutBlue() {
+            detonationTimer -= 30;
+            if(detonationTimer < 0){
+                detonationTimer = 0
+            } else {
+                alert("You just lost 30 seconds!! Nice knowing ya!!!")
+            }
+        }
+        var greenCord = document.getElementById('greenCord')
+        greenCord.addEventListener('click', cutGreen)
+        function cutGreen() {
+            alert("It's NEVER the GREEN!!!")
+            detonationTimer = 0;
+        }
+        var yellowCord = document.getElementById('yellowCord')
+        yellowCord.addEventListener('click', cutYellow)
+        function cutYellow() {
+            detonationTimer -= 15;
+            if(detonationTimer < 0){
+                detonationTimer = 0
+            } else {
+                alert("You just lost 15 seconds!! Think FAST!!!")
+            }
+        }
+        var redCord = document.getElementById('redCord')
+        redCord.addEventListener('click', cutRed)
+        function cutRed() {
+            clearInterval(intervalID);
+        }
+
+
+
+        // TODO: When this function runs, it needs to
+        // cancel the interval/timeout for updateTimer()
+        function defuseTheBOM() {
+            clearInterval(intervalID)
+        }
+
+        // Don't modify anything below this line!
+        //
+        // This causes the defuseTheBOM() function to be called
+        // when the "defuser" button is clicked.
+        // We will learn about events in the DOM lessons
+        var defuser = document.getElementById('defuser');
+        defuser.addEventListener('click', defuseTheBOM);
+    })();
+</script>
+</body>
+</html>
