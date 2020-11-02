@@ -47,12 +47,14 @@
             } else {
                 alert("You just lost 30 seconds!! Nice knowing ya!!!")
             }
+            document.getElementById("blueCord").style.display = "none";
         }
         var greenCord = document.getElementById('greenCord')
         greenCord.addEventListener('click', cutGreen)
         function cutGreen() {
             alert("It's NEVER the GREEN!!!")
             detonationTimer = 0;
+            document.getElementById("greenCord").style.display = "none";
         }
         var yellowCord = document.getElementById('yellowCord')
         yellowCord.addEventListener('click', cutYellow)
@@ -63,6 +65,7 @@
             } else {
                 alert("You just lost 15 seconds!! Think FAST!!!")
             }
+            document.getElementById("yellowCord").style.display = "none";
         }
         var redCord = document.getElementById('redCord')
         redCord.addEventListener('click', cutRed)

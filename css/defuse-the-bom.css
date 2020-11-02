@@ -12,38 +12,40 @@ h2 {
     text-align: center;
 }
 :root   {
-    --bg-info: #cddeff;
-    --text-info: #281b87;
-    --bg-success: #cff3da;
-    --text-success: #1c6b35;
-    --bg-warning: #fcfbc9;
-    --text-warning: #826d00;
-    --bg-error: #fad3d7;
-    --text-error: #8d2841;
-    --border-color: #d2d2d2;
+    --bg-blue: #cddeff;
+    --text-blue: #281b87;
+    --bg-green: #cff3da;
+    --text-green: #1c6b35;
+    --bg-yellow: #fcfbc9;
+    --text-yellow: #826d00;
+    --bg-red: #fad3d7;
+    --text-red: #8d2841;
 }
 .cord {
     padding: 4px;
     margin: 5px auto;
-    border: 1px solid var(--border-color);
     border-radius: 5px;
     width: 80%;
 }
 #blueCord   {
-    color:var(--text-info);
-    background-color: var(--bg-info);
+    color:var(--text-blue);
+    background-color: var(--bg-blue);
+    border: 1px solid var(--text-blue);
 }
 #greenCord    {
-    color: var(--text-success);
-    background-color: var(--bg-success);
+    color: var(--text-green);
+    background-color: var(--bg-green);
+    border: 1px solid var(--text-green);
 }
 #yellowCord   {
-    color: var(--text-warning);
-    background-color: var(--bg-warning);
+    color: var(--text-yellow);
+    background-color: var(--bg-yellow);
+    border: 1px solid var(--text-yellow);
 }
 #redCord  {
-    color: var(--text-error);
-    background-color: var(--bg-error);
+    color: var(--text-red);
+    background-color: var(--bg-red);
+    border: 1px solid var(--text-red);
 }
 .cords {
     display: flex;
