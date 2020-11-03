@@ -21,33 +21,33 @@ h2 {
     --bg-red: #fad3d7;
     --text-red: #8d2841;
 }
-.cord {
+.wire {
     padding: 4px;
     margin: 5px auto;
     border-radius: 5px;
     width: 80%;
 }
-#blueCord   {
+#blueWire   {
     color:var(--text-blue);
     background-color: var(--bg-blue);
     border: 1px solid var(--text-blue);
 }
-#greenCord    {
+#greenWire    {
     color: var(--text-green);
     background-color: var(--bg-green);
     border: 1px solid var(--text-green);
 }
-#yellowCord   {
+#yellowWire   {
     color: var(--text-yellow);
     background-color: var(--bg-yellow);
     border: 1px solid var(--text-yellow);
 }
-#redCord  {
+#redWire  {
     color: var(--text-red);
     background-color: var(--bg-red);
     border: 1px solid var(--text-red);
 }
-.cords {
+.wires {
     display: flex;
     flex-direction: column;
     align-content: center;

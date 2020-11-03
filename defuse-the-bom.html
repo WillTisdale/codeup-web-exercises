@@ -13,11 +13,11 @@
         <img src="img/bomb.png" alt="bomb">
     </div>
 
-    <div class="cords">
-        <button id="blueCord" class="cord">Cut the BLUE cord?!?!</button>
-        <button id="greenCord" class="cord">Cut the GREEN cord?!?!</button>
-        <button id="redCord" class="cord">Cut the RED cord?!?!</button>
-        <button id="yellowCord" class="cord">Cut the YELLOW cord?!?!</button>
+    <div class="wires">
+        <button id="blueWire" class="wire">Cut the BLUE wire?!?!</button>
+        <button id="greenWire" class="wire">Cut the GREEN wire?!?!</button>
+        <button id="redWire" class="wire">Cut the RED wire?!?!</button>
+        <button id="yellowWire" class="wire">Cut the YELLOW wire?!?!</button>
     </div>
 
     <button id="defuser">Defuse the BOM</button>
@@ -32,14 +32,21 @@
             if (detonationTimer == 0) {
                 alert('EXTERMINATE!');
                 document.body.innerHTML = '<img class="aftermath" src="img/boom.jpeg">';
+                var delay = 5000;
+                var timeoutId = setTimeout(function () {
+                    var userResponse = confirm('Do you want to try again?');
+                    if(userResponse){
+                        location.reload()
+                    }
+                }, delay);
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
             }
             detonationTimer--;
         }, 1000)
 
-        var blueCord = document.getElementById('blueCord')
-        blueCord.addEventListener('click', cutBlue)
+        var blueWire = document.getElementById('blueWire')
+        blueWire.addEventListener('click', cutBlue)
         function cutBlue() {
             detonationTimer -= 30;
             if(detonationTimer < 0){
@@ -47,17 +54,17 @@
             } else {
                 alert("You just lost 30 seconds!! Nice knowing ya!!!")
             }
-            document.getElementById("blueCord").style.display = "none";
+            document.getElementById("blueWire").style.display = "none";
         }
-        var greenCord = document.getElementById('greenCord')
-        greenCord.addEventListener('click', cutGreen)
+        var greenWire = document.getElementById('greenWire')
+        greenWire.addEventListener('click', cutGreen)
         function cutGreen() {
             alert("It's NEVER the GREEN!!!")
             detonationTimer = 0;
-            document.getElementById("greenCord").style.display = "none";
+            document.getElementById("greenWire").style.display = "none";
         }
-        var yellowCord = document.getElementById('yellowCord')
-        yellowCord.addEventListener('click', cutYellow)
+        var yellowWire = document.getElementById('yellowWire')
+        yellowWire.addEventListener('click', cutYellow)
         function cutYellow() {
             detonationTimer -= 15;
             if(detonationTimer < 0){
@@ -65,15 +72,23 @@
             } else {
                 alert("You just lost 15 seconds!! Think FAST!!!")
             }
-            document.getElementById("yellowCord").style.display = "none";
+            document.getElementById("yellowWire").style.display = "none";
         }
-        var redCord = document.getElementById('redCord')
-        redCord.addEventListener('click', cutRed)
+        var redWire = document.getElementById('redWire')
+        redWire.addEventListener('click', cutRed)
         function cutRed() {
-            document.body.innerHTML = '<img class="aftermath" src="img/success.jpg">';
             alert("Success!! You are a true hero! Our city can sleep easy....for now.")
+            document.body.innerHTML = '<img class="aftermath" src="img/success.jpg">';
             clearInterval(intervalID);
+            var delay = 5000;
+            var timeoutId = setTimeout(function () {
+                var userResponse = confirm('Do you want to try again?');
+                if(userResponse){
+                    location.reload()
+                }
+            }, delay);
         }
+
 
 
 
