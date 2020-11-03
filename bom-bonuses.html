@@ -12,38 +12,38 @@
     <script>
         'use strict';
 
-        // var count = 0;
-        // var max = 16;
-        // var interval = 1000;
-        // var lyrics = ["All a-...",
-        //     "-round the ...",
-        //     "mulberry...",
-        //     "bush, The...",
-        //     "monkey...",
-        //     "chased the...",
-        //     "wea-...",
-        //     "-sel...",
-        //     "The monkey...",
-        //     "stopped to...",
-        //     "pull up his...",
-        //     "sock,...",
-        //     "Pop!...",
-        //     "goes the...",
-        //     "wea-...",
-        //     "-sel."
-        // ]
-        // function playSinging() {
-        //     if(count >= max){
-        //         stopSinging()
-        //     } else {
-        //         console.log(lyrics[count]);
-        //         count++;
-        //     }
-        // }
-        // var intervalId = setInterval(playSinging, interval);
-        // function stopSinging(){
-        //     clearInterval(intervalId)
-        // }
+        var count = 0;
+        var max = 16;
+        var interval = 1000;
+        var lyrics = ["All a-...",
+            "-round the ...",
+            "mulberry...",
+            "bush, The...",
+            "monkey...",
+            "chased the...",
+            "wea-...",
+            "-sel...",
+            "The monkey...",
+            "stopped to...",
+            "pull up his...",
+            "sock,...",
+            "Pop!...",
+            "goes the...",
+            "wea-...",
+            "-sel."
+        ]
+        function playSinging() {
+            if(count >= max){
+                stopSinging()
+            } else {
+                console.log(lyrics[count]);
+                count++;
+            }
+        }
+        var intervalId = setInterval(playSinging, interval);
+        function stopSinging(){
+            clearInterval(intervalId)
+        }
 
 
 
