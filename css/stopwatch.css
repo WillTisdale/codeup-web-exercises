@@ -1,0 +1,17 @@
+body, html {
+    box-sizing: border-box;
+    background: #4f82fb;
+    font-family: Arial;
+    color: darkgrey;
+}
+.container {
+    margin: 1em auto;
+    border: 5px solid darkgrey;
+    padding: 15px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+
