@@ -26,6 +26,11 @@
     (function() {
         "use strict";
         var detonationTimer = 60;
+        var click = document.getElementById("click")
+        click.addEventListener('click', clickRandom)
+        function clickRandom(){
+            click.style.display = 'none';
+        }
 
         // TODO: This function needs to be called once every second
         var intervalID = setInterval(function updateTimer() {
