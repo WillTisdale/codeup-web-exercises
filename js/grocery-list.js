@@ -8,4 +8,3 @@ document.getElementById("add").onclick  = function() {
     node.appendChild(textnode);
     document.getElementById("list").appendChild(node);
 }
-
