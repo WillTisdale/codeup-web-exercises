@@ -1,16 +1,64 @@
 /**********************************************
+ * 			CUSTOMIZING THE MAP
+ *********************************************/
+/**********************************************
  * 			SETTING UP KEYS.JS
  *********************************************/
 // TODO TOGETHER: Open .gitignore and add keys.js. Add keys.js file and import to mapbox html file. Your api keys are stored in keys.js and are added to the .gitignore so they are protected
 
-/**********************************************
- * 			CUSTOMIZING THE MAP
- *********************************************/
+
 // Predefined map styles --> https://docs.mapbox.com/mapbox-gl-js/api/#map
 // A map center can be set by passing in the latitude and longitude coordinates of a location as an array [LONGITUDE_VALUE, LATITUDE_VALUE]
 // Zoom levels range from 0 up to 24, with 0 being a global view and 24 being the most detailed at street level (the max zoom level depends on the location).
-
 //TODO TOGETHER: Set map to san antonio area using the coordinates [-98.4916, 29.4252]
+
+
+var mapOptions = {
+    accessToken: mapboxToken,
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [-98.4916, 29.4252], // starting position [lng, lat]
+    zoom: 5 ,// starting zoom
+    logoPosition: 'top-left',
+    keyboard: true,
+    doubleClickZoom: true
+}
+
+var map = new mapboxgl.Map(mapOptions);
+
+map.on('load', function () {
+    map.loadImage(
+        'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+        function (error, image) {
+            if (error) throw error;
+            map.addImage('cat', image);
+            map.addSource('point', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-86.3077, 32.3792]
+                            }
+                        }
+                    ]
+                }
+            });
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'point',
+                'layout': {
+                    'icon-image': 'cat',
+                    'icon-size': 0.25
+                }
+            });
+        }
+    );
+});
 
 //TODO: Experiment with different map styles, zoom levels, and centers. You will need to reference the mapbox docs. (~10 minutes)
 
@@ -24,6 +72,15 @@
 
 
 // TODO TOGETHER: Add a marker to the map using the following coordinates [-98.4916, 29.4260]. This marker will mark the Alamo on our map.
+var markerOptions = {
+    color: '#ff0000',
+    draggable: true
+}
+var alamoMarker = new mapboxgl.Marker(markerOptions)
+    .setLngLat([-98.4861, 29.4260])
+    .addTo(map);
+
+
 // TODO TOGETHER: Change the color of the marker
 
 
@@ -39,6 +96,12 @@
 
 
 // TODO TOGETHER: Add a popup to the map over codeup. Set the html as a paragraph that says "Codeup Rocks!"
+
+var popup = new mapboxgl.Popup()
+    .setLngLat([-98.489615, 29.426827])
+    .setHTML("<p>Codeup Rocks!</p>")
+    .addTo(map);
+
 // TODO TOGETHER: Comment out the popup we just added. Add a popup to the alamo marker.
 
 

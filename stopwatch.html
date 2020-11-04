@@ -13,22 +13,28 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
+        <div class="row main-row">
+            <div class="col-12 main-column">
+                <div class="row">
+                    <div class="col-3 titles">Hours</div>
+                    <div class="col-3 titles">Minutes</div>
+                    <div class="col-3 titles">Seconds</div>
+                    <div class="col-3 titles">Hundredths</div>
+                </div>
                 <div class="row">
                     <div class="col-12 text-center timer">
-                        <h1 id="timer">0:0:0:0</h1>
+                        <h1 id="timer">00:00:00:00</h1>
                     </div>
                 </div>
                 <div class="row buttons">
                     <div class="col-4 buttons">
-                        <button class="button" id="start">Start</button>
+                        <button type="button" class="button btn btn-primary" id="start">Start</button>
                     </div>
                     <div class="col-4 buttons">
-                        <button class="button" id="pause">Pause</button>
+                        <button type="button" class="button btn btn-primary" id="pause">Pause</button>
                     </div>
                     <div class="col-4 buttons">
-                        <button class="button" id="reset">Reset</button>
+                        <button type="button" class="button btn btn-primary" id="reset">Reset</button>
                     </div>
                 </div>
             </div>
