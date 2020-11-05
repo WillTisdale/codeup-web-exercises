@@ -1,3 +1,59 @@
+"use strict";
+
+/***
+ * geocode is a method to search for coordinates based on a physical address and return
+ * @param {string} search is the address to search for the geocoded coordinates
+ * @param {string} token is your API token for MapBox
+ * @returns {Promise} a promise containing the latitude and longitude as a two element array
+ *
+ * EXAMPLE:
+ *
+ *  geocode("San Antonio", API_TOKEN_HERE).then(function(results) {
+ *      // do something with results
+ *  })
+ *
+ */
+function geocode(search, token) {
+    var baseUrl = 'https://api.mapbox.com';
+    var endPoint = '/geocoding/v5/mapbox.places/';
+    return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+        .then(function(res) {
+            return res.json();
+            // to get all the data from the request, comment out the following three lines...
+        }).then(function(data) {
+            return data.features[0].center;
+        });
+}
+
+
+/***
+ * reverseGeocode is a method to search for a physical address based on inputted coordinates
+ * @param {object} coordinates is an object with properties "lat" and "lng" for latitude and longitude
+ * @param {string} token is your API token for MapBox
+ * @returns {Promise} a promise containing the string of the closest matching location to the coordinates provided
+ *
+ * EXAMPLE:
+ *
+ *  reverseGeocode({lat: 32.77, lng: -96.79}, API_TOKEN_HERE).then(function(results) {
+ *      // do something with results
+ *  })
+ *
+ */
+function reverseGeocode(coordinates, token) {
+    var baseUrl = 'https://api.mapbox.com';
+    var endPoint = '/geocoding/v5/mapbox.places/';
+    return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+        .then(function(res) {
+            return res.json();
+        })
+        // to get all the data from the request, comment out the following three lines...
+        .then(function(data) {
+            return data.features[0].place_name;
+        });
+}
+
+
+
 /**********************************************
  * 			CUSTOMIZING THE MAP
  *********************************************/
@@ -104,6 +160,15 @@ var popup = new mapboxgl.Popup()
 
 // TODO TOGETHER: Comment out the popup we just added. Add a popup to the alamo marker.
 
+var alamoPopupOptions = {
+    maxWidth: 'none',
+}
+
+var alamoPopup = new mapboxgl.Popup(alamoPopupOptions)
+    .setHTML("<p>Remember the Alamo</p>")
+    .addTo(map);
+
+    alamoMarker.setPopup(alamoPopup)
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup?
 // TODO: Try setting the text by using ".setText()" instead of ".setHTML()"
@@ -119,14 +184,45 @@ var popup = new mapboxgl.Popup()
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup.
 //https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter
 
+// geocode("600 Navarro St #350, San Antonio, TX 78205", mapboxToken).then(function(result){
+//     console.log(result);
+//     map.setCenter(result);
+//     map.setZoom(20)
+// })
+
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
+
+geocode("600 Navarro St #350, San Antonio, TX 78205", mapboxToken).then(function(result){
+    console.log(result);
+    map.setCenter(result);
+    map.setZoom(15)
+
+    new mapboxgl.Marker()
+        .setLngLat(result)
+        .addTo(map)
+})
+
+
+
 //TODO: Instead of setCenter try using map.jumpTo()
 //TODO: Instead of setCenter try using map.flyTo()
 
 
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -98.4861, lat: 29.4260} to get a physical address for the alamo
+
+reverseGeocode({lat: 29.426827, lng: -98.489615}, mapboxToken).then(function(result){
+    console.log(result);
+})
+
+
+
+
+
+
+
+
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
 
 
