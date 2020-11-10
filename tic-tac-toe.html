@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/tic-tac-toe.css">
+</head>
+<body>
+
+    <header>
+        <h1>TIC TAC TOE</h1>
+    </header>
+
+    <div class="container-top">
+
+        <div class="x-side">X Players Turn</div>
+
+        <div class="game-box">
+            <div class="squares" id="top-left"></div>
+            <div class="squares" id="top-center"></div>
+            <div class="squares" id="top-right"></div>
+            <div class="squares" id="center-left"></div>
+            <div class="squares" id="center-center"></div>
+            <div class="squares" id="center-right"></div>
+            <div class="squares" id="bottom-left"></div>
+            <div class="squares" id="bottom-center"></div>
+            <div class="squares" id="bottom-right"></div>
+        </div>
+
+        <div class="o-side">O Players Turn</div>
+
+    </div>
+
+    <div class="container-bottom">
+
+        <button class="button" id="reset">Start Over</button>
+
+    </div>
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function(){
+    var count = 0;
+    var squares = $('.squares')
+        squares.click(function(){
+            count += 1
+            if(count % 2 !== 0){
+                xTurn.css('visibility', 'hidden')
+                oTurn.css('visibility', 'unset')
+            } else {
+                oTurn.css('visibility', 'hidden')
+                xTurn.css('visibility', 'unset')
+            }
+            if(youWon(tl,tc,tr)){
+                alert('you won!')
+            }else if (youWon(cl,cc,cr)){
+
+            }else if (youWon(bl,bc,br)){
+
+            }else if (youWon(tl,cl,cl)){
+
+            }else if (youWon(tc,cc,bc)){
+
+            }else if (youWon(tr,cr,br)){
+
+            }else if (youWon(tl,cc,br)){
+
+            }else if (youWon(bl,cc,tr)){
+
+            }
+        })
+    var squareArray = ['tl','tc','tr','cl','cc','cr','bl','bc','br']
+    var tl = $('#top-left')
+        tl.click(function(){
+            if(count % 2 !== 0) {
+                tl.html('X')
+            } else {
+                tl.html('O')
+            }
+        })
+    var tc = $('#top-center')
+        tc.click(function(){
+            if(count % 2 !== 0) {
+                tc.html('X')
+            } else {
+                tc.html('O')
+            }
+        })
+    var tr = $('#top-right')
+        tr.click(function(){
+            if(count % 2 !== 0) {
+                tr.html('X')
+            } else {
+                tr.html('O')
+            }
+        })
+    var cl = $('#center-left')
+        cl.click(function(){
+            if(count % 2 !== 0) {
+                cl.html('X')
+            } else {
+                cl.html('O')
+            }
+        })
+    var cc = $('#center-center')
+        cc.click(function(){
+            if(count % 2 !== 0) {
+                cc.html('X')
+            } else {
+                cc.html('O')
+            }
+        })
+    var cr = $('#center-right')
+        cr.click(function(){
+            if(count % 2 !== 0) {
+                cr.html('X')
+            } else {
+                cr.html('O')
+            }
+        })
+    var bl = $('#bottom-left')
+        bl.click(function(){
+            if(count % 2 !== 0) {
+                bl.html('X')
+            } else {
+                bl.html('O')
+            }
+        })
+    var bc = $('#bottom-center')
+        bc.click(function(){
+            if(count % 2 !== 0) {
+                bc.html('X')
+            } else {
+                bc.html('O')
+            }
+        })
+    var br = $('#bottom-right')
+        br.click(function(){
+            if(count % 2 !== 0) {
+                br.html('X')
+            } else {
+                br.html('O')
+            }
+        })
+    var oTurn = $('.o-side')
+    var xTurn = $('.x-side')
+    var reset = $('#reset')
+        reset.click(function(){
+            squares.html('');
+            count = 0;
+        })
+
+    function youWon(a, b, c){
+        if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
+            return a.html() === b.html() && b.html() === c.html()
+        }
+    }
+
+    })
+</script>
+</body>
+</html>

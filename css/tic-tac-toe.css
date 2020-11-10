@@ -1,0 +1,37 @@
+.container-top  {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+}
+.game-box {
+    box-sizing: border-box;
+    display: flex;
+    width: 308px;
+    height: 308px;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    margin: 20px
+}
+.squares {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 68px;
+}
+.x-side {
+    margin: 20px;
+}
+.o-side {
+    margin: 20px;
+    visibility: hidden;
+}
+.container-bottom {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

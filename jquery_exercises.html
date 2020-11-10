@@ -8,11 +8,61 @@
     <title>jQuery</title>
 </head>
 <body>
-<script src="js/jquery-2.2.4.js" type="text/javascript"></script>
+    <header>
+        <h1 id="main-title">jQuery Selectors Exercise</h1>
+    </header>
+
+    <main>
+
+        <p id="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt eum fuga laboriosam, maiores quidem quis quo voluptate. Ab aliquam dolores et eveniet id laudantium sed suscipit tenetur totam voluptates.</p>
+l
+        <div class="codeup">
+            <h2 id="list-title">List of Games</h2>
+            <ul class="codeup">
+                <li>Journey to the Savage Planet</li>
+                <li>Spiritfarer</li>
+                <li>Human Fall Flat</li>
+                <li>Ark</li>
+            </ul>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
 <script>
     $(document).ready(function(){
         "use strict";
-        alert('The DOM has finished loading');
+        // alert('The DOM has finished loading');
+        // var title = $('#list-title')
+        // alert(title.html())
+        // var codeup = $(".codeup")
+        // codeup.css('border', '1px solid red')
+        var lis = $('li');
+        lis.css('font-size', '20px')
+        var elements = $('h1, p, li')
+        elements.css('background', 'yellow')
+        var h1 = $('h1')
+        alert(h1.html())
+
+
+
+
+
+
+
+
+
+
+
+
     });
 </script>
 </body>
