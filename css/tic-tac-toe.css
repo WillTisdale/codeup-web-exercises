@@ -4,6 +4,7 @@
 }
 h1 {
     text-align: center;
+    font-size: 40px;
 }
 .game-box {
     box-sizing: border-box;
@@ -25,6 +26,7 @@ h1 {
 }
 .x-side {
     margin: 20px;
+    visibility: hidden;
 }
 .o-side {
     margin: 20px;
@@ -32,6 +34,7 @@ h1 {
 }
 .container-bottom {
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    width: 308px;
 }

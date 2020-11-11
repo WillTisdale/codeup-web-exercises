@@ -36,7 +36,11 @@
 
     <div class="container-bottom">
 
+        <button class="button" id="one-player">One Player</button>
+
         <button class="button" id="reset">Start Over</button>
+
+        <button class="button" id="two-player">Two Player</button>
 
     </div>
 
@@ -45,123 +49,445 @@
 <script src="js/jquery-2.2.4.js"></script>
 <script>
     $(document).ready(function(){
-    var count = 0;
-    var squares = $('.squares')
-        squares.click(function(){
-            count += 1
-            if(count % 2 !== 0){
-                xTurn.css('visibility', 'hidden')
-                oTurn.css('visibility', 'unset')
-            } else {
-                oTurn.css('visibility', 'hidden')
-                xTurn.css('visibility', 'unset')
-            }
-            if(youWon(tl,tc,tr)){
-                alert('you won!')
-            }else if (youWon(cl,cc,cr)){
 
-            }else if (youWon(bl,bc,br)){
+        //VARIABLES
+        var count = 0;
+        var squares = $('.squares');
+        var tl = $('#top-left');
+        var tc = $('#top-center');
+        var tr = $('#top-right');
+        var cl = $('#center-left');
+        var cc = $('#center-center');
+        var cr = $('#center-right');
+        var bl = $('#bottom-left');
+        var bc = $('#bottom-center');
+        var br = $('#bottom-right');
+        var squareArray = [tl,tc,tr,cl,cc,cr,bl,bc,br];
+        var oTurn = $('.o-side');
+        var xTurn = $('.x-side');
+        var reset = $('#reset');
+        var twoPlayer = $('#two-player');
+        var onePlayer = $('#one-player')
 
-            }else if (youWon(tl,cl,cl)){
+        //^^^^VARIABLES^^^^
 
-            }else if (youWon(tc,cc,bc)){
-
-            }else if (youWon(tr,cr,br)){
-
-            }else if (youWon(tl,cc,br)){
-
-            }else if (youWon(bl,cc,tr)){
-
+        //DEFINED FUNCTIONS
+        function youWon(a, b, c){
+            if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
+                if (a.html() === 'X' && b.html() === 'X' && c.html() === 'X'){
+                    a.css('color', 'yellow')
+                    a.css('background', 'blue')
+                    b.css('color', 'yellow')
+                    b.css('background', 'blue')
+                    c.css('color', 'yellow')
+                    c.css('background', 'blue')
+                    xTurn.html('X PLAYER WON!!!')
+                    oTurn.html('O PLAYER WON!!!')
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                    squareArray.forEach(function(square){
+                        if(square.html() === ''){
+                            square.html('Z')
+                            square.css('color', 'white')
+                        }
+                    })
+                } else if (a.html() === 'O' && b.html() === 'O' && c.html() === 'O'){
+                    a.css('color', 'yellow')
+                    a.css('background', 'blue')
+                    b.css('color', 'yellow')
+                    b.css('background', 'blue')
+                    c.css('color', 'yellow')
+                    c.css('background', 'blue')
+                    oTurn.html('O PLAYER WON!!!')
+                    xTurn.html('X PLAYER WON!!!')
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                    squareArray.forEach(function(square){
+                        if(square.html() === ''){
+                            square.html('Z')
+                            square.css('color', 'white')
+                        }
+                    })
+                }
             }
-        })
-    var squareArray = ['tl','tc','tr','cl','cc','cr','bl','bc','br']
-    var tl = $('#top-left')
-        tl.click(function(){
-            if(count % 2 !== 0) {
-                tl.html('X')
-            } else {
-                tl.html('O')
-            }
-        })
-    var tc = $('#top-center')
-        tc.click(function(){
-            if(count % 2 !== 0) {
-                tc.html('X')
-            } else {
-                tc.html('O')
-            }
-        })
-    var tr = $('#top-right')
-        tr.click(function(){
-            if(count % 2 !== 0) {
-                tr.html('X')
-            } else {
-                tr.html('O')
-            }
-        })
-    var cl = $('#center-left')
-        cl.click(function(){
-            if(count % 2 !== 0) {
-                cl.html('X')
-            } else {
-                cl.html('O')
-            }
-        })
-    var cc = $('#center-center')
-        cc.click(function(){
-            if(count % 2 !== 0) {
-                cc.html('X')
-            } else {
-                cc.html('O')
-            }
-        })
-    var cr = $('#center-right')
-        cr.click(function(){
-            if(count % 2 !== 0) {
-                cr.html('X')
-            } else {
-                cr.html('O')
-            }
-        })
-    var bl = $('#bottom-left')
-        bl.click(function(){
-            if(count % 2 !== 0) {
-                bl.html('X')
-            } else {
-                bl.html('O')
-            }
-        })
-    var bc = $('#bottom-center')
-        bc.click(function(){
-            if(count % 2 !== 0) {
-                bc.html('X')
-            } else {
-                bc.html('O')
-            }
-        })
-    var br = $('#bottom-right')
-        br.click(function(){
-            if(count % 2 !== 0) {
-                br.html('X')
-            } else {
-                br.html('O')
-            }
-        })
-    var oTurn = $('.o-side')
-    var xTurn = $('.x-side')
-    var reset = $('#reset')
-        reset.click(function(){
-            squares.html('');
-            count = 0;
-        })
-
-    function youWon(a, b, c){
-        if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
-            return a.html() === b.html() && b.html() === c.html()
         }
-    }
 
-    })
+        function startOver(){
+            location.reload();
+            // squares.html('');
+            // squares.css('color', 'black')
+            // squares.css('background', 'white')
+            // xTurn.html('X Players Turn')
+            // oTurn.html('O Players Turn')
+            // oTurn.css('visibility', 'hidden');
+            // xTurn.css('visibility', 'unset');
+            // count = 0;
+        }
+
+        function computer(array){
+               for(var i = 0; i < array; i++) {
+                    if(array[i].html() === ''){
+                        array[i].html('O')
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                        youWon(tl, tc, tr);
+                        youWon(cl, cc, cr);
+                        youWon(bl, bc, br);
+                        youWon(tl, cl, bl);
+                        youWon(tc, cc, bc);
+                        youWon(tr, cr, br);
+                        youWon(bl, cc, tr);
+                        youWon(tl, cc, br);
+                        return array[i]
+                    }
+                }
+        }
+        //^^^^DEFINED FUNCTIONS^^^^
+
+        // squareArray.forEach(function(square){
+        //     square.click(function(){
+        //         square.html('Z')
+        //     })
+        // })
+
+        onePlayer.click(function() {
+            console.log(count);
+            xTurn.css('visibility', 'unset')
+            squares.click(function(){
+                var randomNumber = Math.floor(Math.random() * 10)
+                if(count % 2 === 0){
+                    tl.click(function () {
+                        if (tl.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            tl.html('X');
+                            youWon(tl, tc, tr);
+                            youWon(tl, cl, bl);
+                            youWon(tl, cc, br);
+                        }
+                    })
+                    tc.click(function () {
+                        if (tc.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            tc.html('X');
+                            youWon(tl, tc, tr);
+                            youWon(tc, cc, bc);
+                        }
+                    })
+                    tr.click(function () {
+                        if (tr.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            tr.html('X');
+                            youWon(tl, tc, tr);
+                            youWon(tr, cr, br);
+                            youWon(bl, cc, tr);
+                        }
+                    })
+                    cl.click(function () {
+                        if (cl.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            cl.html('X');
+                            youWon(cl, cc, cr);
+                            youWon(tl, cl, bl);
+                        }
+                    })
+                    cc.click(function () {
+                        if (cc.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            cc.html('X');
+                            youWon(cl, cc, cr);
+                            youWon(tc, cc, bc);
+                            youWon(tl, cc, br);
+                            youWon(bl, cc, tr);
+                        }
+                    })
+                    cr.click(function () {
+                        if (cr.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            cr.html('X');
+                            youWon(cl, cc, cr);
+                            youWon(tr, cr, br);
+                        }
+                    })
+                    bl.click(function () {
+                        if (bl.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            bl.html('X');
+                            youWon(bl, bc, br);
+                            youWon(tl, cl, bl);
+                            youWon(bl, cc, tr);
+                        }
+                    })
+                    bc.click(function () {
+                        if (bc.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            bc.html('X');
+                            youWon(bl, bc, br);
+                            youWon(tc, cc, bc);
+                        }
+                    })
+                    br.click(function () {
+                        if (br.html() === '') {
+                            count += 1
+                            xTurn.css('visibility', 'hidden');
+                            oTurn.css('visibility', 'unset');
+                            br.html('X');
+                            youWon(bl, bc, br);
+                            youWon(tr, cr, br);
+                            youWon(tl, cc, br);
+                        }
+                    })
+                } else {
+                    count += 1
+                    squareArray[randomNumber].html('O')
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                    youWon(tl, tc, tr);
+                    youWon(cl, cc, cr);
+                    youWon(bl, bc, br);
+                    youWon(tl, cl, bl);
+                    youWon(tc, cc, bc);
+                    youWon(tr, cr, br);
+                    youWon(bl, cc, tr);
+                    youWon(tl, cc, br);
+                    console.log('computers turn');
+                }
+            })
+            reset.click(startOver);
+        })
+
+        //TWO PLAYER
+        twoPlayer.click(function(){
+            console.log(count);
+            xTurn.css('visibility', 'unset')
+            tl.click(function () {
+                if (tl.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        tl.html('X');
+                        youWon(tl, tc, tr);
+                        youWon(tl, cl, bl);
+                        youWon(tl, cc, br);
+                    } else {
+                        tl.html('O');
+                        youWon(tl, tc, tr);
+                        youWon(tl, cl, bl);
+                        youWon(tl, cc, br);
+                    }
+                }
+            })
+            tc.click(function () {
+                if (tc.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        tc.html('X');
+                        youWon(tl, tc, tr);
+                        youWon(tc, cc, bc);
+                    } else {
+                        tc.html('O');
+                        youWon(tl, tc, tr);
+                        youWon(tc, cc, bc);
+                    }
+                }
+            })
+            tr.click(function () {
+                if (tr.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        tr.html('X');
+                        youWon(tl, tc, tr);
+                        youWon(tr, cr, br);
+                        youWon(bl, cc, tr);
+                    } else {
+                        tr.html('O');
+                        youWon(tl, tc, tr);
+                        youWon(tr, cr, br);
+                        youWon(bl, cc, tr);
+                    }
+                }
+            })
+            cl.click(function () {
+                if (cl.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        cl.html('X');
+                        youWon(cl, cc, cr);
+                        youWon(tl, cl, bl);
+                    } else {
+                        cl.html('O');
+                        youWon(cl, cc, cr);
+                        youWon(tl, cl, bl);
+                    }
+                }
+            })
+            cc.click(function () {
+                if (cc.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        cc.html('X');
+                        youWon(cl, cc, cr);
+                        youWon(tc, cc, bc);
+                        youWon(tl, cc, br);
+                        youWon(bl, cc, tr);
+                    } else {
+                        cc.html('O');
+                        youWon(cl, cc, cr);
+                        youWon(tc, cc, bc);
+                        youWon(tl, cc, br);
+                        youWon(bl, cc, tr);
+                    }
+                }
+            })
+            cr.click(function () {
+                if (cr.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        cr.html('X');
+                        youWon(cl, cc, cr);
+                        youWon(tr, cr, br);
+                    } else {
+                        cr.html('O');
+                        youWon(cl, cc, cr);
+                        youWon(tr, cr, br);
+                    }
+                }
+            })
+            bl.click(function () {
+                if (bl.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        bl.html('X');
+                        youWon(bl, bc, br);
+                        youWon(tl, cl, bl);
+                        youWon(bl, cc, tr);
+                    } else {
+                        bl.html('O');
+                        youWon(bl, bc, br);
+                        youWon(tl, cl, bl);
+                        youWon(bl, cc, tr);
+                    }
+                }
+            })
+            bc.click(function () {
+                if (bc.html() === '') {
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        bc.html('X')
+                        youWon(bl, bc, br);
+                        youWon(tc, cc, bc);
+                    } else {
+                        bc.html('O')
+                        youWon(bl, bc, br);
+                        youWon(tc, cc, bc);
+                    }
+                }
+            })
+            br.click(function () {
+                if (br.html() === '') {
+                    if (xTurn.html() === 'X PLAYER WON!!!') {
+                        startOver();
+                    }
+                    count += 1
+                    if (count % 2 !== 0) {
+                        xTurn.css('visibility', 'hidden');
+                        oTurn.css('visibility', 'unset');
+                    } else {
+                        oTurn.css('visibility', 'hidden');
+                        xTurn.css('visibility', 'unset');
+                    }
+                    if (count % 2 !== 0) {
+                        br.html('X')
+                        youWon(bl, bc, br);
+                        youWon(tr, cr, br);
+                        youWon(tl, cc, br);
+                    } else {
+                        br.html('O')
+                        youWon(bl, bc, br);
+                        youWon(tr, cr, br);
+                        youWon(tl, cc, br);
+                    }
+                }
+
+            })
+            reset.click(startOver);
+        })
+        //^^^^TWO PLAYER^^^^
+
+
+
+
+    });
 </script>
 </body>
 </html>
