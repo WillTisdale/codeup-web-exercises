@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/konami.css">
+</head>
+<body>
+<h1>Konami Code</h1>
+
+
+<h2 id="start">---PRESS START---</h2>
+
+<audio id="coin" src="sound/retro-coin.wav" type="audio/mpeg"></audio>
+<audio id="cash" src="sound/cash-register.wav" type="audio/mpeg"></audio>
+<audio id="game-over" src="sound/gameover.wav" type="audio/mpeg"></audio>
+<audio id="wrong" src="sound/wrong.mp3" type="audio/mpeg"></audio>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+
+    var close = $('#close')
+    close.click(function(){
+        modalOne.css("display", 'none')
+    })
+    var start = $('#start')
+    start.click(function(){
+        $('body').css('background', "url('img/gradiustwo.jpg') no-repeat")
+        $('body').css('color', "red")
+        start.prop('disabled', true)
+        start.html('You have 3 lives')
+        $('h1').html('Loading...')
+        $('h1').css('color', "red")
+        $('h1').css('margin', "0")
+        start.css('color', "red")
+        start.css('margin-bottom', "-150px")
+    })
+    var modalOne = $('#modalOne')
+    var coin = document.getElementById('coin')
+    var cash = document.getElementById('cash')
+    var gameOver = document.getElementById('game-over')
+    var wrong = document.getElementById('wrong')
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var konamiCodeIndex = 0;
+    var cheatCount = 0
+    console.log(gameOver);
+
+    $(document).keydown(function(e) {
+        var input = e.keyCode;
+        var requiredInput = konamiCode[konamiCodeIndex];
+        if (input === requiredInput) {
+            coin.play()
+            konamiCodeIndex++;
+            if (konamiCodeIndex === konamiCode.length) {
+                konamiCodeIndex = 0;
+                if (cheatCount === 0){
+                    cash.play()
+                    cheatCount += 1
+                    start.html('YOU HAVE 30 LIVES!!!')
+                    start.css('background', 'lightblue')
+                } else if (cheatCount === 1){
+                    cheatOne();
+                }
+            }
+        } else {
+            wrong.play()
+            konamiCodeIndex = 0;
+        }
+    });
+
+    function cheatOne() {
+        $('body').css('background', "url('img/konami.png') no-repeat")
+        $('body').css('background-color', "yellow")
+        $('h1').css('font-size', '80px')
+        $('h1').css('color', 'black')
+        $('h1').html("Now you're just being GREEDY")
+        start.html("GAME OVER")
+        start.css('background-color', "yellow")
+        gameOver.play()
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

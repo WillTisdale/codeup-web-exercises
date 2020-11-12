@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TIC TAC TOE</title>
     <link rel="stylesheet" href="css/tic-tac-toe.css">
 </head>
 <body>
@@ -44,6 +44,34 @@
 
     </div>
 
+    <div class="score">
+
+        <div class='score-board' id="x-score">
+
+            <div class="score-title">X GAMES WON</div>
+
+            <div class="x-points-display">0</div>
+
+        </div>
+
+        <div class='score-board' id="draw-score">
+
+            <div class="score-title">DRAW GAMES</div>
+
+            <div class="draw-points-display">0</div>
+
+        </div>
+
+        <div class='score-board' id="o-score">
+
+            <div class="score-title">O GAMES WON</div>
+
+            <div class="o-points-display">0</div>
+
+        </div>
+
+    </div>
+
 
 
 <script src="js/jquery-2.2.4.js"></script>
@@ -69,7 +97,21 @@
         var reset = $('#reset');
         var twoPlayer = $('#two-player');
         var onePlayer = $('#one-player')
-        var playedSquares = [];
+        var xScore = $('.x-points-display')
+        var drawScore = $('.draw-points-display')
+        var oScore = $('.o-points-display')
+        console.log(typeof xPoints);
+        if(typeof xPoints === 'undefined'){
+            var xPoints = 0;
+            localStorage.setItem('xScore',xPoints)
+        } else {
+            var xPoints = localStorage.getItem('xScore')
+            xPoints = Number(xPoints)
+        }
+        console.log(typeof xPoints);
+        var drawPoints = 0
+        var oPoints = 0
+
         //^^^^VARIABLES^^^^
 
         //DEFINED FUNCTIONS
@@ -96,64 +138,127 @@
                 $(this).html('X');
                 checkForWin()
                 aiLogic()
-                checkForWin()
             }
         }
 
-
-
         function aiLogic() {
             count += 1
-            if(tl.html() === 'X' && tc.html() === 'X' && tr.html() !== 'O'){
+            if(tl.html() === 'O' && tc.html() === 'O' && tr.html() === ''){
                 oPlayer(tr)
-            } else if (tl.html() === 'X' && tr.html() === 'X' && tc.html() !== 'O'){
+            } else if (tl.html() === 'O' && tr.html() === 'O' && tc.html() === ''){
                 oPlayer(tc)
-           } else if (tc.html() === 'X' && tr.html() === 'X' && tl.html() !== 'O'){
+            } else if (tc.html() === 'O' && tr.html() === 'O' && tl.html() === ''){
                 oPlayer(tl)
-            } else if (cl.html() === 'X' && cc.html() === 'X' && cr.html() !== 'O'){
+            } else if (cl.html() === 'O' && cc.html() === 'O' && cr.html() === ''){
                 oPlayer(cr)
-            } else if (cl.html() === 'X' && cr.html() === 'X' && cc.html() !== 'O'){
+            } else if (cl.html() === 'O' && cr.html() === 'O' && cc.html() === ''){
                 oPlayer(cc)
-            } else if (cc.html() === 'X' && cr.html() === 'X' && cl.html() !== 'O'){
+            } else if (cc.html() === 'O' && cr.html() === 'O' && cl.html() === ''){
                 oPlayer(cl)
-            } else if (bl.html() === 'X' && bc.html() === 'X' && br.html() !== 'O'){
+            } else if (bl.html() === 'O' && bc.html() === 'O' && br.html() === ''){
                 oPlayer(br)
-            } else if (bl.html() === 'X' && br.html() === 'X' && bc.html() !== 'O'){
+            } else if (bl.html() === 'O' && br.html() === 'O' && bc.html() === ''){
                 oPlayer(bc)
-            } else if (bc.html() === 'X' && br.html() === 'X' && bl.html() !== 'O'){
+            } else if (bc.html() === 'O' && br.html() === 'O' && bl.html() === ''){
                 oPlayer(bl)
-            } else if (tl.html() === 'X' && cl.html() === 'X' && bl.html() !== 'O'){
+            } else if (tl.html() === 'O' && cl.html() === 'O' && bl.html() === ''){
                 oPlayer(bl)
-            } else if (tl.html() === 'X' && bl.html() === 'X' && cl.html() !== 'O'){
+            } else if (tl.html() === 'O' && bl.html() === 'O' && cl.html() === ''){
                 oPlayer(cl)
-            } else if (cl.html() === 'X' && bl.html() === 'X' && tl.html() !== 'O'){
+            } else if (cl.html() === 'O' && bl.html() === 'O' && tl.html() === ''){
                 oPlayer(tl)
-            } else if (tc.html() === 'X' && cc.html() === 'X' && bc.html() !== 'O'){
+            } else if (tc.html() === 'O' && cc.html() === 'O' && bc.html() === ''){
                 oPlayer(bc)
-            } else if (tc.html() === 'X' && bc.html() === 'X' && cc.html() !== 'O'){
+            } else if (tc.html() === 'O' && bc.html() === 'O' && cc.html() === ''){
                 oPlayer(cc)
-            } else if (cc.html() === 'X' && bc.html() === 'X' && tc.html() !== 'O'){
+            } else if (cc.html() === 'O' && bc.html() === 'O' && tc.html() === ''){
                 oPlayer(tc)
-            } else if (tr.html() === 'X' && cr.html() === 'X' && br.html() !== 'O'){
+            } else if (tr.html() === 'O' && cr.html() === 'O' && br.html() === ''){
                 oPlayer(br)
-            } else if (tr.html() === 'X' && br.html() === 'X' && cr.html() !== 'O'){
+            } else if (tr.html() === 'O' && br.html() === 'O' && cr.html() === ''){
                 oPlayer(cr)
-            } else if (cr.html() === 'X' && br.html() === 'X' && tr.html() !== 'O'){
+            } else if (cr.html() === 'O' && br.html() === 'O' && tr.html() === ''){
                 oPlayer(tr)
-            } else if (tl.html() === 'X' && cc.html() === 'X' && br.html() !== 'O'){
+            } else if (tl.html() === 'O' && cc.html() === 'O' && br.html() === ''){
                 oPlayer(br)
-            } else if (tl.html() === 'X' && br.html() === 'X' && cc.html() !== 'O'){
+            } else if (tl.html() === 'O' && br.html() === 'X' && cc.html() === ''){
                 oPlayer(cc)
-            } else if (cc.html() === 'X' && br.html() === 'X' && tl.html() !== 'O'){
+            } else if (cc.html() === 'O' && br.html() === 'O' && tl.html() === ''){
                 oPlayer(tl)
-            } else if (tr.html() === 'X' && cc.html() === 'X' && bl.html() !== 'O'){
+            } else if (tr.html() === 'O' && cc.html() === 'O' && bl.html() === ''){
                 oPlayer(bl)
-            } else if (tr.html() === 'X' && bl.html() === 'X' && cc.html() !== 'O'){
+            } else if (tr.html() === 'O' && bl.html() === 'O' && cc.html() === ''){
                 oPlayer(cc)
-            } else if (cc.html() === 'X' && bl.html() === 'X' && tr.html() !== 'O'){
+            } else if (cc.html() === 'O' && bl.html() === 'O' && tr.html() === ''){
+                oPlayer(tr)
+            } else if(tl.html() === 'X' && tc.html() === 'X' && tr.html() === ''){
+                oPlayer(tr)
+            } else if (tl.html() === 'X' && tr.html() === 'X' && tc.html() === ''){
+                oPlayer(tc)
+            } else if (tc.html() === 'X' && tr.html() === 'X' && tl.html() === ''){
+                oPlayer(tl)
+            } else if (cl.html() === 'X' && cc.html() === 'X' && cr.html() === ''){
+                oPlayer(cr)
+            } else if (cl.html() === 'X' && cr.html() === 'X' && cc.html() === ''){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && cr.html() === 'X' && cl.html() === ''){
+                oPlayer(cl)
+            } else if (bl.html() === 'X' && bc.html() === 'X' && br.html() === ''){
+                oPlayer(br)
+            } else if (bl.html() === 'X' && br.html() === 'X' && bc.html() === ''){
+                oPlayer(bc)
+            } else if (bc.html() === 'X' && br.html() === 'X' && bl.html() === ''){
+                oPlayer(bl)
+            } else if (tl.html() === 'X' && cl.html() === 'X' && bl.html() === ''){
+                oPlayer(bl)
+            } else if (tl.html() === 'X' && bl.html() === 'X' && cl.html() === ''){
+                oPlayer(cl)
+            } else if (cl.html() === 'X' && bl.html() === 'X' && tl.html() === ''){
+                oPlayer(tl)
+            } else if (tc.html() === 'X' && cc.html() === 'X' && bc.html() === ''){
+                oPlayer(bc)
+            } else if (tc.html() === 'X' && bc.html() === 'X' && cc.html() === ''){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && bc.html() === 'X' && tc.html() === ''){
+                oPlayer(tc)
+            } else if (tr.html() === 'X' && cr.html() === 'X' && br.html() === ''){
+                oPlayer(br)
+            } else if (tr.html() === 'X' && br.html() === 'X' && cr.html() === ''){
+                oPlayer(cr)
+            } else if (cr.html() === 'X' && br.html() === 'X' && tr.html() === ''){
+                oPlayer(tr)
+            } else if (tl.html() === 'X' && cc.html() === 'X' && br.html() === ''){
+                oPlayer(br)
+            } else if (tl.html() === 'X' && br.html() === 'X' && cc.html() === ''){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && br.html() === 'X' && tl.html() === ''){
+                oPlayer(tl)
+            } else if (tr.html() === 'X' && cc.html() === 'X' && bl.html() === ''){
+                oPlayer(bl)
+            } else if (tr.html() === 'X' && bl.html() === 'X' && cc.html() === ''){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && bl.html() === 'X' && tr.html() === ''){
                 oPlayer(tr)
             } else if(cc.html() === ''){
                 oPlayer(cc)
+            } else if(cc.html() === 'X') {
+                if (tl.html() === ''){
+                    oPlayer(tl)
+                } else if (tr.html() === ''){
+                    oPlayer(tr)
+                } else if (br.html() === ''){
+                    oPlayer(br)
+                } else if (bl.html() === ''){
+                    oPlayer(bl)
+                }
+            } else if (tc.html() === ''){
+                oPlayer(tc)
+            } else if (cr.html() === ''){
+                oPlayer(cr)
+            } else if (bc.html() === ''){
+                oPlayer(bc)
+            } else if (cl.html() === ''){
+                oPlayer(cl)
             } else if (tl.html() === ''){
                 oPlayer(tl)
             } else if (tr.html() === ''){
@@ -162,14 +267,6 @@
                 oPlayer(br)
             } else if (bl.html() === ''){
                 oPlayer(bl)
-            } else if (tc.html() === ''){
-                oPlayer(tc)
-            } else if (tc.html() === ''){
-                oPlayer(tc)
-            } else if (tc.html() === ''){
-                oPlayer(tc)
-            } else if (tc.html() === ''){
-                oPlayer(tc)
             }
         }
 
@@ -183,6 +280,8 @@
         function youWon(a, b, c){
             if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
                 if (a.html() === 'X' && b.html() === 'X' && c.html() === 'X'){
+                    xPoints += 1
+                    xScore.html(xPoints)
                     a.css('color', 'yellow')
                     a.css('background', 'blue')
                     b.css('color', 'yellow')
@@ -200,6 +299,8 @@
                         }
                     })
                 } else if (a.html() === 'O' && b.html() === 'O' && c.html() === 'O'){
+                    oPoints += 1
+                    oScore.html(oPoints)
                     a.css('color', 'yellow')
                     a.css('background', 'blue')
                     b.css('color', 'yellow')
@@ -227,6 +328,8 @@
             xTurn.html("IT'S A DRAW!!")
             oTurn.css('visibility', 'unset');
             xTurn.css('visibility', 'unset');
+            drawPoints += 1
+            drawScore.html(drawPoints)
         }
 
         function checkForWin(){
@@ -244,7 +347,7 @@
         }
 
         function startOver(){
-            location.reload();
+            location.reload()
             // squares.html('');
             // squares.css('color', 'black')
             // squares.css('background', 'white')
@@ -254,27 +357,22 @@
             // xTurn.css('visibility', 'unset');
             // count = 0;
         }
-
         //^^^^DEFINED FUNCTIONS^^^^
-
-        // squareArray.forEach(function(square){
-        //     square.click(function(){
-        //         square.html('Z')
-        //     })
-        // })
 
         //ONE PLAYER MODE
         onePlayer.click(function() {
-            var playedSquaresArray = [];
             xTurn.css('visibility', 'unset')
             squares.click(squareClickedOne)
+            onePlayer.prop('disabled', true)
             reset.click(startOver);
         })
+        //^^^^ONE PLAYER^^^^
 
         //TWO PLAYER MODE
         twoPlayer.click(function(){
             xTurn.css('visibility', 'unset')
             squares.click(squareClickedTwo)
+            twoPlayer.prop('disabled', true)
             reset.click(startOver);
         })
         //^^^^TWO PLAYER^^^^

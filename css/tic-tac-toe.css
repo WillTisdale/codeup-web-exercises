@@ -1,3 +1,6 @@
+body {
+    min-width: 640px;
+}
 .container-top  {
     display: flex;
     justify-content: center;
@@ -36,5 +39,19 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     margin: 20px auto;
-    width: 308px;
+    width: 500px;
+}
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px auto;
+    width: 500px;
+}
+.score-board {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.score-title {
+    margin: 10px;
 }

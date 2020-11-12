@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    color: blue;
+    font-size: 100px;
+    margin: 100px
+}
+h2 {
+    text-align: center;
+    color: blue;
+    font-size: 48px;
+    margin-bottom: 100px
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 800px;
+    background: url("../img/gradius.jpg") no-repeat;
+    background-position: center;
+    background-color: black;
+    height: 800px;
+}
