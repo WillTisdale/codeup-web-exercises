@@ -69,6 +69,7 @@
         var reset = $('#reset');
         var twoPlayer = $('#two-player');
         var onePlayer = $('#one-player')
+        var playedSquares = [];
         //^^^^VARIABLES^^^^
 
         //DEFINED FUNCTIONS
@@ -89,80 +90,69 @@
             }
         }
 
-        function tlClickedOne() {
-            if (tl.html() === '') {
-                count += 1
-                if (count % 2 !== 0) {
-                    xTurn.css('visibility', 'hidden');
-                    oTurn.css('visibility', 'unset');
-                } else {
-                    oTurn.css('visibility', 'hidden');
-                    xTurn.css('visibility', 'unset');
-                }
-                tl.html('X');
+        function squareClickedOne(){
+            count += 1
+            if ($(this).html() === '') {
+                $(this).html('X');
                 checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
+                aiLogic()
+                checkForWin()
             }
         }
 
-        function tcClickedOne() {
-            if (tc.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                tc.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
 
-        function trClickedOne() {
-            if (tr.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                tr.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
 
-        function clClickedOne() {
-            if (cl.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                cl.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
+        function aiLogic() {
+            count += 1
+            if(tl.html() === 'X' && tc.html() === 'X' && tr.html() !== 'O'){
+                oPlayer(tr)
+            } else if (tl.html() === 'X' && tr.html() === 'X' && tc.html() !== 'O'){
+                oPlayer(tc)
+           } else if (tc.html() === 'X' && tr.html() === 'X' && tl.html() !== 'O'){
+                oPlayer(tl)
+            } else if (cl.html() === 'X' && cc.html() === 'X' && cr.html() !== 'O'){
+                oPlayer(cr)
+            } else if (cl.html() === 'X' && cr.html() === 'X' && cc.html() !== 'O'){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && cr.html() === 'X' && cl.html() !== 'O'){
+                oPlayer(cl)
+            } else if (bl.html() === 'X' && bc.html() === 'X' && br.html() !== 'O'){
+                oPlayer(br)
+            } else if (bl.html() === 'X' && br.html() === 'X' && bc.html() !== 'O'){
+                oPlayer(bc)
+            } else if (bc.html() === 'X' && br.html() === 'X' && bl.html() !== 'O'){
+                oPlayer(bl)
+            } else if (tl.html() === 'X' && cl.html() === 'X' && bl.html() !== 'O'){
+                oPlayer(bl)
+            } else if (tl.html() === 'X' && bl.html() === 'X' && cl.html() !== 'O'){
+                oPlayer(cl)
+            } else if (cl.html() === 'X' && bl.html() === 'X' && tl.html() !== 'O'){
+                oPlayer(tl)
+            } else if (tc.html() === 'X' && cc.html() === 'X' && bc.html() !== 'O'){
+                oPlayer(bc)
+            } else if (tc.html() === 'X' && bc.html() === 'X' && cc.html() !== 'O'){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && bc.html() === 'X' && tc.html() !== 'O'){
+                oPlayer(tc)
+            } else if (tr.html() === 'X' && cr.html() === 'X' && br.html() !== 'O'){
+                oPlayer(br)
+            } else if (tr.html() === 'X' && br.html() === 'X' && cr.html() !== 'O'){
+                oPlayer(cr)
+            } else if (cr.html() === 'X' && br.html() === 'X' && tr.html() !== 'O'){
+                oPlayer(tr)
+            } else if (tl.html() === 'X' && cc.html() === 'X' && br.html() !== 'O'){
+                oPlayer(br)
+            } else if (tl.html() === 'X' && br.html() === 'X' && cc.html() !== 'O'){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && br.html() === 'X' && tl.html() !== 'O'){
+                oPlayer(tl)
+            } else if (tr.html() === 'X' && cc.html() === 'X' && bl.html() !== 'O'){
+                oPlayer(bl)
+            } else if (tr.html() === 'X' && bl.html() === 'X' && cc.html() !== 'O'){
+                oPlayer(cc)
+            } else if (cc.html() === 'X' && bl.html() === 'X' && tr.html() !== 'O'){
+                oPlayer(tr)
+            } else if(cc.html() === ''){
                 oPlayer(cc)
             } else if (tl.html() === ''){
                 oPlayer(tl)
@@ -170,108 +160,16 @@
                 oPlayer(tr)
             } else if (br.html() === ''){
                 oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
-
-        function ccClickedOne() {
-            if (cc.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                cc.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
-
-        function crClickedOne() {
-            if (cr.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                cr.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
-
-        function blClickedOne() {
-            if (bl.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                bl.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
-
-        function bcClickedOne() {
-            if (bc.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                bc.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            }
-        }
-
-        function brClickedOne() {
-            if (br.html() === '') {
-                xTurn.css('visibility', 'hidden');
-                oTurn.css('visibility', 'unset');
-                br.html('X');
-                checkForWin()
-            }
-            if(cc.html() === ''){
-                oPlayer(cc)
-            } else if (tl.html() === ''){
-                oPlayer(tl)
-            } else if (tr.html() === ''){
-                oPlayer(tr)
-            } else if (br.html() === ''){
-                oPlayer(br)
-            } else if (br.html() === ''){
-                oPlayer(br)
+            } else if (bl.html() === ''){
+                oPlayer(bl)
+            } else if (tc.html() === ''){
+                oPlayer(tc)
+            } else if (tc.html() === ''){
+                oPlayer(tc)
+            } else if (tc.html() === ''){
+                oPlayer(tc)
+            } else if (tc.html() === ''){
+                oPlayer(tc)
             }
         }
 
@@ -322,6 +220,15 @@
             }
         }
 
+        function gameDraw(){
+            squares.css('color', 'yellow')
+            squares.css('background', 'blue')
+            oTurn.html("IT'S A DRAW!!")
+            xTurn.html("IT'S A DRAW!!")
+            oTurn.css('visibility', 'unset');
+            xTurn.css('visibility', 'unset');
+        }
+
         function checkForWin(){
             youWon(tl, tc, tr);
             youWon(cl, cc, cr);
@@ -331,6 +238,9 @@
             youWon(tr, cr, br);
             youWon(bl, cc, tr);
             youWon(tl, cc, br);
+            if(count >= 9 && xTurn.html() !== 'X PLAYER WON!!!'){
+                gameDraw()
+            }
         }
 
         function startOver(){
@@ -355,16 +265,9 @@
 
         //ONE PLAYER MODE
         onePlayer.click(function() {
+            var playedSquaresArray = [];
             xTurn.css('visibility', 'unset')
-            tl.click(tlClickedOne)
-            tc.click(tcClickedOne)
-            tr.click(trClickedOne)
-            cl.click(clClickedOne)
-            cc.click(ccClickedOne)
-            cr.click(crClickedOne)
-            bl.click(blClickedOne)
-            bc.click(bcClickedOne)
-            br.click(brClickedOne)
+            squares.click(squareClickedOne)
             reset.click(startOver);
         })
 
