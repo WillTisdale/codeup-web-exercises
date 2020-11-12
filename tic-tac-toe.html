@@ -72,6 +72,220 @@
         //^^^^VARIABLES^^^^
 
         //DEFINED FUNCTIONS
+        function tlClickedTwo() {
+            if (tl.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    tl.html('X');
+                    youWon(tl, tc, tr);
+                    youWon(tl, cl, bl);
+                    youWon(tl, cc, br);
+                } else {
+                    tl.html('O');
+                    youWon(tl, tc, tr);
+                    youWon(tl, cl, bl);
+                    youWon(tl, cc, br);
+                }
+            }
+        }
+
+        function tcClickedTwo() {
+            if (tc.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    tc.html('X');
+                    youWon(tl, tc, tr);
+                    youWon(tc, cc, bc);
+                } else {
+                    tc.html('O');
+                    youWon(tl, tc, tr);
+                    youWon(tc, cc, bc);
+                }
+            }
+        }
+
+        function trClickedTwo() {
+            if (tr.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    tr.html('X');
+                    youWon(tl, tc, tr);
+                    youWon(tr, cr, br);
+                    youWon(bl, cc, tr);
+                } else {
+                    tr.html('O');
+                    youWon(tl, tc, tr);
+                    youWon(tr, cr, br);
+                    youWon(bl, cc, tr);
+                }
+            }
+        }
+
+        function clClickedTwo() {
+            if (cl.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    cl.html('X');
+                    youWon(cl, cc, cr);
+                    youWon(tl, cl, bl);
+                } else {
+                    cl.html('O');
+                    youWon(cl, cc, cr);
+                    youWon(tl, cl, bl);
+                }
+            }
+        }
+
+        function ccClickedTwo() {
+            if (cc.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    cc.html('X');
+                    youWon(cl, cc, cr);
+                    youWon(tc, cc, bc);
+                    youWon(tl, cc, br);
+                    youWon(bl, cc, tr);
+                } else {
+                    cc.html('O');
+                    youWon(cl, cc, cr);
+                    youWon(tc, cc, bc);
+                    youWon(tl, cc, br);
+                    youWon(bl, cc, tr);
+                }
+            }
+        }
+
+        function crClickedTwo() {
+            if (cr.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    cr.html('X');
+                    youWon(cl, cc, cr);
+                    youWon(tr, cr, br);
+                } else {
+                    cr.html('O');
+                    youWon(cl, cc, cr);
+                    youWon(tr, cr, br);
+                }
+            }
+        }
+
+        function blClickedTwo() {
+            if (bl.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    bl.html('X');
+                    youWon(bl, bc, br);
+                    youWon(tl, cl, bl);
+                    youWon(bl, cc, tr);
+                } else {
+                    bl.html('O');
+                    youWon(bl, bc, br);
+                    youWon(tl, cl, bl);
+                    youWon(bl, cc, tr);
+                }
+            }
+        }
+
+        function bcClickedTwo() {
+            if (bc.html() === '') {
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    bc.html('X')
+                    youWon(bl, bc, br);
+                    youWon(tc, cc, bc);
+                } else {
+                    bc.html('O')
+                    youWon(bl, bc, br);
+                    youWon(tc, cc, bc);
+                }
+            }
+        }
+
+        function brClickedTwo() {
+            if (br.html() === '') {
+                if (xTurn.html() === 'X PLAYER WON!!!') {
+                    startOver();
+                }
+                count += 1
+                if (count % 2 !== 0) {
+                    xTurn.css('visibility', 'hidden');
+                    oTurn.css('visibility', 'unset');
+                } else {
+                    oTurn.css('visibility', 'hidden');
+                    xTurn.css('visibility', 'unset');
+                }
+                if (count % 2 !== 0) {
+                    br.html('X')
+                    youWon(bl, bc, br);
+                    youWon(tr, cr, br);
+                    youWon(tl, cc, br);
+                } else {
+                    br.html('O')
+                    youWon(bl, bc, br);
+                    youWon(tr, cr, br);
+                    youWon(tl, cc, br);
+                }
+            }
+
+        }
+
         function youWon(a, b, c){
             if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
                 if (a.html() === 'X' && b.html() === 'X' && c.html() === 'X'){
@@ -273,213 +487,16 @@
 
         //TWO PLAYER
         twoPlayer.click(function(){
-            console.log(count);
             xTurn.css('visibility', 'unset')
-            tl.click(function () {
-                if (tl.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        tl.html('X');
-                        youWon(tl, tc, tr);
-                        youWon(tl, cl, bl);
-                        youWon(tl, cc, br);
-                    } else {
-                        tl.html('O');
-                        youWon(tl, tc, tr);
-                        youWon(tl, cl, bl);
-                        youWon(tl, cc, br);
-                    }
-                }
-            })
-            tc.click(function () {
-                if (tc.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        tc.html('X');
-                        youWon(tl, tc, tr);
-                        youWon(tc, cc, bc);
-                    } else {
-                        tc.html('O');
-                        youWon(tl, tc, tr);
-                        youWon(tc, cc, bc);
-                    }
-                }
-            })
-            tr.click(function () {
-                if (tr.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        tr.html('X');
-                        youWon(tl, tc, tr);
-                        youWon(tr, cr, br);
-                        youWon(bl, cc, tr);
-                    } else {
-                        tr.html('O');
-                        youWon(tl, tc, tr);
-                        youWon(tr, cr, br);
-                        youWon(bl, cc, tr);
-                    }
-                }
-            })
-            cl.click(function () {
-                if (cl.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        cl.html('X');
-                        youWon(cl, cc, cr);
-                        youWon(tl, cl, bl);
-                    } else {
-                        cl.html('O');
-                        youWon(cl, cc, cr);
-                        youWon(tl, cl, bl);
-                    }
-                }
-            })
-            cc.click(function () {
-                if (cc.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        cc.html('X');
-                        youWon(cl, cc, cr);
-                        youWon(tc, cc, bc);
-                        youWon(tl, cc, br);
-                        youWon(bl, cc, tr);
-                    } else {
-                        cc.html('O');
-                        youWon(cl, cc, cr);
-                        youWon(tc, cc, bc);
-                        youWon(tl, cc, br);
-                        youWon(bl, cc, tr);
-                    }
-                }
-            })
-            cr.click(function () {
-                if (cr.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        cr.html('X');
-                        youWon(cl, cc, cr);
-                        youWon(tr, cr, br);
-                    } else {
-                        cr.html('O');
-                        youWon(cl, cc, cr);
-                        youWon(tr, cr, br);
-                    }
-                }
-            })
-            bl.click(function () {
-                if (bl.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        bl.html('X');
-                        youWon(bl, bc, br);
-                        youWon(tl, cl, bl);
-                        youWon(bl, cc, tr);
-                    } else {
-                        bl.html('O');
-                        youWon(bl, bc, br);
-                        youWon(tl, cl, bl);
-                        youWon(bl, cc, tr);
-                    }
-                }
-            })
-            bc.click(function () {
-                if (bc.html() === '') {
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        bc.html('X')
-                        youWon(bl, bc, br);
-                        youWon(tc, cc, bc);
-                    } else {
-                        bc.html('O')
-                        youWon(bl, bc, br);
-                        youWon(tc, cc, bc);
-                    }
-                }
-            })
-            br.click(function () {
-                if (br.html() === '') {
-                    if (xTurn.html() === 'X PLAYER WON!!!') {
-                        startOver();
-                    }
-                    count += 1
-                    if (count % 2 !== 0) {
-                        xTurn.css('visibility', 'hidden');
-                        oTurn.css('visibility', 'unset');
-                    } else {
-                        oTurn.css('visibility', 'hidden');
-                        xTurn.css('visibility', 'unset');
-                    }
-                    if (count % 2 !== 0) {
-                        br.html('X')
-                        youWon(bl, bc, br);
-                        youWon(tr, cr, br);
-                        youWon(tl, cc, br);
-                    } else {
-                        br.html('O')
-                        youWon(bl, bc, br);
-                        youWon(tr, cr, br);
-                        youWon(tl, cc, br);
-                    }
-                }
-
-            })
+            tl.click(tlClickedTwo)
+            tc.click(tcClickedTwo)
+            tr.click(trClickedTwo)
+            cl.click(clClickedTwo)
+            cc.click(ccClickedTwo)
+            cr.click(crClickedTwo)
+            bl.click(blClickedTwo)
+            bc.click(bcClickedTwo)
+            br.click(brClickedTwo)
             reset.click(startOver);
         })
         //^^^^TWO PLAYER^^^^
