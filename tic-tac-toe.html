@@ -44,33 +44,33 @@
 
     </div>
 
-    <div class="score">
+<!--    <div class="score">-->
 
-        <div class='score-board' id="x-score">
+<!--        <div class='score-board' id="x-score">-->
 
-            <div class="score-title">X GAMES WON</div>
+<!--            <div class="score-title">X GAMES WON</div>-->
 
-            <div class="x-points-display">0</div>
+<!--            <div class="x-points-display">0</div>-->
 
-        </div>
+<!--        </div>-->
 
-        <div class='score-board' id="draw-score">
+<!--        <div class='score-board' id="draw-score">-->
 
-            <div class="score-title">DRAW GAMES</div>
+<!--            <div class="score-title">DRAW GAMES</div>-->
 
-            <div class="draw-points-display">0</div>
+<!--            <div class="draw-points-display">0</div>-->
 
-        </div>
+<!--        </div>-->
 
-        <div class='score-board' id="o-score">
+<!--        <div class='score-board' id="o-score">-->
 
-            <div class="score-title">O GAMES WON</div>
+<!--            <div class="score-title">O GAMES WON</div>-->
 
-            <div class="o-points-display">0</div>
+<!--            <div class="o-points-display">0</div>-->
 
-        </div>
+<!--        </div>-->
 
-    </div>
+<!--    </div>-->
 
 
 
@@ -81,26 +81,25 @@
 
         //VARIABLES
         var count = 0;
-        var squares = $('.squares');
-        var tl = $('#top-left');
-        var tc = $('#top-center');
-        var tr = $('#top-right');
-        var cl = $('#center-left');
-        var cc = $('#center-center');
-        var cr = $('#center-right');
-        var bl = $('#bottom-left');
-        var bc = $('#bottom-center');
-        var br = $('#bottom-right');
-        var squareArray = [tl,tc,tr,cl,cc,cr,bl,bc,br];
-        var oTurn = $('.o-side');
-        var xTurn = $('.x-side');
-        var reset = $('#reset');
-        var twoPlayer = $('#two-player');
-        var onePlayer = $('#one-player')
-        var xScore = $('.x-points-display')
-        var drawScore = $('.draw-points-display')
-        var oScore = $('.o-points-display')
-        console.log(typeof xPoints);
+        const squares = $('.squares');
+        const tl = $('#top-left');
+        const tc = $('#top-center');
+        const tr = $('#top-right');
+        const cl = $('#center-left');
+        const cc = $('#center-center');
+        const cr = $('#center-right');
+        const bl = $('#bottom-left');
+        const bc = $('#bottom-center');
+        const br = $('#bottom-right');
+        const squareArray = [tl,tc,tr,cl,cc,cr,bl,bc,br];
+        const oTurn = $('.o-side');
+        const xTurn = $('.x-side');
+        const reset = $('#reset');
+        const twoPlayer = $('#two-player');
+        const onePlayer = $('#one-player')
+        const xScore = $('.x-points-display')
+        const drawScore = $('.draw-points-display')
+        const oScore = $('.o-points-display')
         if(typeof xPoints === 'undefined'){
             var xPoints = 0;
             localStorage.setItem('xScore',xPoints)
