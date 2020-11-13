@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SPACE!!</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            color: lawngreen;
+            background: black;
+        }
+        h1 {
+            text-align: center;
+        }
+        .one {
+            font-family: "Apple Chancery";
+            background: url("img/paper.jpg");
+            color: black;
+        }
+        .two {
+            font-family: Courier;
+            background: url("img/1900.jpg");
+            color: black;
+        }
+        .one {
+            font-family: "Apple Chancery";
+            background: url("img/paper.jpg");
+        }
+        .invisible {
+            visibility: hidden;
+        }
+        .highlighted {
+            background: yellow;
+        }
+        dt {
+            width: fit-content;
+        }
+        .exercise-one{
+            margin: 15px;
+        }
+        .exercise-two {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .list h3 {
+            text-align: center;
+        }
+        .buttons {
+            position: fixed;
+            margin: 5px auto 15px 350px;
+            width: 700px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .blue {
+            color: blue;
+        }
+        .bonus {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .none {
+            display: none;
+        }
+        .down {
+            margin-top: 50px;
+        }
+        .pad {
+            height: 50px;
+        }
+        img {
+            border: 5px solid orangered;
+            border-radius: 4px;
+            padding: 5px;
+            width: 300px;
+        }
+        .buttons-two {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+
+<div class="buttons">
+
+    <button id="year">Change Year to 1920</button>
+
+    <button id="hidden">Show Definitions</button>
+
+    <button id="change-last">Highlight Last List Item</button>
+
+    <button id="hide-e1">Hide Exercise One</button>
+
+    <p>YEAR: 2020</p>
+
+</div>
+
+<div class="exercise-one">
+
+    <h3 class="main-title">Celestial Objects: 2020</h3>
+
+    <dl>
+        <dt>Andromeda</dt>
+        <dd class="invisible">The Andromeda Galaxy, also known as Messier 31, M31, or NGC 224 and originally the Andromeda Nebula, is a barred spiral galaxy approximately 2.5 million light-years from Earth and the nearest major galaxy to the Milky Way.</dd>
+
+        <dt>Betelgeuse</dt>
+        <dd class="invisible">Betelgeuse is usually the tenth-brightest star in the night sky and, after Rigel, the second-brightest in the constellation of Orion. It is a distinctly reddish semiregular variable star whose apparent magnitude, varying between +0.0 and +1.6, has the widest range displayed by any first-magnitude star.</dd>
+
+        <dt>Ceres</dt>
+        <dd class="invisible">Ceres is the largest object in the main asteroid belt that lies between the orbits of Mars and Jupiter. With a diameter of 940 km, Ceres is both the largest of the asteroids and the only dwarf planet inside Neptune's orbit. It is the 25th-largest body in the Solar System within the orbit of Neptune.</dd>
+
+        <dt>Deimos</dt>
+        <dd class="invisible">Deimos is the smaller and outermost of the two natural satellites of Mars, the other being Phobos. Deimos has a mean radius of 6.2 km and takes 30.3 hours to orbit Mars. Deimos is 23,460 km from Mars, much further than Mars's other moon, Phobos.</dd>
+
+        <dt>Europa</dt>
+        <dd class="invisible">Europa, or Jupiter II, is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet of all the 79 known moons of Jupiter. It is also the sixth-largest moon in the Solar System.</dd>
+
+        <dt>Fortuna</dt>
+        <dd class="invisible">Fortuna (minor planet designation: 19 Fortuna) is one of the largest main-belt asteroids. It has a composition similar to 1 Ceres: a darkly colored surface that is heavily space-weathered with the composition of primitive organic compounds, including tholins.</dd>
+
+        <dt>Ganymede</dt>
+        <dd class="invisible">Ganymede, a satellite of Jupiter, is the largest and most massive of the Solar System's moons. The ninth-largest object in the Solar System, it is the largest without a substantial atmosphere. It has a diameter of 5,268 km, making it 26% larger than the planet Mercury by volume, although it is only 45% as massive.</dd>
+
+        <dt>Hyperion</dt>
+        <dd class="invisible">Hyperion, also known as Saturn VII, is a moon of Saturn discovered by William Cranch Bond, George Phillips Bond and William Lassell in 1848. It is distinguished by its irregular shape, its chaotic rotation, and its unexplained sponge-like appearance. It was the first non-round moon to be discovered.</dd>
+
+        <dt>Io</dt>
+        <dd class="invisible">Io, or Jupiter I, is the innermost and third-largest of the four Galilean moons of the planet Jupiter. It is the fourth-largest moon in the Solar System, has the highest density of all of them, and has the lowest amount of water of any known astronomical object in the Solar System.</dd>
+
+        <dt>Jupiter</dt>
+        <dd class="invisible"></dd>
+    </dl>
+
+</div>
+
+<div id="pad"></div>
+
+<div class="exercise-two">
+
+    <div class="list" id="list-one">
+        <h3 id="a">Andromeda</h3>
+        <ul id="ul-list-one">
+            <li>Originally known as the Andromeda Nebula</li>
+            <li>Is a barred spiral galaxy</li>
+            <li>Approximately 2.5 million light-years from Earth</li>
+            <li>The nearest major galaxy to the Milky Way</li>
+        </ul>
+    </div>
+
+    <div class="list" id="list-two">
+        <h3 id="e">Europa</h3>
+        <ul id="ul-list-two">
+            <li>Also referred to as Jupiter II</li>
+            <li>Is the smallest of the four Galilean moons orbiting Jupiter</li>
+            <li>The sixth-closest moon to the Jupiter</li>
+            <li>Also the sixth-largest moon in the Solar System</li>
+        </ul>
+    </div>
+
+    <div class="list" id="list-three">
+        <h3 id="j">Jupiter</h3>
+        <ul id="ul-list-three">
+            <li>Jupiter is the fifth planet from the Sun</li>
+            <li>The largest planet in the Solar System</li>
+            <li>Its mass is one-thousandth that of the Sun</li>
+            <li>Mass is two-and-a-half times that of all the other planets in the Solar System combined.</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="bonus">
+
+    <div class="picture-one frame">
+
+        <img id="image-one" src="img/animal1.jpg" alt="dog">
+
+    </div>
+
+    <div class="picture-two frame">
+
+        <img id="image-two" src="img/animal2.jpg" alt="dog">
+
+    </div>
+
+    <div class="picture-three frame">
+
+        <img id="image-three" src="img/animal4.jpg" alt="dog">
+
+    </div>
+
+</div>
+
+<div class="buttons-two">
+
+<button id="swap-one">Swap</button>
+
+<button id="swap-two">Swap</button>
+
+<button id="swap-three">Swap</button>
+
+</div>
+
+<audio id="typewriter" src="sound/typewriter.wav"></audio>
+<audio id="moo" src="sound/moo.wav"></audio>
+<audio id="jetsons" src="sound/jetsons.wav"></audio>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function(){
+        "use strict";
+    var count = 0;
+    var hidden = $('#hidden');
+    var typewriter = document.getElementById('typewriter')
+    var moo = document.getElementById('moo')
+    var jetsons = document.getElementById('jetsons')
+        var imageOne = $('#image-one')
+        var imageTwo = $('#image-two')
+        var imageThree = $('#image-three')
+
+    hidden.click(function(e){
+        $('dd').toggleClass('invisible')
+        if($('dd').hasClass('invisible')){
+            hidden.html('Show Definitions')
+        } else {
+            hidden.html('Hide Definitions')
+        }
+    })
+
+       $('dt').click(function(e){
+           $(this).toggleClass('highlighted')
+       })
+
+        $('#year').click(function(e){
+            if($('#year').html() === 'Change Year to 1920') {
+                typewriter.play()
+                $('body').addClass('two')
+                $('body').removeClass('one')
+                $('.main-title').html('Celestial Objects: 1920')
+                $('#year').html('Change Year to 1820')
+                $('p').html('YEAR: 1920')
+            } else if ($('#year').html() === 'Change Year to 1820'){
+                moo.play()
+                $('body').addClass('one')
+                $('body').removeClass('two')
+                $('.main-title').html('Celestial Objects: 1820')
+                $('#year').html('Change Year to 2020')
+                $('p').html('YEAR: 1820')
+            } else if ($('#year').html() === 'Change Year to 2020'){
+                jetsons.play()
+                $('body').removeClass('two')
+                $('body').removeClass('one')
+                $('.main-title').html('Celestial Objects: 2020')
+                $('#year').html('Change Year to 1920')
+                $('p').html('YEAR: 2020')
+            }
+        })
+
+        $('#change-last').click(function(e){
+            $('#ul-list-one').children().last().toggleClass('highlighted')
+            $('#ul-list-two').children().last().toggleClass('highlighted')
+            $('#ul-list-three').children().last().toggleClass('highlighted')
+        })
+
+        $('#a').click(function(e){
+            $('#ul-list-one').children().toggleClass('bold')
+        })
+        $('#e').click(function(e){
+            $('#ul-list-two').children().toggleClass('bold')
+        })
+        $('#j').click(function(e){
+            $('#ul-list-three').children().toggleClass('bold')
+        })
+        $('#ul-list-one').click(function(e){
+            $('#ul-list-one').children().first().toggleClass('blue')
+        })
+        $('#ul-list-two').click(function(e){
+            $('#ul-list-two').children().first().toggleClass('blue')
+        })
+        $('#ul-list-three').click(function(e){
+            $('#ul-list-three').children().first().toggleClass('blue')
+        })
+
+        $('#hide-e1').click(function(e){
+            count += 1
+            $('.exercise-one').toggleClass('none')
+            $('#pad').toggleClass('pad')
+            hidden.toggleClass('none')
+            if (count % 2 !== 0){
+                $('#hide-e1').html('Show Exercise One')
+            } else {
+                $('#hide-e1').html('Hide Exercise One')
+            }
+        })
+
+
+        $('#swap-one').click(function(e){
+            $('.picture-one').html(imageTwo)
+            $('.picture-two').html(imageOne)
+            imageOne = $('.picture-one').html()
+            imageTwo = $('.picture-two').html()
+        })
+
+        $('#swap-two').click(function(e){
+            var random = Math.floor(Math.random() * 2)
+            console.log(random);
+            if (random % 2 === 0){
+                $('.picture-one').html(imageTwo)
+                $('.picture-two').html(imageOne)
+                imageOne = $('.picture-one').html()
+                imageTwo = $('.picture-two').html()
+            } else {
+                $('.picture-three').html(imageTwo)
+                $('.picture-two').html(imageThree)
+                imageThree = $('.picture-three').html()
+                imageTwo = $('.picture-two').html()
+            }
+        })
+        $('#swap-three').click(function(e){
+            $('.picture-three').html(imageTwo)
+            $('.picture-two').html(imageThree)
+            imageThree = $('.picture-three').html()
+            imageTwo = $('.picture-two').html()
+        })
+
+    });
+</script>
+</body>
+</html>

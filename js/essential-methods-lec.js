@@ -36,10 +36,20 @@ $(document).ready(function() {
     console.log(gryffindor);
 
     // TODO TOGETHER: store the html of #main-heading in a variable named mainHeading
+
+    var mainHeading = $('#main-heading').html();
+
+    $('#main-heading').click(function(){
+        $(this).html('Hogwarts')
+    })
+
     // TODO: uncomment the line below
     // alert(mainHeading);
 
     // TODO TOGETHER: using the css method, grab the current width of the sorting hat img. Console log your results
+
+    var hat = $('img');
+    console.log(hat.css('width'));
 
     /************
      *   CSS
@@ -48,7 +58,15 @@ $(document).ready(function() {
     // TODO TOGETHER:  Using an event listener and css method, increase the font-size of 'Sorting Hat' when clicked.
     //    How can font size be changed using .html()?
 
+    $('#main-heading').click(function (){
+        $(this).css('font-size', '68px');
+    })
+
     // TODO: Using a css method, change the banner background-color to black
+
+    var banner = $('.banner');
+    banner.css('background', 'black')
+
     //  Hint: make sure you use the right selector
 
     /**********************
@@ -56,6 +74,12 @@ $(document).ready(function() {
      **********************/
 
     // TODO TOGETHER: When the 'Houses' button is clicked, add the class 'house' to anything with a class of 'house-name'
+
+    var houses = $('#highlight-houses')
+
+    houses.click(function(){
+        $('.house-name').toggleClass('house')
+    })
 
     // TODO TOGETHER: Comment out the code above. Add the class of 'house' to all the 'house-names'
 
@@ -86,7 +110,24 @@ $(document).ready(function() {
         }
     });
 
-    //TODO TOGETHER: complete the Lock In functionality for Slytherin
+    $('#lock-r').click(function(e){
+        $('#ravenclaw-house').toggleClass('ravenclaw');
+        if($('#ravenclaw-house').hasClass('ravenclaw')){
+            $(this).text('Unlock')
+        } else {
+            $(this).text('Lock In')
+        }
+    })
+
+    $('#lock-h').click(function(e){
+        $('#hufflepuff-house').toggleClass('hufflepuff');
+        if($('#hufflepuff-house').hasClass('hufflepuff')){
+            $(this).text('Unlock')
+        } else {
+            $(this).text('Lock In')
+        }
+    })
+
     //TODO: Add the Lock In functionality for Ravenclaw and Hufflepuff
 
     /**********************************************
@@ -94,9 +135,19 @@ $(document).ready(function() {
      *********************************************/
 
     //TODO TOGETHER: Using the each method, highlight every other list item in the Ravenclaw house
-    //TODO TOGETHER: Change the font color of the first list element in Hufflepuff
-    //TODO TOGETHER: Change the font color of the last list element in Slytherin
 
+    $('#ravenclaw').children().each(function(index) {
+        if (index % 2 !== 0) {
+            $(this).css('background-color', '#FF0');
+        }
+    });
+
+    //TODO TOGETHER: Change the font color of the first list element in Hufflepuff
+
+    $('#hufflepuff').children().first().css('color', 'green')
+    //TODO
+    // TOGETHER: Change the font color of the last list element in Slytherin
+    $('#slytherin').children().last().css('color', 'blue')
     //TODO TOGETHER: When the 'Witches' button is clicked, highlight all names that have been assigned the class of 'witches'
     $('#highlight-witches').click(function(e){
         $('li').each(function(){
@@ -117,8 +168,8 @@ $(document).ready(function() {
 
     //BONUS: .prev() method
 
-    // $('ul').click(function(e){
-    //     $(this).prev().addClass('gryffindor');
-    // });
+    $('ul').click(function(e){
+        $(this).prev().addClass('gryffindor');
+    });
 
 });

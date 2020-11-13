@@ -23,11 +23,12 @@ $(document).ready(function(){
     const xScore = $('.x-points-display');
     const drawScore = $('.draw-points-display');
     const oScore = $('.o-points-display');
+    var xPoints = localStorage.getItem('xScore');
     if(typeof xPoints === 'undefined'){
-        var xPoints = 0;
-        localStorage.setItem('xScore',xPoints)
+        xPoints = 0;
+        localStorage.setItem('xScore', xPoints)
     } else {
-        var xPoints = localStorage.getItem('xScore')
+        xPoints = localStorage.getItem('xScore')
         xPoints = Number(xPoints)
     }
     console.log(typeof xPoints);
@@ -206,6 +207,7 @@ $(document).ready(function(){
         if (a.html() !== '' && b.html() !== '' && c.html() !== ''){
             if (a.html() === 'X' && b.html() === 'X' && c.html() === 'X'){
                 xPoints += 1
+                localStorage.setItem('xScore', xPoints)
                 xScore.html(xPoints)
                 a.css('color', 'yellow')
                 a.css('background', 'blue')
