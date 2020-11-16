@@ -13,62 +13,46 @@ $(document).ready(function(){
     let simpleSimonIndex = 0;
     let input;
     let delay = 200
+    let delayTwo = 1000
     let score = $('#score')
     let points = 0
-    let requiredInput = gameArray[simpleSimonIndex];
 
 
+///Add delay to each additional index
     function theGame() {
         let random = Math.floor(Math.random() * 4)
-        if(gameArray.length < 1){
-                if(random === 0){
-                    activeOne()
-                    gameArray.push(1)
-                    console.log(gameArray);
-                } else if(random === 1){
-                    activeTwo()
-                    gameArray.push(2)
-                    console.log(gameArray);
-                } else if(random === 2){
-                    activeThree()
-                    gameArray.push(3)
-                    console.log(gameArray);
-                } else if(random === 3){
-                    activeFour()
-                    gameArray.push(4)
-                    console.log(gameArray);
+        if(gameArray.length >= 1){
+            let delayTwo = 1000
+            for(var i = 0; i < gameArray.length; i++){
+                if(gameArray[i] === 1){
+                    setTimeout(activeOne, delayTwo)
+                } else if(gameArray[i] === 2){
+                    setTimeout(activeTwo, delayTwo)
+                } else if(gameArray[i] === 3){
+                    setTimeout(activeThree, delayTwo)
+                } else if(gameArray[i] === 4){
+                    setTimeout(activeFour, delayTwo)
                 }
-        } else {
-            gameArray.forEach(function(semi){
-                if(semi === 1){
-                    activeOne()
-                } else if(semi === 2){
-                    activeTwo()
-                } else if(semi === 3){
-                    activeThree()
-                } else if(semi === 4){
-                    activeFour()
-                }
-            })
-            if(random === 0){
-                activeOne()
-                gameArray.push(1)
-                console.log(gameArray);
-            } else if(random === 1){
-                activeTwo()
-                gameArray.push(2)
-                console.log(gameArray);
-            } else if(random === 2){
-                activeThree()
-                gameArray.push(3)
-                console.log(gameArray);
-            } else if(random === 3){
-                activeFour()
-                gameArray.push(4)
-                console.log(gameArray);
+                delayTwo += 250
             }
         }
-
+        if(random === 0){
+            setTimeout(activeOne, delayTwo)
+            gameArray.push(1)
+            console.log(gameArray);
+        } else if(random === 1){
+            setTimeout(activeTwo, delayTwo)
+            gameArray.push(2)
+            console.log(gameArray);
+        } else if(random === 2){
+            setTimeout(activeThree, delayTwo)
+            gameArray.push(3)
+            console.log(gameArray);
+        } else if(random === 3){
+            setTimeout(activeFour, delayTwo)
+            gameArray.push(4)
+            console.log("this is in the game function " + gameArray);
+        }
     }
 
     play.click(function(){
@@ -76,33 +60,79 @@ $(document).ready(function(){
         one.click(function(){
             input = 1
             activeOne()
+            let requiredInput = gameArray[simpleSimonIndex];
+            if (input === requiredInput) {
+                console.log("input = required input");
+                simpleSimonIndex++;
+                if (simpleSimonIndex === gameArray.length) {
+                    points += 1
+                    score.html(points)
+                    simpleSimonIndex = 0
+                    theGame()
+                }
+            } else {
+                points = 0
+                score.html(points)
+                simpleSimonIndex = 0;
+            }
         })
         two.click(function(){
             input = 2
             activeTwo()
+            let requiredInput = gameArray[simpleSimonIndex];
+            if (input === requiredInput) {
+                console.log("input = required input");
+                simpleSimonIndex++;
+                if (simpleSimonIndex === gameArray.length) {
+                    points += 1
+                    score.html(points)
+                    theGame()
+                    simpleSimonIndex = 0
+                }
+            } else {
+                points = 0
+                score.html(points)
+                simpleSimonIndex = 0;
+            }
         })
         three.click(function(){
             input = 3
             activeThree()
+            let requiredInput = gameArray[simpleSimonIndex];
+            if (input === requiredInput) {
+                console.log("input = required input");
+                simpleSimonIndex++;
+                if (simpleSimonIndex === gameArray.length) {
+                    points += 1
+                    score.html(points)
+                    theGame()
+                    simpleSimonIndex = 0
+                }
+            } else {
+                points = 0
+                score.html(points)
+                simpleSimonIndex = 0;
+            }
         })
         four.click(function(){
             input = 4
             activeFour()
-        })
-
-        if (input === requiredInput) {
-            simpleSimonIndex++;
-            if (simpleSimonIndex === gameArray.length) {
-                points += 1
+            let requiredInput = gameArray[simpleSimonIndex];
+            if (input === requiredInput) {
+                console.log("input = required input");
+                simpleSimonIndex++;
+                if (simpleSimonIndex === gameArray.length) {
+                    points += 1
+                    score.html(points)
+                    theGame()
+                    simpleSimonIndex = 0
+                }
+            } else {
+                points = 0
                 score.html(points)
-
+                simpleSimonIndex = 0;
             }
-        } else {
-            points = 0
-            score.html(points)
-            simpleSimonIndex = 0;
-        }
-        theGame()
+        })
     })
 
     function activeOne (){
