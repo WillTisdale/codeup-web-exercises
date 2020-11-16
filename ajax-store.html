@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<h1 class="text-center">My Tool Store</h1>
+
+<table class="table" id="products">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<button id="update">Update w/Ajax</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    (function() {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+
+
+        function refreshAjax() {
+
+            const ajaxRequest = $.ajax('data/inventory.json')
+
+            ajaxRequest.done(function (data) {
+                console.log(data);
+                buildHTML(data)
+            })
+
+            ajaxRequest.fail(function (jqHxr, status, error) {
+                console.log(jqHxr);
+                console.log(status);
+                console.log(error);
+            })
+
+        }
+
+
+
+        function buildHTML(object){
+            let newHTML = "";
+
+            object.forEach(function(thing){
+                newHTML += "<tr>"
+                newHTML += "<td>" + thing.title + "</td>"
+                newHTML += "<td>" + thing.quantity + "</td>"
+                newHTML += "<td>" + thing.price + "</td>"
+                newHTML += "<td>" + thing.categories + "</td>"
+                newHTML += "</tr>"
+            })
+
+            $('#insertProducts').html(newHTML)
+        }
+
+        $('#update').click(refreshAjax)
+
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+    })();
+</script>
+
+</body>
+</html>
