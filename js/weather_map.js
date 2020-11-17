@@ -1,15 +1,66 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
+    forecast()
+
+    $.get("api.openweathermap.org/data/2.5/weather", {
+        APPID: OPEN_WEATHER_APPID,
+        lat: -98.48527,
+        lon: 29.423017,
+    }).done(function(data){
+        console.log(data);
+    })
+
+
+
+    //Map
     var mapOptions = {
         accessToken: mapboxToken,
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: [-86.243011, 32.366181], // starting position [lng, lat]
+        center: [-98.48527, 29.423017], // starting position [lng, lat]
         zoom: 12
     }
 
     var map = new mapboxgl.Map(mapOptions);
 
+
+
+    var geocoderOptions = {
+        accessToken: mapboxToken,
+        mapboxgl: mapboxgl,
+    }
+
+    var geocoder = new MapboxGeocoder(geocoderOptions)
+
+    map.addControl(geocoder)
+
+
+    geocoder.on('results', function(results) {
+        console.log(results);
+        lon = results.features[0].bbox[0]
+        lat = results.features[0].bbox[1]
+        currentWeather(lon, lat)
+    })
+
+    var myMarker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.48527, 29.423017])
+        .addTo(map);
+
+    function onDragEnd() {
+        var lngLat = myMarker.getLngLat();
+        lon = lngLat.lng
+        lat = lngLat.lat;
+        updateOnDrag(lat, lon)
+        currentWeather(lon, lat)
+    }
+
+    myMarker.on('dragend', onDragEnd);
+
+    //Variables
+    let lon;
+    let lat;
     let min;
     let max;
     let current;
@@ -19,6 +70,21 @@ $(document).ready(function(){
     let windDir;
     let pressure;
     let icon;
+
+
+    //Functions
+    function updateOnDrag(lat,lon){
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: lat,
+            lon: lon,
+            units: "imperial",
+            exclude: "current,minutely,hourly,alerts"
+        }).done(function (data) {
+            console.log(data);
+            renderCards(data)
+        });
+    }
 
     function getDate(i){
         let today = new Date();
@@ -40,10 +106,7 @@ $(document).ready(function(){
             console.log(data);
             renderCards(data)
         });
-
     }
-
-    forecast()
 
     function renderCards(data){
         let cardHTML = "";
@@ -60,7 +123,7 @@ $(document).ready(function(){
             cardHTML += "<div class='col'><div class='card'>"
             cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
             cardHTML += today  + "</div>"
-            cardHTML += "<div class='card-body'>"
+            cardHTML += "<div class='card-body days'>"
             cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F" + "</p>"
             cardHTML += "<img src='" + icon + "' class='mx-auto d-block'>"
             cardHTML += "<hr>"
@@ -73,41 +136,47 @@ $(document).ready(function(){
         $('#card-row').html(cardHTML)
     }
 
-    // function currentWeather() {
-    //     $.get("http://api.openweathermap.org/data/2.5/weather", {
-    //         APPID: OPEN_WEATHER_APPID,
-    //         lat: 29.423017,
-    //         lon: -98.48527,
-    //         units: "imperial"
-    //     }).done(function (data) {
-    //         console.log(data);
-    //         max = data.main.temp_max;
-    //         min = data.main.temp_min;
-    //         description = data.weather[0].description
-    //         humidity = data.main.humidity
-    //         wind = data.wind.speed
-    //         pressure = data.main.pressure
-    //         windDirection(data)
-    //         renderCard()
-    //     });
-    // }
+    function currentWeather(lon, lat) {
+        $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: lat,
+            lon: lon,
+            units: "imperial"
+        }).done(function (data) {
+            console.log(data);
+            if(data.name === ""){
+                $('#location').html("Current City: updating...")
+            } else {
+                $('#location').html("Current City: " + data.name)
+            }
+            // max = data.main.temp_max;
+            // min = data.main.temp_min;
+            // description = data.weather[0].description
+            // humidity = data.main.humidity
+            // wind = data.wind.speed
+            // pressure = data.main.pressure
+            // windDirection(data)
+            // renderCard()
+        });
+    }
 
-    // function renderCard(){
-    //     let cardHTML = "";
-    //     cardHTML += "<div class='col'><div class='card'>"
-    //     cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
-    //     cardHTML += today + "</div>"
-    //     cardHTML += "<div class='card-body'>"
-    //     cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
-    //     cardHTML += "<hr>"
-    //     cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
-    //     cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
-    //     cardHTML += "<p>" + "Wind: <strong>" + wind + " " + windDir + "</strong></p>"
-    //     cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
-    //     cardHTML += "</div></div></div>"
-    //
-    //     $('#card-row').html(cardHTML)
-    // }
+    function renderCard(){
+        let cardHTML = "";
+        cardHTML += "<div class='col'><div class='card'>"
+        cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
+        cardHTML += today + "</div>"
+        cardHTML += "<div class='card-body'>"
+        cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
+        cardHTML += "<hr>"
+        cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
+        cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
+        cardHTML += "<p>" + "Wind: <strong>" + wind + " " + windDir + "</strong></p>"
+        cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
+        cardHTML += "</div></div></div>"
+
+        $('#card-row').html(cardHTML)
+    }
+
 
 
 
@@ -217,4 +286,4 @@ $(document).ready(function(){
 
 
 
-});
+// });

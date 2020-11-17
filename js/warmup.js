@@ -1,4 +1,7 @@
+$(document).ready(function(){
 "use strict";
+
+    $('#clickme').click($('#user_display').text($('#user_input').val()));
 
 /* console.log("Hello, William!");
 console.log("Hello, Johnny!");
@@ -71,3 +74,5 @@ function stringToArray(string){
 }
 
 console.log(stringToArray("Trick or Treat"));
+
+});
