@@ -12,6 +12,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/weather_map.css">
 
+    <!--MapBox Links-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
 
     <title>Weather Map</title>
 
@@ -24,7 +28,7 @@
 
 </div>
 
-
+<div id='map' style='width: 85%; height: 720px;'></div>
 
 
 
@@ -34,6 +38,7 @@
 
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

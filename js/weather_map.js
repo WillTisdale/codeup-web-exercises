@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+    var mapOptions = {
+        accessToken: mapboxToken,
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [-86.243011, 32.366181], // starting position [lng, lat]
+        zoom: 12
+    }
+
+    var map = new mapboxgl.Map(mapOptions);
 
     let min;
     let max;
