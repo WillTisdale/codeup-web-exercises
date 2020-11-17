@@ -22,7 +22,7 @@
         }
         .scrollable {
             overflow-y: auto;
-            height: 900px;
+            height: 890px;
         }
         .scrollable::-webkit-scrollbar{
             background: #0fb784;
@@ -37,6 +37,26 @@
             margin: 15px auto;
             border: 3px solid black;
             border-radius: 25px 0 0 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 900px;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+        #loading {
+            z-index: 1000;
+            align-self: center;
+            justify-self: center;
+            position: absolute;
         }
     </style>
 </head>
@@ -46,6 +66,9 @@
 
 <div class="main">
 
+    <div id="loading" class="spinner-grow text-primary hidden" style="width: 10rem; height: 10rem;" role="status">
+        <span class="sr-only">AJAX...</span>
+    </div>
 
 <div class="scrollable" id="posts"></div>
 </div>
@@ -60,9 +83,12 @@
     $(document).ready(function(){
         "use strict";
 
-        setInterval(refreshAjax, 5000);
+        setInterval(refreshAjax, 15000);
 
         function refreshAjax() {
+
+            // $('#posts').toggle('hidden')
+            $('#loading').toggle('hidden')
 
             const ajaxRequest = $.ajax('data/blog.json')
 
@@ -76,11 +102,17 @@
                 console.log(error);
             })
 
+            refresh()
         }
 
         refreshAjax()
 
-
+        function refresh(){
+            setTimeout(function(){
+                $('#loading').toggle('hidden')
+                // $('#posts').toggle('hidden')
+            }, 1000)
+        }
 
 
         function buildHTML(object){
