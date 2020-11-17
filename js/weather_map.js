@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    let today = new Date();
+
     let min;
     let max;
     let current;
@@ -9,29 +9,16 @@ $(document).ready(function(){
     let wind;
     let windDir;
     let pressure;
+    let icon;
 
-    console.log(today);
-
-    function currentWeather() {
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: OPEN_WEATHER_APPID,
-            lat: 29.423017,
-            lon: -98.48527,
-            units: "imperial"
-        }).done(function (data) {
-            console.log(data);
-            max = data.main.temp_max;
-            min = data.main.temp_min;
-            description = data.weather[0].description
-            humidity = data.main.humidity
-            wind = data.wind.speed
-            pressure = data.main.pressure
-            windDirection(data)
-            renderCard()
-        });
+    function getDate(i){
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        today = mm + '/' + (Number(dd) + Number(i)) + '/' + yyyy;
+        return today
     }
-
-    // currentWeather()
 
     function forecast() {
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
@@ -49,38 +36,24 @@ $(document).ready(function(){
 
     forecast()
 
-    function renderCard(){
-        let cardHTML = "";
-        cardHTML += "<div class='col'><div class='card'>"
-        cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
-        cardHTML += today + "</div>"
-        cardHTML += "<div class='card-body'>"
-        cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
-        cardHTML += "<hr>"
-        cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
-        cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
-        cardHTML += "<p>" + "Wind: <strong>" + wind + " " + windDir + "</strong></p>"
-        cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
-        cardHTML += "</div></div></div>"
-
-        $('#card-row').html(cardHTML)
-    }
-
     function renderCards(data){
         let cardHTML = "";
         for(var i = 0; i < 5; i++){
+            today = getDate(i)
             max = data.daily[i].temp.max;
             min = data.daily[i].temp.min;
             description = data.daily[i].weather[0].description
             humidity = data.daily[i].humidity
             wind = data.daily[i].wind_speed
             pressure = data.daily[i].pressure
+            icon = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
             windDirections(data, i)
             cardHTML += "<div class='col'><div class='card'>"
             cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
-            cardHTML += today + "</div>"
+            cardHTML += today  + "</div>"
             cardHTML += "<div class='card-body'>"
-            cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
+            cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F" + "</p>"
+            cardHTML += "<img src='" + icon + "' class='mx-auto d-block'>"
             cardHTML += "<hr>"
             cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
             cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
@@ -91,9 +64,41 @@ $(document).ready(function(){
         $('#card-row').html(cardHTML)
     }
 
+    // function currentWeather() {
+    //     $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //         APPID: OPEN_WEATHER_APPID,
+    //         lat: 29.423017,
+    //         lon: -98.48527,
+    //         units: "imperial"
+    //     }).done(function (data) {
+    //         console.log(data);
+    //         max = data.main.temp_max;
+    //         min = data.main.temp_min;
+    //         description = data.weather[0].description
+    //         humidity = data.main.humidity
+    //         wind = data.wind.speed
+    //         pressure = data.main.pressure
+    //         windDirection(data)
+    //         renderCard()
+    //     });
+    // }
 
-
-
+    // function renderCard(){
+    //     let cardHTML = "";
+    //     cardHTML += "<div class='col'><div class='card'>"
+    //     cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
+    //     cardHTML += today + "</div>"
+    //     cardHTML += "<div class='card-body'>"
+    //     cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
+    //     cardHTML += "<hr>"
+    //     cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
+    //     cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
+    //     cardHTML += "<p>" + "Wind: <strong>" + wind + " " + windDir + "</strong></p>"
+    //     cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
+    //     cardHTML += "</div></div></div>"
+    //
+    //     $('#card-row').html(cardHTML)
+    // }
 
 
 
