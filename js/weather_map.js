@@ -53,7 +53,7 @@ $(document).ready(function(){
     let windDir;
     let pressure;
     let icon;
-    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-primary btn-block'>Show Marker</button></div></div></div>"
+    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></div></div></div>"
 
 
 

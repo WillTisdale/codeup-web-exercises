@@ -1,18 +1,42 @@
+:root {
+    --font-light: #FFFCF2;
+    --card-light: #CCC5B9;
+    --card-dark: #A99D89;
+    --card-font: #252422;
+    --bg: #403D39;
+    --navbar: #EB5E28;
+}
 .map-container {
     margin: 15px auto;
     display: flex;
     justify-content: center;
 }
+#map {
+    margin: 1em auto;
+    border: 5px solid #A99D89;
+    border-radius: 10px;
+}
+.card {
+    background: var(--card-light);
+    color: var(--card-font);
+}
 #card-container {
     width: 90%;
     margin: 15px auto;
-    background: #cddeff;
 }
 .my-navbar {
-    color: white;
+    background: var(--navbar);
+    color: var(--font-light);
 }
 body {
-    background: lightgrey;
+    background: var(--bg);
+}
+.top {
+    background: var(--card-dark);
+    color: var(--font-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .my-cards {
     margin: 15px auto;
@@ -31,5 +55,18 @@ body {
     }
     .top {
         height: 60px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .my-cards {
+        height: 350px;
+        font-size: 12px;
+    }
+    .outer {
+        padding: 15px;
+    }
+    .card-body {
+        padding: 15px;
     }
 }
