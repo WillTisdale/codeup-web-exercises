@@ -1,64 +1,52 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 
     forecast()
 
-    $.get("api.openweathermap.org/data/2.5/weather", {
-        APPID: OPEN_WEATHER_APPID,
-        lat: -98.48527,
-        lon: 29.423017,
-    }).done(function(data){
-        console.log(data);
-    })
-
-
-
-    //Map
+    //MapBox
     var mapOptions = {
         accessToken: mapboxToken,
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
         center: [-98.48527, 29.423017], // starting position [lng, lat]
-        zoom: 12
+        zoom: 9
     }
 
     var map = new mapboxgl.Map(mapOptions);
 
-
-
     var geocoderOptions = {
         accessToken: mapboxToken,
         mapboxgl: mapboxgl,
+        marker: false
     }
+
+    $('#update-marker').click(function(){
+        console.log("hello");
+        marker.setLngLat([lon, lat])
+    })
 
     var geocoder = new MapboxGeocoder(geocoderOptions)
 
     map.addControl(geocoder)
 
-
-    geocoder.on('results', function(results) {
-        console.log(results);
-        lon = results.features[0].bbox[0]
-        lat = results.features[0].bbox[1]
+    geocoder.on('result', function (result) {
+        lon = result.result.center[0]
+        lat = result.result.center[1]
+        $('#update-marker').click(function(){
+            marker.setLngLat([lon, lat])
+        })
         currentWeather(lon, lat)
+        updateWeather(lat, lon)
     })
 
-    var myMarker = new mapboxgl.Marker({
+    var marker = new mapboxgl.Marker({
         draggable: true
     })
         .setLngLat([-98.48527, 29.423017])
         .addTo(map);
 
-    function onDragEnd() {
-        var lngLat = myMarker.getLngLat();
-        lon = lngLat.lng
-        lat = lngLat.lat;
-        updateOnDrag(lat, lon)
-        currentWeather(lon, lat)
-    }
+    marker.on('dragend', onDragEnd);
 
-    myMarker.on('dragend', onDragEnd);
-
-    //Variables
+    //Variables for Functions
     let lon;
     let lat;
     let min;
@@ -70,10 +58,20 @@
     let windDir;
     let pressure;
     let icon;
+    let toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'></div></div></div>"
 
+        // <button id='update-marker' class='btn btn-outline-primary btn-block'>Show Marker</button>
 
     //Functions
-    function updateOnDrag(lat,lon){
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        lon = lngLat.lng
+        lat = lngLat.lat;
+        updateWeather(lat, lon)
+        currentWeather(lon, lat)
+    }
+
+    function updateWeather(lat,lon){
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_APPID,
             lat: lat,
@@ -81,17 +79,23 @@
             units: "imperial",
             exclude: "current,minutely,hourly,alerts"
         }).done(function (data) {
-            console.log(data);
             renderCards(data)
         });
     }
 
     function getDate(i){
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = today.getFullYear();
-        today = mm + '/' + (Number(dd) + Number(i)) + '/' + yyyy;
+        let day;
+        if(typeof days[(today.getDay()) + i] === 'undefined'){
+            day = days[(today.getDay()) + i - days.length]
+        } else {
+            day = days[(today.getDay()) + i]
+        }
+        today = day + ' ' + mm + '/' + (Number(dd) + Number(i)) + '/' + yyyy;
         return today
     }
 
@@ -103,7 +107,6 @@
             units: "imperial",
             exclude: "current,minutely,hourly,alerts"
         }).done(function (data) {
-            console.log(data);
             renderCards(data)
         });
     }
@@ -120,10 +123,10 @@
             pressure = data.daily[i].pressure
             icon = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
             windDirections(data, i)
-            cardHTML += "<div class='col'><div class='card'>"
-            cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
+            cardHTML += "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'>"
+            cardHTML += "<div class='card-header text-center top'>"
             cardHTML += today  + "</div>"
-            cardHTML += "<div class='card-body days'>"
+            cardHTML += "<div class='card-body'>"
             cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F" + "</p>"
             cardHTML += "<img src='" + icon + "' class='mx-auto d-block'>"
             cardHTML += "<hr>"
@@ -133,6 +136,7 @@
             cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
             cardHTML += "</div></div></div>"
         }
+        cardHTML += toolHTML
         $('#card-row').html(cardHTML)
     }
 
@@ -143,7 +147,6 @@
             lon: lon,
             units: "imperial"
         }).done(function (data) {
-            console.log(data);
             if(data.name === ""){
                 $('#location').html("Current City: updating...")
             } else {
@@ -176,31 +179,6 @@
 
         $('#card-row').html(cardHTML)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //CONVERTS WIND DEGREES INTO A DIRECTION
     function windDirection(data) {
@@ -238,6 +216,7 @@
                 windDir = "NNW";
             }
     }
+
     function windDirections(data, i) {
             if (data.daily[i].wind_deg > 348.75 || data.daily[i].wind_deg < 11.25) {
                 windDir = "N";
@@ -274,16 +253,4 @@
             }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// });
+});
