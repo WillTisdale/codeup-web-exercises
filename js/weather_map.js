@@ -19,11 +19,6 @@ $(document).ready(function(){
         marker: false
     }
 
-    $('#update-marker').click(function(){
-        console.log("hello");
-        marker.setLngLat([lon, lat])
-    })
-
     var geocoder = new MapboxGeocoder(geocoderOptions)
 
     map.addControl(geocoder)
@@ -58,9 +53,9 @@ $(document).ready(function(){
     let windDir;
     let pressure;
     let icon;
-    let toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'></div></div></div>"
+    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-primary btn-block'>Show Marker</button></div></div></div>"
 
-        // <button id='update-marker' class='btn btn-outline-primary btn-block'>Show Marker</button>
+
 
     //Functions
     function onDragEnd() {
@@ -138,6 +133,9 @@ $(document).ready(function(){
         }
         cardHTML += toolHTML
         $('#card-row').html(cardHTML)
+        $('#update-marker').click(function(){
+            marker.setLngLat([lon, lat])
+        })
     }
 
     function currentWeather(lon, lat) {
@@ -252,5 +250,7 @@ $(document).ready(function(){
                 windDir = "NNW";
             }
     }
+
+
 
 });

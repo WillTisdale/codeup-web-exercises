@@ -4,7 +4,9 @@
     justify-content: center;
 }
 #card-container {
-
+    width: 90%;
+    margin: 15px auto;
+    background: #cddeff;
 }
 .my-navbar {
     color: white;
