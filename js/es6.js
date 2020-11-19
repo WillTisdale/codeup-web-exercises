@@ -72,15 +72,19 @@ users.forEach(user => {
 });
 
 // TODO: Use `let` for the following variable
-let list = '<ul>';
+let list = '<ul class="my-list">';
 
 // TODO: rewrite the following loop to use a for..of loop
-developers.forEach(developer => {
+
 
     // TODO: rewrite the assignment below to use template strings
-    list += `<li>${developer}</li>`;
-});
+
 list += '</ul>';
+for(let ele of developers){
+    list += `<li>${ele}</li>`;
+}
+
+
 
 console.log(list);
 document.write(list)
