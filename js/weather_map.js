@@ -1,61 +1,52 @@
 $(document).ready(function(){
 
-    forecast()
-
-    //MapBox
-    var mapOptions = {
+    //Map
+    let mapOptions = {
         accessToken: mapboxToken,
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
         center: [-98.48527, 29.423017], // starting position [lng, lat]
         zoom: 9
     }
+    let map = new mapboxgl.Map(mapOptions);
 
-    var map = new mapboxgl.Map(mapOptions);
-
-    var geocoderOptions = {
+    //Geocoder
+    let geocoderOptions = {
         accessToken: mapboxToken,
         mapboxgl: mapboxgl,
         marker: false
     }
-
-    var geocoder = new MapboxGeocoder(geocoderOptions)
-
+    let geocoder = new MapboxGeocoder(geocoderOptions)
     map.addControl(geocoder)
-
     geocoder.on('result', function (result) {
         lon = result.result.center[0]
         lat = result.result.center[1]
         $('#update-marker').click(function(){
             marker.setLngLat([lon, lat])
         })
-        currentWeather(lon, lat)
+        updateCity(lon, lat)
         updateWeather(lat, lon)
     })
 
-    var marker = new mapboxgl.Marker({
+    //Marker
+    let marker = new mapboxgl.Marker({
         draggable: true
     })
         .setLngLat([-98.48527, 29.423017])
-        .addTo(map);
-
-    marker.on('dragend', onDragEnd);
+        .addTo(map)
+        .on('dragend', onDragEnd);
 
     //Variables for Functions
     let lon;
     let lat;
     let min;
     let max;
-    let current;
     let description;
-    let humdity;
     let wind;
     let windDir;
     let pressure;
     let icon;
     const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></div></div></div>"
-
-
 
     //Functions
     function onDragEnd() {
@@ -63,9 +54,8 @@ $(document).ready(function(){
         lon = lngLat.lng
         lat = lngLat.lat;
         updateWeather(lat, lon)
-        currentWeather(lon, lat)
+        updateCity(lon, lat)
     }
-
     function updateWeather(lat,lon){
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_APPID,
@@ -77,7 +67,6 @@ $(document).ready(function(){
             renderCards(data)
         });
     }
-
     function getDate(i){
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         let today = new Date();
@@ -93,7 +82,6 @@ $(document).ready(function(){
         today = day + ' ' + mm + '/' + (Number(dd) + Number(i)) + '/' + yyyy;
         return today
     }
-
     function forecast() {
         $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_APPID,
@@ -105,7 +93,6 @@ $(document).ready(function(){
             renderCards(data)
         });
     }
-
     function renderCards(data){
         let cardHTML = "";
         for(var i = 0; i < 5; i++){
@@ -123,7 +110,7 @@ $(document).ready(function(){
             cardHTML += today  + "</div>"
             cardHTML += "<div class='card-body'>"
             cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F" + "</p>"
-            cardHTML += "<img src='" + icon + "' class='mx-auto d-block'>"
+            cardHTML += "<img src='" + icon + "' class='mx-auto d-block' alt='weather'>"
             cardHTML += "<hr>"
             cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
             cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
@@ -137,8 +124,7 @@ $(document).ready(function(){
             marker.setLngLat([lon, lat])
         })
     }
-
-    function currentWeather(lon, lat) {
+    function updateCity(lon, lat) {
         $.get("http://api.openweathermap.org/data/2.5/weather", {
             APPID: OPEN_WEATHER_APPID,
             lat: lat,
@@ -150,32 +136,7 @@ $(document).ready(function(){
             } else {
                 $('#location').html("Current City: " + data.name)
             }
-            // max = data.main.temp_max;
-            // min = data.main.temp_min;
-            // description = data.weather[0].description
-            // humidity = data.main.humidity
-            // wind = data.wind.speed
-            // pressure = data.main.pressure
-            // windDirection(data)
-            // renderCard()
         });
-    }
-
-    function renderCard(){
-        let cardHTML = "";
-        cardHTML += "<div class='col'><div class='card'>"
-        cardHTML += "<div id='dayOfTheWeek' class='card-header text-center'>"
-        cardHTML += today + "</div>"
-        cardHTML += "<div class='card-body'>"
-        cardHTML += "<p class='text-center'>" + min + "°F / " + max + "°F"
-        cardHTML += "<hr>"
-        cardHTML += "<p>" + "Description: <strong>" + description + "</strong></p>"
-        cardHTML += "<p>" + "Humidity: <strong>" + humidity + "</strong></p>"
-        cardHTML += "<p>" + "Wind: <strong>" + wind + " " + windDir + "</strong></p>"
-        cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
-        cardHTML += "</div></div></div>"
-
-        $('#card-row').html(cardHTML)
     }
 
     //CONVERTS WIND DEGREES INTO A DIRECTION
@@ -214,7 +175,6 @@ $(document).ready(function(){
                 windDir = "NNW";
             }
     }
-
     function windDirections(data, i) {
             if (data.daily[i].wind_deg > 348.75 || data.daily[i].wind_deg < 11.25) {
                 windDir = "N";
@@ -251,6 +211,6 @@ $(document).ready(function(){
             }
     }
 
-
-
+    //Run on load
+    forecast();
 });
