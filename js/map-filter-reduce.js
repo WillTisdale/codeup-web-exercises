@@ -58,9 +58,12 @@ let longest = users.reduce((currentEmail, user) => {
     return currentEmail
 }, "")
 
+
 console.log(longest);
 
 let instructorString = users.reduce((currentString, user) => {
+    let userNameArr = user.name.split("")
+
     if(user.name === users[users.length -1].name){
         currentString += `${user.name}.`
     } else {
@@ -78,4 +81,8 @@ let allLanguages = users.reduce((currentLanguage, user) => {
     return mySet
 }, mySet)
 
+
 console.log(allLanguages);
+for(let language of allLanguages){
+    console.log(language);
+}
