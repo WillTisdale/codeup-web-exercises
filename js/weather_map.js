@@ -46,7 +46,7 @@ $(document).ready(function(){
     let windDir;
     let pressure;
     let icon;
-    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></div></div></div>"
+    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></div></div></div>"
 
     //Functions
     function onDragEnd() {
@@ -105,7 +105,7 @@ $(document).ready(function(){
             pressure = data.daily[i].pressure
             icon = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
             windDirections(data, i)
-            cardHTML += "<div class='col-12 col-sm-6 col-md-4 col-lg-2 outer'><div class='card my-cards'>"
+            cardHTML += "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'>"
             cardHTML += "<div class='card-header text-center top'>"
             cardHTML += today  + "</div>"
             cardHTML += "<div class='card-body'>"

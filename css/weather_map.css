@@ -11,16 +11,16 @@
     display: flex;
     justify-content: center;
 }
+hr {
+    background: var(--navbar);
+    width: 90%;
+}
 #map {
     margin: 1em auto;
     border: 5px solid #A99D89;
     border-radius: 10px;
-    width: 85%;
+    width: 90%;
     height: 400px;
-}
-.card {
-    background: var(--card-light);
-    color: var(--card-font);
 }
 #card-container {
     width: 90%;
@@ -32,6 +32,7 @@
 }
 body {
     background: var(--bg);
+    min-width: 320px;
 }
 .top {
     background: var(--card-dark);
@@ -41,13 +42,14 @@ body {
     justify-content: center;
 }
 .my-cards {
+    background: var(--card-light);
+    color: var(--card-font);
     margin: 15px auto;
     height: 375px;
 }
 @media screen and (min-width: 991px){
     .my-cards {
         height: 400px;
-        font-size: 12px;
     }
     .outer {
         padding: 5px;
@@ -60,10 +62,9 @@ body {
     }
 }
 @media screen and (min-width: 1200px){
-    .my-cards {
-        height: 350px;
-        font-size: 12px;
-    }
+    /*.my-cards {*/
+    /*    height: 350px;*/
+    /*}*/
     .outer {
         padding: 15px;
     }
