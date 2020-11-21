@@ -46,7 +46,7 @@ $(document).ready(function(){
     let windDir;
     let pressure;
     let icon;
-    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></div></div></div>"
+    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days tool'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button><h6>Current Temperature</h6><h1 id='current'></h1></div></div></div>"
 
     //Functions
     function onDragEnd() {
@@ -90,6 +90,7 @@ $(document).ready(function(){
             units: "imperial",
             exclude: "current,minutely,hourly,alerts"
         }).done(function (data) {
+            updateCity(-98.48527, 29.423017)
             renderCards(data)
         });
     }
@@ -131,6 +132,8 @@ $(document).ready(function(){
             lon: lon,
             units: "imperial"
         }).done(function (data) {
+            console.log(data);
+            $('#current').html(data.main.temp + " °F")
             if(data.name === ""){
                 $('#location').html("Current City: updating...")
             } else {

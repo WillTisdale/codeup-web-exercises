@@ -15,6 +15,12 @@ hr {
     background: var(--navbar);
     width: 90%;
 }
+.tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 #map {
     margin: 1em auto;
     border: 5px solid #A99D89;
