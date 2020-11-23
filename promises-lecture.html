@@ -37,17 +37,17 @@
 
 // ============ Basic Example of Promise Creation and Handling
 
-let goodKid = true;
+// let goodKid = true;
 
 // a promise is made to do something
-const getCake = new Promise((resolve, reject) => (goodKid) ? resolve("Here is some cake") : reject("Bad. No cake. :("));
+// const getCake = new Promise((resolve, reject) => (goodKid) ? resolve("Here is some cake") : reject("Bad. No cake. :("));
 
-console.log(getCake); // promise object
+// console.log(getCake); // promise object
 
 // once the promise is resolved or rejected, take additional action
 
-getCake.then((data) => console.log(data))
-    .catch((err) => console.log(err));
+// getCake.then((data) => console.log(data))
+//     .catch((err) => console.log(err));
 
     // ============ Using Promises with jQuery version 3+
 
@@ -79,7 +79,7 @@ getCake.then((data) => console.log(data))
     // ============ Fetch API
 
     // jQuery AJAX request example
-    // $.ajax('https://swapi.co/api/people/1')
+    // $.ajax('https://swapi.dev/api/people/1')
     //     .done(function(data) {
     //         console.log(data);
     //     })
@@ -88,7 +88,7 @@ getCake.then((data) => console.log(data))
     //     });
 
     // Fetch API GET example
-    //     fetch('https://swapi.co/api/people/1')
+    //     fetch('https://swapi.dev/api/people/1')
     //         .then((response) => {
     //             return response.json();
     //         })
@@ -99,7 +99,7 @@ getCake.then((data) => console.log(data))
 
     // Fetch API POST example
 
-    // fetch('https://hookb.in/eKZ0mV6k1aTr9g86Q7JM', {
+    // fetch('https://hookb.in/ggydR9zqQGswWW1NZG7k', {
     //     method: 'POST',
     //     headers: {
     //         'Content-Type': 'application/json'
@@ -109,6 +109,7 @@ getCake.then((data) => console.log(data))
     //         password: "pass123"
     //     })
     // })
+    //     .then(res => res.json())
     //     .then(console.log)
     //     .catch(console.log);
 
@@ -187,7 +188,7 @@ getCake.then((data) => console.log(data))
     //         setTimeout(function() {
     //             console.log(count);
     //             res(++count);
-    //         }, 500);
+    //         }, 1000);
     //     });
     // }
     //
