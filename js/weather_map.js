@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(() => {
 
     //Map
     let mapOptions = {

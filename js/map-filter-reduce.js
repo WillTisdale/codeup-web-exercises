@@ -38,47 +38,45 @@ const users = [
     }
 ];
 
-let threeLangs = users.filter(user => user.languages.length >= 3)
+const threeLangs = users.filter(user => user.languages.length >= 3)
 
 console.log(threeLangs);
 
 let userEmails = users.map(user => user.email)
+// let userEmails = users.map(({email}) => email) <== THIS ALSO WORKS
 
 console.log(userEmails);
 
-let totalYears = users.reduce((total, user) => total + user.yearsOfExperience, 0)
-let numberOfUser = users.length
-let avgYears = totalYears/numberOfUser
+let totalYears = users.reduce((total, {yearsOfExperience}) => total + yearsOfExperience, 0)
+let {length} = users
+let avgYears = totalYears/length
 console.log(avgYears);
 
-let longest = users.reduce((currentEmail, user) => {
-    if(user.email.length > currentEmail.length){
-        currentEmail = user.email
-    }
-    return currentEmail
-}, "")
+// let longest = users.reduce((currentEmail, {email}) => {
+//     if(email.length > currentEmail.length){
+//         currentEmail = email
+//     }
+//     return currentEmail
+// }, "")
 
+let longest = userEmails.reduce((longEmail, currEmail) => (currEmail.length > longEmail.length) ? currEmail : longEmail)
 
 console.log(longest);
 
-let instructorString = users.reduce((currentString, user) => {
-    let userNameArr = user.name.split("")
-
-    if(user.name === users[users.length -1].name){
-        currentString += `${user.name}.`
-    } else {
-        currentString += `${user.name}, `
-    }
-    return currentString
-}, "Your instructors are: ")
+let instructorString = users.reduce((currentString, {name}) => {
+    return currentString  += `${name}, `
+}, "Your instructors are: ").slice(0, -2) + ".";
 
 console.log(instructorString);
+
+
 let mySet = new Set();
-let allLanguages = users.reduce((currentLanguage, user) => {
-    for(let ele of user.languages){
+let allLanguages = users.reduce((accum, {languages}) => {
+    for(let ele of languages){
         mySet.add(ele)
     }
-    return mySet
+    let finArr = Array.from(mySet)
+    return accum
 }, mySet)
 
 
