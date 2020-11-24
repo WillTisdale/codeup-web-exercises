@@ -58,13 +58,8 @@
 
     console.log(list.html());
 
-
-    // fetch('https://api.github.com/users/WillTisdale/received_events', {headers: {'Authorization': 'token ' + gitHubToken}})
-    //     .then(res => res.json())
-    //     .then(console.log)
-    //     .catch(console.error)
-
-    let listHTML = ""
+    let goodHTML = ""
+    let badHTML = ""
 
     let newDate = new Date()
     console.log(newDate.getUTCDate());
@@ -86,21 +81,29 @@
                         let date = arr[0]
                         let dayCheck = date.split("-")
                         time = arr[1].slice(0, -4).concat(" GMT")
-                        listHTML += `<div class="col-4">
+                        if(Number(dayCheck[2]) === newDate.getUTCDate()){
+                            goodHTML += `<div class="col-4">
                         <div class="card my-cards" style="width: 18rem;">
                         <img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="card-body green">
                         <h5 class="card-title">${username}</h5>
                         <p class="card-text">Last push time: ${time}.</p>
                         <p class="card-text">Last push date: ${date}.</p>
                         <p class="card-text">Repo: ${repo}.</p>
                         </div></div></div>`
-                        list.html(listHTML)
-                        if(dayCheck[2] === newDate.getUTCDate()){
-                            $('.card-body').css('background', 'green')
                         } else {
-                            $('.card-body').css('background', 'red')
+                            badHTML += `<div class="col-4">
+                        <div class="card my-cards" style="width: 18rem;">
+                        <img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">
+                        <div class="card-body red">
+                        <h5 class="card-title">${username}</h5>
+                        <p class="card-text">Last push time: ${time}.</p>
+                        <p class="card-text">Last push date: ${date}.</p>
+                        <p class="card-text">Repo: ${repo}.</p>
+                        </div></div></div>`
                         }
+                        $('.good').html(goodHTML)
+                        $('.bad').html(badHTML)
                         break;
                     }
                 }
@@ -108,28 +111,12 @@
             .catch(console.error)
     }
 
-
-
-
-
-
-
-
-
-    // gitHubUser('WillTisdale')
-    // gitHubUser('christianparker512')
-    // gitHubUser('jayaseyyadri')
-    // gitHubUser('Mdbaker19')
-
-    // let usernames = ['WillTisdale', 'christianparker512', 'jayaseyyadri', 'Mdbaker19']
-
     const renderHTML = array => {
         for (let ele of array){
             gitHubUser(ele)
         }
         list.html(listHTML)
     }
-
 
     fetch('https://api.github.com/orgs/CodeupClassroom/teams', {headers: {'Authorization': 'token ' + gitHubTeam}})
         .then(res => res.json())
@@ -144,7 +131,11 @@
                 .then(data => {
                     let orgID = data[0].id
                     console.log(data);
-                    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/${teamSlug}/members`, {headers: {'Authorization': 'token ' + gitHubTeam}})
+                    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/${teamSlug}/members?per_page=100`,
+                        {
+                            headers: {'Authorization': 'token ' + gitHubTeam},
+                            page: 2
+                        })
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
@@ -156,13 +147,10 @@
                             renderHTML(usernames)
                         })
                 })
-
         })
         .catch(console.error)
 
-    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/jupiter-students/members`, {headers: {'Authorization': 'token ' + gitHubTeam}})
 
-        .then(data => console.log(data))
 
 
 

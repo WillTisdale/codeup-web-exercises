@@ -14,7 +14,8 @@
         }
         main {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
         .main-container {
             max-width: 900px
@@ -22,19 +23,38 @@
         .my-cards {
             margin: 15px;
         }
+        .green {
+            background: #cff3da;
+            color: #1c6b35;
+        }
+        .red {
+            background: #fad3d7;
+            color: #8d2841;
+        }
     </style>
 </head>
 <body>
 
-<h1 class="text-center">Jupiter Classmates</h1>
+<h1 class="text-center">GitHub Pushes - Jupiter Students Team</h1>
 
 <main>
 
-<div class="conatiner-fluid main-container">
+    <h2 class="text-center">Has Pushed Today</h2>
 
-    <div class="classmates row"></div>
+    <div class="conatiner-fluid main-container">
 
-</div>
+        <div class="classmates row good"></div>
+
+    </div>
+
+    <h2 class="text-center">Has NOT Pushed Today</h2>
+
+    <div class="conatiner-fluid main-container">
+
+        <div class="classmates row bad"></div>
+
+    </div>
+
 
 </main>
 
