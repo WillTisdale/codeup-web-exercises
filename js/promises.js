@@ -1,7 +1,5 @@
     "use strict";
 
-
-
     //HANDLING PROMISES MINI EXERCISE
 
     const successIfEvenUTCSecond = () => {
@@ -45,24 +43,15 @@
             .catch(error => console.error(error))
     }
 
-
-
     wait(1000)
     wait(3000)
     wait(4000)
     wait("bird")
 
-    const access = {headers: {'Authorization': 'token ' + gitHubToken}}
-
-    let list = $('.classmates')
-
-    console.log(list.html());
-
+    const access = {headers: {'Authorization': 'token ' + gitHubTeam}}
     let goodHTML = ""
     let badHTML = ""
-
     let newDate = new Date()
-    console.log(newDate.getUTCDate());
 
     const gitHubUser = username => {
         fetch(`https://api.github.com/users/${username}/events/public`, access)
@@ -115,37 +104,20 @@
         for (let ele of array){
             gitHubUser(ele)
         }
-        list.html(listHTML)
     }
 
-    fetch('https://api.github.com/orgs/CodeupClassroom/teams', {headers: {'Authorization': 'token ' + gitHubTeam}})
+    fetch('https://api.github.com/orgs/CodeupClassroom/teams', access)
         .then(res => res.json())
         .then(data => {
-            let teamID = data[11].id
             let teamSlug = data[11].slug
-            console.log(data)
-            console.log(teamSlug)
-            console.log(teamID)
-            fetch('https://api.github.com/user/orgs', {headers: {'Authorization': 'token ' + gitHubTeam}})
+            fetch(`https://api.github.com/orgs/CodeupClassroom/teams/${teamSlug}/members?per_page=100`, access)
                 .then(res => res.json())
                 .then(data => {
-                    let orgID = data[0].id
-                    console.log(data);
-                    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/${teamSlug}/members?per_page=100`,
-                        {
-                            headers: {'Authorization': 'token ' + gitHubTeam},
-                            page: 2
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
-                            let usernames = []
-                            for(let ele of data){
-                                usernames.push(ele.login)
-                            }
-                            console.log(usernames);
-                            renderHTML(usernames)
-                        })
+                    let usernames = []
+                    for(let ele of data){
+                        usernames.push(ele.login)
+                    }
+                    renderHTML(usernames)
                 })
         })
         .catch(console.error)
