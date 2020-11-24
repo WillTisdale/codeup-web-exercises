@@ -66,28 +66,41 @@
 
     let listHTML = ""
 
+    let newDate = new Date()
+    console.log(newDate.getUTCDate());
+
     const gitHubUser = username => {
         fetch(`https://api.github.com/users/${username}/events/public`, access)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 for(let i = 0; data.length; i++){
                     if(data[i].type === "PushEvent"){
+                        let newDate = new Date()
+                        newDate.getDate()
                         let repo = data[i].repo.name;
                         let arr2 = repo.split("/")
                         repo = arr2[1]
+                        let originalTime = data[i].created_at;
                         let time = data[i].created_at;
                         let arr = time.split("T")
+                        let date = arr[0]
+                        let dayCheck = date.split("-")
                         time = arr[1].slice(0, -4).concat(" GMT")
-                        listHTML += `<div class="col-4">`
-                        listHTML += `<div class="card my-cards" style="width: 18rem;">`
-                        listHTML += `<img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">`
-                        listHTML += `<div class="card-body">`
-                        listHTML += `<h5 class="card-title">${username}</h5>`
-                        listHTML += `<p class="card-text">Last push event: ${time}.</p>`
-                        listHTML += `<p class="card-text">Repo: ${repo}.</p>`
-                        listHTML += `</div></div></div>`
+                        listHTML += `<div class="col-4">
+                        <div class="card my-cards" style="width: 18rem;">
+                        <img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">${username}</h5>
+                        <p class="card-text">Last push time: ${time}.</p>
+                        <p class="card-text">Last push date: ${date}.</p>
+                        <p class="card-text">Repo: ${repo}.</p>
+                        </div></div></div>`
                         list.html(listHTML)
+                        if(dayCheck[2] === newDate.getUTCDate()){
+                            $('.card-body').css('background', 'green')
+                        } else {
+                            $('.card-body').css('background', 'red')
+                        }
                         break;
                     }
                 }
@@ -108,7 +121,7 @@
     // gitHubUser('jayaseyyadri')
     // gitHubUser('Mdbaker19')
 
-    let usernames = ['WillTisdale', 'christianparker512', 'jayaseyyadri', 'Mdbaker19']
+    // let usernames = ['WillTisdale', 'christianparker512', 'jayaseyyadri', 'Mdbaker19']
 
     const renderHTML = array => {
         for (let ele of array){
@@ -117,11 +130,42 @@
         list.html(listHTML)
     }
 
-    renderHTML(usernames)
 
-    // fetch('https://api.github.com/organizations/CodeupClassroom/team/jupiter-students/memberships/WillTisdale', {headers: {'Authorization': 'token ' + gitHubToken}})
-    //     .then(res => res.json())
-    //     .then(console.log)
-    //     .catch(console.error)
+    fetch('https://api.github.com/orgs/CodeupClassroom/teams', {headers: {'Authorization': 'token ' + gitHubTeam}})
+        .then(res => res.json())
+        .then(data => {
+            let teamID = data[11].id
+            let teamSlug = data[11].slug
+            console.log(data)
+            console.log(teamSlug)
+            console.log(teamID)
+            fetch('https://api.github.com/user/orgs', {headers: {'Authorization': 'token ' + gitHubTeam}})
+                .then(res => res.json())
+                .then(data => {
+                    let orgID = data[0].id
+                    console.log(data);
+                    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/${teamSlug}/members`, {headers: {'Authorization': 'token ' + gitHubTeam}})
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            let usernames = []
+                            for(let ele of data){
+                                usernames.push(ele.login)
+                            }
+                            console.log(usernames);
+                            renderHTML(usernames)
+                        })
+                })
+
+        })
+        .catch(console.error)
+
+    fetch(`https://api.github.com/orgs/CodeupClassroom/teams/jupiter-students/members`, {headers: {'Authorization': 'token ' + gitHubTeam}})
+
+        .then(data => console.log(data))
+
+
+
+
 
 
