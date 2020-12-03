@@ -52,6 +52,8 @@
     let goodHTML = ""
     let badHTML = ""
     let newDate = new Date()
+    let gCount = 0
+    let bCount = 0
 
     const gitHubUser = username => {
         fetch(`https://api.github.com/users/${username}/events/public`, access)
@@ -71,7 +73,8 @@
                         let dayCheck = date.split("-")
                         time = arr[1].slice(0, -4).concat(" GMT")
                         if(Number(dayCheck[2]) === newDate.getUTCDate()){
-                            goodHTML += `<div class="col-4">
+                            gCount += 1
+                            goodHTML += `<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <div class="card my-cards" style="width: 18rem;">
                         <img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">
                         <div class="card-body green">
@@ -81,7 +84,8 @@
                         <p class="card-text">Repo: ${repo}.</p>
                         </div></div></div>`
                         } else {
-                            badHTML += `<div class="col-4">
+                            bCount += 1
+                            badHTML += `<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
                         <div class="card my-cards" style="width: 18rem;">
                         <img src="${data[i].actor.avatar_url}" class="card-img-top" alt="...">
                         <div class="card-body red">
@@ -92,13 +96,22 @@
                         </div></div></div>`
                         }
                         $('.good').html(goodHTML)
+                        $('.gHead').html(`${gCount} Have Pushed Today`)
                         $('.bad').html(badHTML)
+                        $('.bHead').html(`${bCount} Have NOT Pushed Today`)
                         break;
                     }
                 }
             })
             .catch(console.error)
     }
+
+    $('.gHead').click(function(){
+        $('.good').toggle('hidden')
+    })
+    $('.bHead').click(function(){
+        $('.bad').toggle('hidden')
+    })
 
     const renderHTML = array => {
         for (let ele of array){

@@ -18,7 +18,8 @@
             align-items: center;
         }
         .main-container {
-            max-width: 900px
+            display: flex;
+            justify-content: center;
         }
         .my-cards {
             margin: 15px;
@@ -31,10 +32,8 @@
             background: #fad3d7;
             color: #8d2841;
         }
-        .scrollable {
-            height: 500px;
-            overflow-y: auto;
-            margin-bottom: 15px;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -44,19 +43,19 @@
 
 <main>
 
-    <h2 class="text-center">Has Pushed Today</h2>
+    <h2 class="text-center gHead">Has Pushed Today</h2>
 
     <div class="conatiner-fluid main-container">
 
-        <div class="classmates row good scrollable"></div>
+        <div class="row good"></div>
 
     </div>
 
-    <h2 class="text-center">Has NOT Pushed Today</h2>
+    <h2 class="text-center bHead">Has NOT Pushed Today</h2>
 
     <div class="conatiner-fluid main-container">
 
-        <div class="classmates row bad scrollable"></div>
+        <div class="row bad"></div>
 
     </div>
 
