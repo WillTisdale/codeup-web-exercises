@@ -58,15 +58,14 @@ $(document).ready(function(){
         count += 1
         if ($(this).html() === '') {
             $(this).html('X');
-            oTurn.html('Calculating...')
             oTurn.css('visibility', 'unset')
             xTurn.css('visibility', 'hidden')
             checkForWin()
             aiLogic()
+            squares.removeAttr("disabled")
         }
     }
     function aiLogic() {
-        setTimeout(function(){
         count += 1
         if(tl.html() === 'O' && tc.html() === 'O' && tr.html() === ''){
             oPlayer(tr)
@@ -195,7 +194,6 @@ $(document).ready(function(){
         }
         oTurn.css('visibility', 'hidden')
         xTurn.css('visibility', 'unset')
-        }, delay)
     }
     function oPlayer(square){
         xTurn.css('visibility', 'unset');
